@@ -3,8 +3,9 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/site/navbar";
+import Navbar from "@/components/site/navbar";
 import { saans } from "./fonts";
+import Footer from "@/components/site/footer";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -33,6 +34,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     // 👇 key line: prevents hydration error when next-themes updates class/style
+    // TO DO: top padding on body to accomodate floating navbar
     <html lang="en" suppressHydrationWarning>
       <body className={`${saans.variable} font-sans antialiased`}>
         <ThemeProvider
@@ -44,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

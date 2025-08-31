@@ -8,10 +8,12 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
     return (
-        <main className="mx-auto max-w-4xl px-6 py-12  mt-12 md:mt-22">
-            <h1 className="mb-8 text-3xl font-bold ">Projects</h1>
-            <ProjectsBento />
+        <main className="mx-auto max-w-4xl px-6 py-12  mt-12 md:mt-22  dark:text-zinc-200">
+            <h1 id="about-heading" className="!mb-4 text-4xl md:text-7xl font-semibold  tracking-tight">
+                Projects
+            </h1>
 
+            <ProjectsBento />
 
         </main>
     );

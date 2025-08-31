@@ -49,7 +49,7 @@ export default function AboutPage() {
 
                     <div className="mt-6 flex gap-3">
                         <a href="/projects" className="rounded-full bg-primary px-4 py-2 text-white dark:text-black shadow hover:opacity-90 transition-all duration-300">
-                            See projects
+                            View projects
                         </a>
                         <a href="/contact" className="rounded-full border border-primary px-4 py-2 hover:bg-primary hover:text-white dark:hover:text-black transition-all duration-300">
                             Get in touch

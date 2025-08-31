@@ -28,18 +28,18 @@ export default function CvPage() {
                         href="/cv/Johnny-Hall-CV-(web).pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full border px-5 py-3 hover:bg-zinc-50 dark:hover:bg-zinc-900"
+                        className="inline-flex items-center gap-2 rounded-full border px-4 py-3 hover:bg-zinc-50 dark:hover:bg-zinc-900"
                     >
                         <ExternalLink className="h-5 w-5" />
-                        Open PDF
+                        Open as PDF
                     </a>
                     <a
                         href="/cv/Johnny-Hall-CV-(web).pdf"
                         download
-                        className="inline-flex items-center gap-2 rounded-full bg-black px-6 py-3 text-white font-medium hover:opacity-90"
+                        className="inline-flex items-center gap-2 rounded-full bg-black px-4 py-3 text-white font-medium hover:opacity-90"
                     >
                         <Download className="h-5 w-5" />
-                        Download PDF
+                        Download (PDF)
                     </a>
                 </div>
             </div>

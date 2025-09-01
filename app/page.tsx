@@ -96,10 +96,9 @@ export default function HomePage() {
 
 
               <Button asChild variant="secondary" size="lg" className="px-6">
-                <a href="/cv/Johnny-Hall-CV-(web).pdf" download>
-                  <Download className="mr-1 h-4 w-4" />
-                  Download CV
-                </a>
+                <Link href="/contact" aria-label="Get in touch">
+                  Get in touch
+                </Link>
               </Button>
 
             </div>

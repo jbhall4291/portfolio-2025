@@ -1,6 +1,7 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
+import { cookies } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/site/navbar";
@@ -31,7 +32,11 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const cookieStore = await cookies(); // <-- await
+  const themeCookie =
+    (cookieStore.get("theme")?.value as "light" | "dark" | undefined) ?? "light";
+
   return (
     // 👇 key line: prevents hydration error when next-themes updates class/style
     // TO DO: top padding on body to accomodate floating navbar
@@ -40,11 +45,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
+          enableColorScheme
           enableSystem
           // optional: avoids CSS transitions flashing during theme change
           disableTransitionOnChange
         >
-          <Navbar />
+          <Navbar initialTheme={themeCookie} />
           {children}
           <Footer />
         </ThemeProvider>

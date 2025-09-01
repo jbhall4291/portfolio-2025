@@ -1,20 +1,28 @@
 // components/site/theme-toggle.tsx
 "use client";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Switch } from "@/components/ui/switch";
 
-export function ThemeToggle() {
-    const { theme, setTheme } = useTheme();
-    const [mounted, setMounted] = useState(false);
-    useEffect(() => setMounted(true), []);
-    if (!mounted) return null; // prevents SSR/CSR mismatch
+type Props = { initialTheme: "light" | "dark" };
 
-    const isDark = theme === "dark";
+export function ThemeToggle({ initialTheme }: Props) {
+    const { setTheme } = useTheme();
+    // seed from server-provided initialTheme so SSR == CSR
+    const [isDark, setIsDark] = useState(initialTheme === "dark");
+
+    // keep cookie in sync whenever user toggles
+    const onChange = (v: boolean) => {
+        const next = v ? "dark" : "light";
+        setIsDark(v);
+        setTheme(next);
+        document.cookie = `theme=${next}; Path=/; Max-Age=31536000; SameSite=Lax`;
+    };
+
     return (
         <div className="flex items-center gap-2">
             <span className="text-sm">Dark</span>
-            <Switch checked={isDark} onCheckedChange={() => setTheme(isDark ? "light" : "dark")} />
+            <Switch checked={isDark} onCheckedChange={onChange} />
         </div>
     );
 }

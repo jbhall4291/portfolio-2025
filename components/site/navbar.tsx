@@ -12,7 +12,7 @@ const nav = [
     { label: "Contact", href: "/contact", cta: true },
 ];
 
-export default function Navbar() {
+export default function Navbar({ initialTheme }: { initialTheme: "light" | "dark" }) {
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
@@ -73,7 +73,7 @@ export default function Navbar() {
 
 
                         </ul>
-                        <ThemeToggle />
+                        <ThemeToggle initialTheme={initialTheme} />
 
                         {/* Mobile toggle control aka burger */}
                         <button

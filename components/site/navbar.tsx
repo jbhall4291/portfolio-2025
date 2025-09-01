@@ -49,62 +49,67 @@ export default function Navbar({ initialTheme }: { initialTheme: "light" | "dark
 
                         {/* Desktop links */}
                         <ul className="ml-auto hidden md:flex items-center gap-6">
-                            {nav.map((item) =>
-                                item.cta ? (
-                                    <li key={item.label}>
-                                        <a
-                                            href={item.href}
-                                            className="inline-flex items-center rounded-full px-4 py-2 font-medium bg-black text-white shadow-sm hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
-                                        >
-                                            {item.label}
-                                        </a>
-                                    </li>
-                                ) : (
-                                    <li key={item.label}>
-                                        <a
-                                            href={item.href}
-                                            className="text-sm font-medium hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 rounded-md px-1 py-1"
-                                        >
-                                            {item.label}
-                                        </a>
-                                    </li>
-                                )
-                            )}
+                            {/* primary links... */}
+                            <li><a href="/projects" className="text-sm font-medium hover:opacity-70">Projects</a></li>
+                            <li><a href="/about" className="text-sm font-medium hover:opacity-70">About</a></li>
+                            <li><a href="/cv" className="text-sm font-medium hover:opacity-70">CV</a></li>
 
+                            {/* theme icon (utility) */}
+                            <li className="-mr-2 ">
+                                <ThemeToggle initialTheme={initialTheme} />
+                            </li>
 
+                            {/* CTA at the far right */}
+                            <li className="ml-2">
+                                <a
+                                    href="/contact"
+                                    className="inline-flex items-center rounded-full px-4 py-2 font-medium
+                                    bg-black text-white shadow-sm hover:opacity-90
+                                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
+                                >
+                                    Contact
+                                </a>
+                            </li>
                         </ul>
-                        <ThemeToggle initialTheme={initialTheme} />
 
-                        {/* Mobile toggle control aka burger */}
-                        <button
-                            onClick={() => setOpen((v) => !v)}
-                            aria-label={open ? "Close menu" : "Open menu"}
-                            aria-expanded={open}
-                            aria-controls="navbar-mobile-content"
-                            className="md:hidden ml-auto inline-flex h-9 w-9 items-center justify-center rounded-2xl  relative z-10"
-                        >
-                            <motion.span
-                                initial={false}
-                                animate={open ? "open" : "closed"}
-                                className="relative block h-4 w-5"
+
+                        <div className="ml-auto md:hidden items-center justify-center">
+                            <ThemeToggle initialTheme={initialTheme} />
+
+
+
+
+                            {/* Mobile toggle control aka burger */}
+                            <button
+                                onClick={() => setOpen((v) => !v)}
+                                aria-label={open ? "Close menu" : "Open menu"}
+                                aria-expanded={open}
+                                aria-controls="navbar-mobile-content"
+                                className="inline-flex h-9 w-9 items-center justify-center rounded-2xl  relative z-10"
                             >
                                 <motion.span
-                                    variants={{ closed: { rotate: 0, y: -6 }, open: { rotate: 45, y: 0 } }}
-                                    transition={{ type: "spring", stiffness: 400, damping: 28 }}
-                                    className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-black dark:bg-white"
-                                />
-                                <motion.span
-                                    variants={{ closed: { opacity: 1 }, open: { opacity: 0 } }}
-                                    transition={{ duration: 0.15 }}
-                                    className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-black dark:bg-white"
-                                />
-                                <motion.span
-                                    variants={{ closed: { rotate: 0, y: 6 }, open: { rotate: -45, y: 0 } }}
-                                    transition={{ type: "spring", stiffness: 400, damping: 28 }}
-                                    className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-black dark:bg-white"
-                                />
-                            </motion.span>
-                        </button>
+                                    initial={false}
+                                    animate={open ? "open" : "closed"}
+                                    className="relative block h-4 w-5"
+                                >
+                                    <motion.span
+                                        variants={{ closed: { rotate: 0, y: -6 }, open: { rotate: 45, y: 0 } }}
+                                        transition={{ type: "spring", stiffness: 400, damping: 28 }}
+                                        className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-black dark:bg-white"
+                                    />
+                                    <motion.span
+                                        variants={{ closed: { opacity: 1 }, open: { opacity: 0 } }}
+                                        transition={{ duration: 0.15 }}
+                                        className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-black dark:bg-white"
+                                    />
+                                    <motion.span
+                                        variants={{ closed: { rotate: 0, y: 6 }, open: { rotate: -45, y: 0 } }}
+                                        transition={{ type: "spring", stiffness: 400, damping: 28 }}
+                                        className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-black dark:bg-white"
+                                    />
+                                </motion.span>
+                            </button>
+                        </div>
                     </div>
 
                     {/* Mobile expanding content (still inside the pill; will push content of navbar, not page) */}
@@ -142,7 +147,12 @@ export default function Navbar({ initialTheme }: { initialTheme: "light" | "dark
                                             Contact
                                         </a>
                                     </li>
+
+
+
                                 </ul>
+
+
 
                             </motion.div>
                         )}

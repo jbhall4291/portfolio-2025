@@ -1,28 +1,28 @@
-// components/site/theme-toggle.tsx
-"use client";
-import { useState, useEffect } from "react";
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { Switch } from "@/components/ui/switch";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
-type Props = { initialTheme: "light" | "dark" };
-
-export function ThemeToggle({ initialTheme }: Props) {
+export function ThemeToggle({ initialTheme }: { initialTheme: "light" | "dark" }) {
     const { setTheme } = useTheme();
-    // seed from server-provided initialTheme so SSR == CSR
     const [isDark, setIsDark] = useState(initialTheme === "dark");
 
-    // keep cookie in sync whenever user toggles
-    const onChange = (v: boolean) => {
-        const next = v ? "dark" : "light";
-        setIsDark(v);
+    const onChange = () => {
+        const next = isDark ? "light" : "dark";
+        setIsDark(!isDark);
         setTheme(next);
         document.cookie = `theme=${next}; Path=/; Max-Age=31536000; SameSite=Lax`;
     };
 
     return (
-        <div className="flex items-center gap-2">
-            <span className="text-sm">Dark</span>
-            <Switch checked={isDark} onCheckedChange={onChange} />
-        </div>
+        <Button
+            className="md:bg-zinc-200 md:dark:bg-zinc-800 cursor-pointer"
+            variant="ghost"
+            size="icon"
+            onClick={onChange}
+            aria-label="Toggle theme"
+        >
+            {isDark ? <Moon className="h-6 w-6" /> : <Sun className="h-6 w-6" />}
+        </Button>
     );
 }

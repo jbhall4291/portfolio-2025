@@ -71,17 +71,17 @@ export default function Navbar() {
                                 )
                             )}
 
-                            
+
                         </ul>
                         <ThemeToggle />
 
-                        {/* Mobile toggle control */}
+                        {/* Mobile toggle control aka burger */}
                         <button
                             onClick={() => setOpen((v) => !v)}
                             aria-label={open ? "Close menu" : "Open menu"}
                             aria-expanded={open}
                             aria-controls="navbar-mobile-content"
-                            className="md:hidden ml-auto inline-flex h-9 w-9 items-center justify-center rounded-2xl    relative z-10"
+                            className="md:hidden ml-auto inline-flex h-9 w-9 items-center justify-center rounded-2xl  relative z-10"
                         >
                             <motion.span
                                 initial={false}
@@ -91,17 +91,17 @@ export default function Navbar() {
                                 <motion.span
                                     variants={{ closed: { rotate: 0, y: -6 }, open: { rotate: 45, y: 0 } }}
                                     transition={{ type: "spring", stiffness: 400, damping: 28 }}
-                                    className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-black"
+                                    className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-black dark:bg-white"
                                 />
                                 <motion.span
                                     variants={{ closed: { opacity: 1 }, open: { opacity: 0 } }}
                                     transition={{ duration: 0.15 }}
-                                    className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-black"
+                                    className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-black dark:bg-white"
                                 />
                                 <motion.span
                                     variants={{ closed: { rotate: 0, y: 6 }, open: { rotate: -45, y: 0 } }}
                                     transition={{ type: "spring", stiffness: 400, damping: 28 }}
-                                    className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-black"
+                                    className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-black dark:bg-white"
                                 />
                             </motion.span>
                         </button>

@@ -16,14 +16,21 @@ const features = [
                 aria-hidden
             />,
         tech: [
-            { label: "Next.js" },
+            { label: "Next.js (React)" },
             { label: "TypeScript" },
+            { label: "Node + Express" },
             { label: "MongoDB" },
-            { label: "Jest" },
+            { label: "Jest + Supertest" },
+            { label: "Playwright" },
+
+
+
+
         ],
         actions: [
             { label: "Live", href: "https://example.com", variant: "default" },
-            { label: "Repo", href: "https://github.com/you/repo" },
+            { label: "View Repo (Frontend)", href: "https://github.com/you/repo" },
+            { label: "View Repo (Backend)", href: "https://github.com/you/repo" },
         ],
         className: "lg:row-start-1 lg:row-end-1 lg:col-start-1 lg:col-end-3",
     },
@@ -33,6 +40,19 @@ const features = [
         description: "A web wizard for engineers to filter and compare HVAC options, simplifying complex product choices. Prototyped from Figma into a working front end, with planned rollout in 2026.",
         href: "/",
         cta: "Learn more",
+        tech: [
+            { label: "Next.js" },
+            { label: "TypeScript" },
+            { label: ".NET" },
+            { label: "Microsoft SQL" },
+            { label: "Tailwind + Shadcn" },
+            { label: "Redis" },
+
+        ],
+        actions: [
+            { label: "Live", href: "https://example.com", variant: "default" },
+            { label: "Repo", href: "https://github.com/you/repo" },
+        ],
         background:
             <img
                 src="https://www.cibsejournal.com/wp-content/uploads/2022/03/pp61-pic.jpg"
@@ -45,10 +65,21 @@ const features = [
     },
     {
 
-        name: "Tappi",
+        name: "TapPi",
         description: "Raspberry Pi-controlled device created with my niece during her work experience to explore Python.",
         href: "/",
         cta: "Learn more",
+        tech: [
+            { label: "Python" },
+            { label: "Flask" },
+            { label: "Raspberry Pi" },
+            { label: "GPIO" },
+
+        ],
+        actions: [
+            { label: "View Repo", href: "https://example.com", variant: "default" },
+
+        ],
         background:
             <img
                 src="https://media.wired.com/photos/5d5c33225006670008f3b6c4/master/w_2560%2Cc_limit/raspberry-pi-4-board-SOURCE-Raspberrypi_org.jpg"
@@ -76,19 +107,20 @@ const features = [
         tech: [
 
             { label: "TypeScript" },
+            { label: "VS Code API" },
 
         ],
         actions: [
             {
-                label: "View Repo",
-                href: "https://github.com/you/completed-it-mate",
-                variant: "default", // matches your shadcn/ui button variants
+                label: "Install (VS Code Marketplace)",
+                href: "https://marketplace.visualstudio.com/items?itemName=JohnnyHall.lorem-alan",
+                variant: "default",
                 newTab: true,
             },
             {
-                label: "Live Site",
-                href: "https://completed-it-mate.vercel.app",
-                variant: "secondary",
+                label: "View Repo",
+                href: "https://github.com/jbhall4291/lorem-alan-vscode-extension",
+                variant: "secondary", // matches your shadcn/ui button variants
                 newTab: true,
             },
         ],
@@ -101,6 +133,44 @@ const features = [
             "Flutter app to control residential HVAC devices, with integrated NFC functionality.",
         href: "/",
         cta: "Learn more",
+
+        tech: [
+
+            { label: "Flutter (Dart)" },
+            { label: "Firebase" },
+            { label: ".NET" },
+            { label: "SQL Server" },
+
+            { label: "NFC" },
+
+        ],
+        actions: [
+
+            {
+                label: "App Store",
+                href: "https://apps.apple.com/us/app/connectair/id6446583166",
+                variant: "default",
+                newTab: true,
+            },
+
+
+            {
+                label: "Google Play",
+                href: "https://play.google.com/store/apps/details?id=com.solerpalau.connectair",
+                variant: "default",
+                newTab: true,
+            },
+
+            {
+                label: "Landing Page",
+                href: "https://info.solerpalau.com/en/connectair",
+                variant: "secondary",
+                newTab: true,
+            },
+
+        ],
+
+
         background:
             <img
                 src="https://www.solerpalau.com/blog/es-es/wp-content/uploads/sites/3/2025/06/Smart-Ventilation-SP.jpg"
@@ -118,6 +188,35 @@ const features = [
             "A cross-platform mobile app built with React Native for discovering gigs and connecting with fans.",
         href: "/",
         cta: "Learn more",
+
+
+        tech: [
+
+            { label: "React Native + Expo" },
+            { label: "Node.js + Express" },
+            { label: "Socket.IO" },
+            { label: "Google Maps API" },
+            { label: "MongoDB" },
+            { label: "Jest/Supertest" },
+
+
+        ],
+        actions: [
+            {
+                label: "View Repo",
+                href: "https://github.com/you/completed-it-mate",
+                variant: "default", // matches your shadcn/ui button variants
+                newTab: true,
+            },
+            {
+                label: "Live Site",
+                href: "https://completed-it-mate.vercel.app",
+                variant: "secondary",
+                newTab: true,
+            },
+        ],
+
+
         background:
             <img
                 src="https://as1.ftcdn.net/v2/jpg/01/42/51/58/1000_F_142515887_xVLCVpdyWDU5ScHTi64iMCEZJioVHqU4.jpg"

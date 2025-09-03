@@ -40,7 +40,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     // 👇 key line: prevents hydration error when next-themes updates class/style
     // TO DO: top padding on body to accomodate floating navbar
-    <html lang="en" suppressHydrationWarning className="h-full">
+    <html lang="en" suppressHydrationWarning className="h-full [scrollbar-gutter:stable_both-edges]">
       <body className={`${saans.variable} font-sans antialiased min-h-dvh flex flex-col`}>
         <ThemeProvider
           attribute="class"
@@ -52,7 +52,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
           <Navbar initialTheme={themeCookie} />
 
-          <main className="flex-1 pt-20 md:pt-28">
+          <main className="flex-1">
             {children}
           </main>
 

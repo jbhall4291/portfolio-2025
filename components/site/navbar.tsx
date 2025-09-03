@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "./theme-toggle";
+import Link from "next/link";
 
 const nav = [
     { label: "Projects", href: "/projects" },
@@ -38,21 +39,21 @@ export default function Navbar({ initialTheme }: { initialTheme: "light" | "dark
 
                     {/* default always visible nav */}
                     <div className="relative z-10 h-12 flex items-center">
-                        <a href="/" className="flex items-center gap-2">
+                        <Link href="/" className="flex items-center gap-2">
                             <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-black text-white text-xs font-bold">
                                 JH
                             </span>
                             <span className="font-semibold">Johnny Hall</span>
-                        </a>
+                        </Link>
 
 
 
                         {/* Desktop links */}
                         <ul className="ml-auto hidden md:flex items-center gap-6">
                             {/* primary links... */}
-                            <li><a href="/projects" className="text-sm font-medium hover:opacity-70">Projects</a></li>
-                            <li><a href="/about" className="text-sm font-medium hover:opacity-70">About</a></li>
-                            <li><a href="/cv" className="text-sm font-medium hover:opacity-70">CV</a></li>
+                            <li><Link href="/projects" className="text-sm font-medium hover:opacity-70">Projects</Link></li>
+                            <li><Link href="/about" className="text-sm font-medium hover:opacity-70">About</Link></li>
+                            <li><Link href="/cv" className="text-sm font-medium hover:opacity-70">CV</Link></li>
 
                             {/* theme icon (utility) */}
                             <li className="-mr-2 ">
@@ -61,14 +62,14 @@ export default function Navbar({ initialTheme }: { initialTheme: "light" | "dark
 
                             {/* CTA at the far right */}
                             <li className="ml-2">
-                                <a
+                                <Link
                                     href="/contact"
                                     className="inline-flex items-center rounded-full px-4 py-2 font-medium
                                     bg-black text-white shadow-sm hover:opacity-90
                                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
                                 >
                                     Contact
-                                </a>
+                                </Link>
                             </li>
                         </ul>
 
@@ -128,24 +129,24 @@ export default function Navbar({ initialTheme }: { initialTheme: "light" | "dark
                                 <ul className="">
                                     {nav.slice(0, 3).map((item) => (
                                         <li key={item.label}>
-                                            <a
+                                            <Link
                                                 href={item.href}
                                                 onClick={() => setOpen(false)}
                                                 className="block w-full  py-3 text-xl font-semibold "
                                             >
                                                 {item.label}
-                                            </a>
+                                            </Link>
                                         </li>
                                     ))}
 
                                     <li className="py-2">
-                                        <a
+                                        <Link
                                             href="/contact"
                                             onClick={() => setOpen(false)}
                                             className="block w-full rounded-full bg-black px-5 py-3 text-center font-semibold text-white hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
                                         >
                                             Contact
-                                        </a>
+                                        </Link>
                                     </li>
 
 

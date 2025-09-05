@@ -10,32 +10,32 @@ export function ThemeToggle() {
     const { setTheme, resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
-    useEffect(() => setMounted(true), []);
+    useEffect(() => {
 
-    if (!mounted) {
-        // Reserve exact footprint of the button so layout doesn’t shift
-        return <span aria-hidden className="block w-9 h-9" />;
-    }
+        const t = setTimeout(() => setMounted(true), 50);
+        return () => clearTimeout(t);
+    }, []);
 
     const isDark = resolvedTheme === "dark";
 
     const onToggle = () => {
         const next = isDark ? "light" : "dark";
         setTheme(next);
-
-        // Persist user preference in a cookie (1 year)
         document.cookie = `theme=${next}; Path=/; Max-Age=31536000; SameSite=Lax`;
     };
 
     return (
-        <Button
-            className="md:bg-zinc-200 md:dark:bg-zinc-800 cursor-pointer"
-            variant="ghost"
-            size="icon"
-            onClick={onToggle}
-            aria-label="Toggle theme"
-        >
-            {isDark ? <Sun className="h-6 w-6" /> : <Moon className="h-6 w-6" />}
-        </Button>
+        <span className="block w-9 h-9">
+            <Button
+                className={`md:bg-zinc-200 md:dark:bg-zinc-800 cursor-pointer transition-opacity duration-300 ${mounted ? "opacity-100" : "opacity-0"
+                    }`}
+                variant="ghost"
+                size="icon"
+                onClick={onToggle}
+                aria-label="Toggle theme"
+            >
+                {isDark ? <Sun className="h-6 w-6" /> : <Moon className="h-6 w-6" />}
+            </Button>
+        </span>
     );
 }

@@ -1,16 +1,35 @@
+// components/theme-toggle.tsx
+"use client";
+
+import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 
-export function ThemeToggle({ initialTheme }: { initialTheme: "light" | "dark" }) {
-    const { setTheme } = useTheme();
-    const [isDark, setIsDark] = useState(initialTheme === "dark");
+export function ThemeToggle() {
+    const { setTheme, resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
 
-    const onChange = () => {
+    // Ensure we don’t render an incorrect icon before hydration
+    useEffect(() => setMounted(true), []);
+
+    if (!mounted) {
+        return (
+            <Button
+                aria-label="Toggle theme"
+                variant="ghost"
+                size="icon"
+                className="md:bg-zinc-200 md:dark:bg-zinc-800 opacity-0 pointer-events-none"
+            />
+        );
+    }
+
+    const isDark = resolvedTheme === "dark";
+
+    const onToggle = () => {
         const next = isDark ? "light" : "dark";
-        setIsDark(!isDark);
         setTheme(next);
+        // Optional: persist choice in a cookie
         document.cookie = `theme=${next}; Path=/; Max-Age=31536000; SameSite=Lax`;
     };
 
@@ -19,10 +38,10 @@ export function ThemeToggle({ initialTheme }: { initialTheme: "light" | "dark" }
             className="md:bg-zinc-200 md:dark:bg-zinc-800 cursor-pointer"
             variant="ghost"
             size="icon"
-            onClick={onChange}
+            onClick={onToggle}
             aria-label="Toggle theme"
         >
-            {isDark ? <Moon className="h-6 w-6" /> : <Sun className="h-6 w-6" />}
+            {isDark ? <Sun className="h-6 w-6" /> : <Moon className="h-6 w-6" />}
         </Button>
     );
 }

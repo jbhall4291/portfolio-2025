@@ -1,7 +1,7 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
-import { cookies } from "next/headers";
+// import { cookies } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/site/navbar";
@@ -33,9 +33,9 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const cookieStore = await cookies(); // <-- await
-  const themeCookie =
-    (cookieStore.get("theme")?.value as "light" | "dark" | undefined) ?? "light";
+  // const cookieStore = await cookies(); // <-- await
+  // const themeCookie =
+  //   (cookieStore.get("theme")?.value as "light" | "dark" | undefined) ?? "light";
 
   return (
     // 👇 key line: prevents hydration error when next-themes updates class/style
@@ -50,7 +50,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           disableTransitionOnChange
         >
 
-          <Navbar initialTheme={themeCookie} />
+          <Navbar/>
 
           <main className="flex-1">
             {children}

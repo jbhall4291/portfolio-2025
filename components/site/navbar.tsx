@@ -13,7 +13,7 @@ const nav = [
     { label: "Contact", href: "/contact", cta: true },
 ];
 
-export default function Navbar({ initialTheme }: { initialTheme: "light" | "dark" }) {
+export default function Navbar() {
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
@@ -57,7 +57,7 @@ export default function Navbar({ initialTheme }: { initialTheme: "light" | "dark
 
                             {/* theme icon (utility) */}
                             <li className="-mr-2 ">
-                                <ThemeToggle initialTheme={initialTheme} />
+                                <ThemeToggle />
                             </li>
 
                             {/* CTA at the far right */}
@@ -75,7 +75,7 @@ export default function Navbar({ initialTheme }: { initialTheme: "light" | "dark
 
 
                         <div className="ml-auto md:hidden items-center justify-center">
-                            <ThemeToggle initialTheme={initialTheme} />
+                            <ThemeToggle />
 
 
 

@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // ✅ cookies() is synchronous in a Server Component
-  const cookieStore = cookies();
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  // In your Next version, cookies() is async — await it.
+  const cookieStore = await cookies();
   const cookieTheme = cookieStore.get("theme")?.value as "light" | "dark" | "system" | undefined;
   const isCookieDark = cookieTheme === "dark";
 
@@ -42,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`h-full [scrollbar-gutter:stable_both-edges] ${isCookieDark ? "dark" : ""}`}
     >
       <head>
+        {/* Preflight: if no cookie or cookie === "system", respect system dark on first paint */}
         <Script id="theme-preflight" strategy="beforeInteractive">{`
 (function () {
   try {

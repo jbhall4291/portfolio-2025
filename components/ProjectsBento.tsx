@@ -1,6 +1,6 @@
-import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
+import { BentoCard, BentoGrid, BentoCardProps, ActionLink } from "@/components/magicui/bento-grid";
 
-const features = [
+const features: BentoCardProps[] = [
     {
 
         name: "Completed It Mate",
@@ -28,9 +28,9 @@ const features = [
 
         ],
         actions: [
-            { label: "Live", href: "https://example.com", variant: "default" },
-            { label: "View Repo (Frontend)", href: "https://github.com/you/repo" },
-            { label: "View Repo (Backend)", href: "https://github.com/you/repo" },
+            { label: "Live", href: "https://example.com", variant: "default", newTab: true, },
+            { label: "View Repo (Frontend)", href: "https://github.com/you/repo", newTab: true, },
+            { label: "View Repo (Backend)", href: "https://github.com/you/repo", newTab: true, },
         ],
         className: "lg:row-start-1 lg:row-end-1 lg:col-start-1 lg:col-end-3",
     },
@@ -50,8 +50,8 @@ const features = [
 
         ],
         actions: [
-            { label: "Live", href: "https://example.com", variant: "default" },
-            { label: "Repo", href: "https://github.com/you/repo" },
+            { label: "Live", href: "https://example.com", variant: "default", newTab: true, },
+            { label: "Repo", href: "https://github.com/you/repo", newTab: true, },
         ],
         background:
             <img
@@ -77,7 +77,7 @@ const features = [
 
         ],
         actions: [
-            { label: "View Repo", href: "https://example.com", variant: "default" },
+            { label: "View Repo", href: "https://example.com", variant: "default", newTab: true, },
 
         ],
         background:

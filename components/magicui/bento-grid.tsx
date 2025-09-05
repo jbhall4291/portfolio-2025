@@ -10,9 +10,9 @@ interface BentoGridProps extends ComponentPropsWithoutRef<"div"> {
   className?: string;
 }
 
-type TechPill = { label: string; icon?: ReactNode };
+export type TechPill = { label: string; icon?: ReactNode };
 
-type ActionLink = {
+export type ActionLink = {
   label: string;
   href: string;
   variant?: "default" | "secondary" | "ghost" | "outline";
@@ -20,7 +20,7 @@ type ActionLink = {
   download?: boolean;
 };
 
-interface BentoCardProps extends ComponentPropsWithoutRef<"div"> {
+export interface BentoCardProps extends ComponentPropsWithoutRef<"div"> {
   name: string;
   className?: string;
   background: ReactNode;
@@ -135,8 +135,8 @@ export const BentoCard = ({
                 <a
                   key={i}
                   href={a.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={a.newTab ? "_blank" : undefined}
+                  rel={a.newTab ? "noopener noreferrer" : undefined}
                   download={a.download}
                   className={cn(
                     "inline-flex items-center rounded-lg px-3 py-1.5 text-sm font-medium",

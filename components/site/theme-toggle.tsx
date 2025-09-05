@@ -10,18 +10,11 @@ export function ThemeToggle() {
     const { setTheme, resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
-    // Ensure we don’t render an incorrect icon before hydration
     useEffect(() => setMounted(true), []);
 
     if (!mounted) {
-        return (
-            <Button
-                aria-label="Toggle theme"
-                variant="ghost"
-                size="icon"
-                className="md:bg-zinc-200 md:dark:bg-zinc-800 opacity-0 pointer-events-none"
-            />
-        );
+        // Reserve exact footprint of the button so layout doesn’t shift
+        return <span aria-hidden className="block w-9 h-9" />;
     }
 
     const isDark = resolvedTheme === "dark";
@@ -29,7 +22,8 @@ export function ThemeToggle() {
     const onToggle = () => {
         const next = isDark ? "light" : "dark";
         setTheme(next);
-        // Optional: persist choice in a cookie
+
+        // Persist user preference in a cookie (1 year)
         document.cookie = `theme=${next}; Path=/; Max-Age=31536000; SameSite=Lax`;
     };
 

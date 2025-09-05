@@ -57,7 +57,9 @@ export default function Navbar() {
 
                             {/* theme icon (utility) */}
                             <li className="-mr-2 ">
-                                <ThemeToggle />
+                                <div className="flex items-center h-9">
+                                    <ThemeToggle />
+                                </div>
                             </li>
 
                             {/* CTA at the far right */}
@@ -74,7 +76,7 @@ export default function Navbar() {
                         </ul>
 
 
-                        <div className="ml-auto md:hidden items-center justify-center">
+                        <div className="ml-auto md:hidden flex items-center gap-1 h-9">
                             <ThemeToggle />
 
 
@@ -159,7 +161,7 @@ export default function Navbar() {
                         )}
                     </AnimatePresence>
                 </motion.div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 }

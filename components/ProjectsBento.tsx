@@ -4,7 +4,7 @@ const features: BentoCardProps[] = [
     {
 
         name: "Completed It Mate",
-        description: "A full-stack web app for tracking video games - log completed, owned, or wishlisted titles, and connect with friends. Built with TDD, end-to-end tests, and production-grade CI/CD pipelines.",
+        description: "A full-stack web app for tracking video games - log completed, owned, or wishlisted titles, and connect with friends.",
         href: "/",
         cta: "Learn more",
         background:
@@ -37,7 +37,7 @@ const features: BentoCardProps[] = [
     {
 
         name: "Enginair",
-        description: "A web wizard for engineers to filter and compare HVAC options, simplifying complex product choices. Prototyped from Figma into a working front end, with planned rollout in 2026.",
+        description: "A web wizard for engineers to filter and compare HVAC options, simplifying complex product choices. Planned rollout in 2026.",
         href: "/",
         cta: "Learn more",
         tech: [
@@ -49,10 +49,7 @@ const features: BentoCardProps[] = [
             { label: "Redis" },
 
         ],
-        actions: [
-            { label: "Live", href: "https://example.com", variant: "default", newTab: true, },
-            { label: "Repo", href: "https://github.com/you/repo", newTab: true, },
-        ],
+
         background:
             <img
                 src="https://www.cibsejournal.com/wp-content/uploads/2022/03/pp61-pic.jpg"

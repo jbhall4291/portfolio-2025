@@ -34,7 +34,7 @@ export interface BentoCardProps extends ComponentPropsWithoutRef<"div"> {
 export const BentoGrid = ({ children, className, ...props }: BentoGridProps) => (
   <div
     className={cn(
-      "grid w-full gap-4",
+      "grid w-full gap-3 md:gap-4",
       "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
       "auto-rows-[18rem] lg:auto-rows-[22rem]",
 
@@ -76,7 +76,7 @@ export const BentoCard = ({
       className="
     absolute inset-x-0 bottom-0 z-[1]
 
-    bg-black/45                      
+    bg-black/55                      
     xl:bg-transparent                
     xl:bg-gradient-to-t             
     xl:from-black/70 xl:via-black/35 xl:to-transparent
@@ -182,7 +182,7 @@ export const BentoCard = ({
           <h3 className="text-2xl font-semibold ">
             {name}
           </h3>
-          <p className="text-white/85 max-w-prose">
+          <p className=" font-medium max-w-prose">
             {description}
           </p>
 

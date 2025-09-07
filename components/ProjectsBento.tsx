@@ -9,7 +9,7 @@ const features: BentoCardProps[] = [
         cta: "Learn more",
         background:
             <img
-                src="https://infinigeek.com/assets/How-To-Waste-Money-Properly-%E2%80%93-A-Guide-To-Collecting-Video-Games.jpg"
+                src="images/project_cards/completed-it-mate.webp"
                 className="absolute inset-0 w-full h-full object-cover pointer-events-none"
 
                 alt=""
@@ -28,16 +28,16 @@ const features: BentoCardProps[] = [
 
         ],
         actions: [
-            { label: "Live", href: "https://example.com", variant: "default", newTab: true, },
-            { label: "View Repo (Frontend)", href: "https://github.com/you/repo", newTab: true, },
-            { label: "View Repo (Backend)", href: "https://github.com/you/repo", newTab: true, },
+            { label: "Visit Site", href: "https://example.com", variant: "default", newTab: true, },
+            { label: "Repo Frontend", href: "https://github.com/you/repo", newTab: true, },
+            { label: "Repo Backend", href: "https://github.com/you/repo", newTab: true, },
         ],
         className: "lg:row-start-1 lg:row-end-1 lg:col-start-1 lg:col-end-3",
     },
     {
 
         name: "Enginair",
-        description: "A web wizard for engineers to filter and compare HVAC options, simplifying complex product choices. Planned rollout in 2026.",
+        description: "A web wizard for engineers to filter and compare residential HVAC options, simplifying complex product choices. Planned rollout 2026.",
         href: "/",
         cta: "Learn more",
         tech: [
@@ -52,7 +52,7 @@ const features: BentoCardProps[] = [
 
         background:
             <img
-                src="https://www.cibsejournal.com/wp-content/uploads/2022/03/pp61-pic.jpg"
+                src="/images/project_cards/enginair.jpg"
                 className="absolute inset-0 w-full h-full object-cover pointer-events-none"
 
                 alt=""
@@ -79,9 +79,8 @@ const features: BentoCardProps[] = [
         ],
         background:
             <img
-                src="https://media.wired.com/photos/5d5c33225006670008f3b6c4/master/w_2560%2Cc_limit/raspberry-pi-4-board-SOURCE-Raspberrypi_org.jpg"
+                src="images/project_cards/tappi.webp"
                 className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-
                 alt=""
                 aria-hidden
             />,
@@ -95,7 +94,7 @@ const features: BentoCardProps[] = [
         cta: "Learn more",
         background:
             <img
-                src="https://e3.365dm.com/21/05/768x432/skynews-coogan-partridge_5395856.jpg?20210526145149"
+                src="images/project_cards/lorem-alan.jpg"
                 className="absolute inset-0 w-full h-full object-cover pointer-events-none"
 
                 alt=""
@@ -216,7 +215,7 @@ const features: BentoCardProps[] = [
 
         background:
             <img
-                src="https://as1.ftcdn.net/v2/jpg/01/42/51/58/1000_F_142515887_xVLCVpdyWDU5ScHTi64iMCEZJioVHqU4.jpg"
+                src="images/project_cards/fanfinder.jpg"
                 className="absolute inset-0 w-full h-full object-cover pointer-events-none"
 
                 alt=""

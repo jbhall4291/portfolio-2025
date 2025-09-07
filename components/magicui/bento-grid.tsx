@@ -1,6 +1,4 @@
-import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { ComponentPropsWithoutRef, ReactNode } from "react";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 /* ========= Types ========= */
@@ -25,7 +23,7 @@ export interface BentoCardProps extends ComponentPropsWithoutRef<"div"> {
   className?: string;
   background: ReactNode;
   description: string;
-  href?: string;   // optional: if you want the whole card to link somewhere
+  href?: string;   // optional, but not used yet
   cta?: string;
   tech?: TechPill[];
   actions?: ActionLink[];
@@ -80,18 +78,20 @@ export const BentoCard = ({
         bg-gradient-to-t from-white/85 via-white/40 to-transparent
         dark:from-black/70 dark:via-black/45 dark:to-transparent
         transition-[height] duration-300
-        h-40 lg:h-[160px] lg:group-hover:h-[220px]
+        h-40 lg:h-[160px]
+        lg:group-hover:h-[220px] lg:group-focus-within:h-[220px]
       "
     />
 
     {/* Content */}
     <div className="absolute inset-x-0 bottom-0 z-[2] px-4 pb-3 pt-3">
-      <div className="transition-transform duration-300 lg:group-hover:-translate-y-2">
+      <div className="transition-transform duration-300 lg:group-hover:-translate-y-2 lg:group-focus-within:-translate-y-2">
         <div
           className="
             overflow-hidden max-h-none
             lg:transition-[max-height] lg:duration-300
-            lg:max-h-[90px] lg:group-hover:max-h-[220px]
+            lg:max-h-[90px]
+            lg:group-hover:max-h-[220px] lg:group-focus-within:max-h-[220px]
           "
         >
           <h3 className="text-2xl font-semibold text-neutral-900 dark:text-white">
@@ -101,14 +101,13 @@ export const BentoCard = ({
             {description}
           </p>
 
-
-
-          {/* Tech pills — always visible on mobile, fade in on desktop hover */}
-          {tech && tech.length > 0 && (
+          {/* Tech pills (fade in on desktop) */}
+          {tech?.length ? (
             <div
               className="
                 mt-2 flex flex-wrap gap-1.5
-                lg:opacity-0 lg:transition-opacity lg:duration-500 lg:group-hover:opacity-100
+                lg:opacity-0 lg:transition-opacity lg:duration-500
+                lg:group-hover:opacity-100 lg:group-focus-within:opacity-100
               "
             >
               {tech.map((t, i) => (
@@ -121,14 +120,16 @@ export const BentoCard = ({
                 </span>
               ))}
             </div>
-          )}
+          ) : null}
 
-          {/* Actions — always visible on mobile, fade in on desktop hover */}
-          {actions && actions.length > 0 && (
+          {/* Actions — smooth fade, only clickable when visible */}
+          {actions?.length ? (
             <div
               className="
                 mt-3 flex flex-wrap gap-2
-                lg:opacity-0 lg:transition-opacity lg:duration-500 lg:group-hover:opacity-100
+                lg:opacity-0 lg:transition-opacity lg:duration-500
+                lg:group-hover:opacity-100 lg:group-focus-within:opacity-100
+                lg:pointer-events-none lg:group-hover:pointer-events-auto lg:group-focus-within:pointer-events-auto
               "
             >
               {actions.map((a, i) => (
@@ -138,6 +139,7 @@ export const BentoCard = ({
                   target={a.newTab ? "_blank" : undefined}
                   rel={a.newTab ? "noopener noreferrer" : undefined}
                   download={a.download}
+                  tabIndex={-1}
                   className={cn(
                     "inline-flex items-center rounded-lg px-3 py-1.5 text-sm font-medium",
                     a.variant === "default"
@@ -149,12 +151,12 @@ export const BentoCard = ({
                 </a>
               ))}
             </div>
-          )}
+          ) : null}
         </div>
       </div>
     </div>
 
     {/* Hover veil */}
-    <div className="pointer-events-none absolute inset-0 z-[1] transition-colors duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
+    <div className="pointer-events-none absolute inset-0 z-[1] transition-colors duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10 group-focus-within:bg-black/[.03] group-focus-within:dark:bg-neutral-800/10" />
   </div>
 );

@@ -1,4 +1,5 @@
 import { BentoCard, BentoGrid, BentoCardProps, ActionLink } from "@/components/magicui/bento-grid";
+import Image from "next/image";
 
 const features: BentoCardProps[] = [
     {
@@ -8,12 +9,13 @@ const features: BentoCardProps[] = [
         href: "/",
         cta: "Learn more",
         background:
-            <img
-                src="images/project_cards/completed-it-mate.webp"
-                className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-
+            <Image
+                src="/images/project_cards/completed-it-mate.webp"
                 alt=""
-                aria-hidden
+                fill
+                priority
+                className="absolute inset-0 object-cover pointer-events-none object-left-top"
+                aria-hidden="true"
             />,
         tech: [
             { label: "Next.js (React)" },
@@ -51,13 +53,15 @@ const features: BentoCardProps[] = [
         ],
 
         background:
-            <img
+            <Image
                 src="/images/project_cards/enginair.jpg"
-                className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-
                 alt=""
-                aria-hidden
-            />,
+                fill
+                priority
+                className="absolute inset-0 object-cover pointer-events-none object-left-bottom"
+                aria-hidden="true"
+            />
+        ,
         className: "lg:row-start-2 lg:row-end-3 lg:col-start-2 lg:col-end-4 ",
     },
     {
@@ -78,12 +82,18 @@ const features: BentoCardProps[] = [
 
         ],
         background:
-            <img
-                src="images/project_cards/tappi.webp"
-                className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+
+
+            <Image
+                src="/images/project_cards/tappi.webp"
                 alt=""
-                aria-hidden
-            />,
+                fill
+                priority
+                className="absolute inset-0 object-cover pointer-events-none"
+                aria-hidden="true"
+            />
+
+        ,
         className: "lg:col-start-2 lg:col-end-3 lg:row-start-3 lg:row-end-4",
     },
     {
@@ -93,13 +103,21 @@ const features: BentoCardProps[] = [
         href: "/",
         cta: "Learn more",
         background:
-            <img
-                src="images/project_cards/lorem-alan.jpg"
-                className="absolute inset-0 w-full h-full object-cover pointer-events-none"
 
+
+            <Image
+                src="/images/project_cards/lorem-alan.jpg"
                 alt=""
-                aria-hidden
-            />,
+                fill
+                priority
+                className="absolute inset-0 object-cover pointer-events-none"
+                aria-hidden="true"
+            />
+
+
+
+
+        ,
         tech: [
 
             { label: "TypeScript" },
@@ -168,13 +186,18 @@ const features: BentoCardProps[] = [
 
 
         background:
-            <img
-                src="https://www.solerpalau.com/blog/es-es/wp-content/uploads/sites/3/2025/06/Smart-Ventilation-SP.jpg"
-                className="absolute inset-0 w-full h-full object-cover pointer-events-none"
 
-                alt=""
-                aria-hidden
-            />,
+            //             <Image
+            //     src="/images/project_cards/completed-it-mate.webp"
+            //     alt=""
+            //     fill
+            //     priority
+            //     className="absolute inset-0 object-cover pointer-events-none"
+            //     aria-hidden="true"
+            //   />
+            <div className="bg-green-900 h-full w-full"></div>
+
+        ,
         className: "lg:col-start-3 lg:col-end-3 lg:row-start-3 lg:row-end-4",
     },
     {
@@ -214,13 +237,17 @@ const features: BentoCardProps[] = [
 
 
         background:
-            <img
-                src="images/project_cards/fanfinder.jpg"
-                className="absolute inset-0 w-full h-full object-cover pointer-events-none"
 
+            <Image
+                src="/images/project_cards/fanfinder.jpg"
                 alt=""
-                aria-hidden
-            />,
+                fill
+                priority
+                className="absolute inset-0 object-cover pointer-events-none "
+                aria-hidden="true"
+            />
+
+        ,
         className: "lg:col-start-1 lg:col-end-1 lg:row-start-2 lg:row-end-4",
     },
 ];

@@ -74,13 +74,15 @@ export const BentoCard = ({
     {/* Scrim — taller on mobile, expandable on desktop */}
     <div
       className="
-        absolute inset-x-0 bottom-0 z-[1]
-        bg-gradient-to-t from-white/85 via-white/40 to-transparent
-        dark:from-black/70 dark:via-black/45 dark:to-transparent
-        transition-[height] duration-300
-        h-40 lg:h-[160px]
-        lg:group-hover:h-[220px] lg:group-focus-within:h-[220px]
-      "
+    absolute inset-x-0 bottom-0 z-[1]
+    bg-gradient-to-t
+    from-black/70 via-black/35 to-transparent
+    dark:from-black/70 dark:via-black/45 dark:to-transparent
+    
+    transition-[height] duration-300
+    h-44 lg:h-[160px]
+    lg:group-hover:h-[220px] lg:group-focus-within:h-[220px]
+  "
     />
 
     {/* Content */}
@@ -94,10 +96,10 @@ export const BentoCard = ({
             lg:group-hover:max-h-[220px] lg:group-focus-within:max-h-[220px]
           "
         >
-          <h3 className="text-2xl font-semibold text-neutral-900 dark:text-white">
+          <h3 className="text-2xl font-semibold text-white">
             {name}
           </h3>
-          <p className="text-neutral-800/90 dark:text-neutral-200/90 max-w-prose">
+          <p className="text-white/85 max-w-prose">
             {description}
           </p>
 

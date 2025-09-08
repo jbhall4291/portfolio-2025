@@ -46,7 +46,7 @@ const features: BentoCardProps[] = [
             { label: "Next.js" },
             { label: "TypeScript" },
             { label: ".NET" },
-            { label: "Microsoft SQL" },
+            { label: "SQL Server" },
             { label: "Tailwind + Shadcn" },
             { label: "Redis" },
 
@@ -141,7 +141,8 @@ const features: BentoCardProps[] = [
                 newTab: true,
             },
         ],
-        className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
+        // className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
+        className: "lg:col-start-3 lg:col-end-3 lg:row-start-3 lg:row-end-4",
     },
     {
 
@@ -203,7 +204,8 @@ const features: BentoCardProps[] = [
 
 
         ,
-        className: "lg:col-start-3 lg:col-end-3 lg:row-start-3 lg:row-end-4",
+        className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
+
     },
     {
 

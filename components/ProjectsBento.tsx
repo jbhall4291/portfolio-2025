@@ -5,7 +5,7 @@ const features: BentoCardProps[] = [
     {
 
         name: "Completed It Mate",
-        description: "A web app for tracking video games: log completed, owned, or wishlisted titles, and connect with friends. Currently in active development using TDD and CI/CD pipelines.",
+        description: "A web app for tracking video games: log completed, owned, or wishlisted titles, and connect with friends. Currently in active development.",
         href: "/",
         cta: "Learn more",
         background:

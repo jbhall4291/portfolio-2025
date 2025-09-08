@@ -5,7 +5,7 @@ const features: BentoCardProps[] = [
     {
 
         name: "Completed It Mate",
-        description: "A full-stack web app for tracking video games - log completed, owned, or wishlisted titles, and connect with friends.",
+        description: "Work-in-progress app for tracking video games: log completed, owned, or wishlisted titles, and connect with friends.",
         href: "/",
         cta: "Learn more",
         background:
@@ -14,7 +14,7 @@ const features: BentoCardProps[] = [
                 alt=""
                 fill
                 priority
-                className="absolute inset-0 object-cover pointer-events-none object-left-top"
+                className="absolute inset-0 object-cover pointer-events-none object-right-bottom"
                 aria-hidden="true"
             />,
         tech: [
@@ -177,7 +177,7 @@ const features: BentoCardProps[] = [
 
             {
                 label: "Landing Page",
-                href: "https://info.solerpalau.com/en/connectair",
+                href: "https://www.connectairapp.com/",
                 variant: "secondary",
                 newTab: true,
             },
@@ -187,15 +187,17 @@ const features: BentoCardProps[] = [
 
         background:
 
-            //             <Image
-            //     src="/images/project_cards/completed-it-mate.webp"
-            //     alt=""
-            //     fill
-            //     priority
-            //     className="absolute inset-0 object-cover pointer-events-none"
-            //     aria-hidden="true"
-            //   />
-            <div className="bg-green-900 h-full w-full"></div>
+            <Image
+                src="/images/project_cards/connectair.jpg"
+                alt=""
+                fill
+                priority
+                className="absolute inset-0 object-cover pointer-events-none"
+                aria-hidden="true"
+            />
+
+
+
 
         ,
         className: "lg:col-start-3 lg:col-end-3 lg:row-start-3 lg:row-end-4",

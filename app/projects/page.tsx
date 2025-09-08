@@ -27,7 +27,7 @@ export default function ProjectsPage() {
 
 
 
-            <div className="md:max-w-7xl 2xl:max-w-7xl  mx-auto px-3 xl:px-0">
+            <div className="md:max-w-7xl 2xl:max-w-7xl  mx-auto px-3 2xl:px-0">
                 <ProjectsBento />
 
             </div>

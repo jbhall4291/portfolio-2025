@@ -5,7 +5,7 @@ const features: BentoCardProps[] = [
     {
 
         name: "Completed It Mate",
-        description: "Work-in-progress app for tracking video games: log completed, owned, or wishlisted titles, and connect with friends.",
+        description: "A web app for tracking video games: log completed, owned, or wishlisted titles, and connect with friends. Currently in active development using TDD and CI/CD pipelines.",
         href: "/",
         cta: "Learn more",
         background:
@@ -30,9 +30,9 @@ const features: BentoCardProps[] = [
 
         ],
         actions: [
-            { label: "Visit Site", href: "https://example.com", variant: "default", newTab: true, },
-            { label: "Repo Frontend", href: "https://github.com/you/repo", newTab: true, },
-            { label: "Repo Backend", href: "https://github.com/you/repo", newTab: true, },
+            { label: "Visit Site", href: "https://completed-it-mate-fe.vercel.app/", variant: "default", newTab: true, },
+            { label: "Frontend Repo", href: "https://github.com/jbhall4291/completed-it-mate-fe", newTab: true, },
+            { label: "Backend Repo", href: "https://github.com/jbhall4291/completed-it-mate-be", newTab: true, },
         ],
         className: "lg:row-start-1 lg:row-end-1 lg:col-start-1 lg:col-end-3",
     },
@@ -78,7 +78,10 @@ const features: BentoCardProps[] = [
 
         ],
         actions: [
-            { label: "View Repo", href: "https://example.com", variant: "default", newTab: true, },
+            { label: "Watch Demo", href: "https://www.youtube.com/watch?v=zqcNg0sHBC4", variant: "default", newTab: true, },
+            { label: "View Repo", href: "https://github.com/jbhall4291/tapPi", variant: "secondary", newTab: true, },
+
+
 
         ],
         background:
@@ -205,8 +208,7 @@ const features: BentoCardProps[] = [
     {
 
         name: "Fan Finder",
-        description:
-            "A cross-platform mobile app built with React Native for discovering gigs and connecting with fans.",
+        description: "A React Native mobile app for discovering local live gigs and connecting with fans.",
         href: "/",
         cta: "Learn more",
 
@@ -224,14 +226,20 @@ const features: BentoCardProps[] = [
         ],
         actions: [
             {
-                label: "View Repo",
-                href: "https://github.com/you/completed-it-mate",
-                variant: "default", // matches your shadcn/ui button variants
+                label: "Watch Demo",
+                href: "https://www.youtube.com/watch?v=kQ7weiOZzHM",
+                variant: "default",
                 newTab: true,
             },
             {
-                label: "Live Site",
-                href: "https://completed-it-mate.vercel.app",
+                label: "Frontend Repo",
+                href: "https://github.com/jbhall4291/fan-finder",
+                variant: "secondary",
+                newTab: true,
+            },
+            {
+                label: "Backend Repo",
+                href: "https://github.com/jbhall4291/fan-finder-backend",
                 variant: "secondary",
                 newTab: true,
             },

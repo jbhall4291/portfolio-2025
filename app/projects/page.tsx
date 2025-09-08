@@ -10,7 +10,7 @@ export default function ProjectsPage() {
     return (
 
         <div className="">
-            <div className="mx-auto md:max-w-7xl px-4 2xl:max-w-7xl mb-8 mt-24  md:mt-36  dark:text-zinc-200 text-left md:text-center">
+            <div className="mx-auto flex flex-col md:max-w-7xl px-4 2xl:max-w-7xl mb-8 mt-24  md:mt-36  dark:text-zinc-200 text-left md:text-center">
 
                 <h1 id="about-heading" className=" mb-2 text-4xl md:text-7xl font-semibold  tracking-tight">
                     My Projects
@@ -18,8 +18,8 @@ export default function ProjectsPage() {
 
 
 
-                <p className=" text-lg md:text-2xl font-medium leading-relaxed ">
-                    From client work to personal builds - a broad selection of my work.
+                <p className=" text-lg md:text-2xl font-medium leading-relaxed max-w-prose self-center">
+                    From production client builds to playful experiments - a curated selection of my work across web, mobile and IoT.
                 </p>
 
 

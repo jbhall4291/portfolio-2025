@@ -18,9 +18,11 @@ const features: BentoCardProps[] = [
                 aria-hidden="true"
             />,
         tech: [
-            { label: "Next.js (React)" },
+            { label: "React" },
+            { label: "Next.js" },
             { label: "TypeScript" },
-            { label: "Node + Express" },
+            { label: "Node.js" },
+            { label: "Express" },
             { label: "MongoDB" },
             { label: "Jest + Supertest" },
             { label: "Playwright" },
@@ -43,12 +45,13 @@ const features: BentoCardProps[] = [
         href: "/",
         cta: "Learn more",
         tech: [
+            { label: "React" },
             { label: "Next.js" },
             { label: "TypeScript" },
             { label: ".NET" },
+            { label: "C#" },
             { label: "SQL Server" },
-            { label: "Tailwind + Shadcn" },
-            { label: "Redis" },
+            { label: "Tailwind" },
 
         ],
 
@@ -123,7 +126,7 @@ const features: BentoCardProps[] = [
         ,
         tech: [
 
-            { label: "TypeScript" },
+            { label: "JavaScript" },
             { label: "VS Code API" },
 
         ],
@@ -154,11 +157,11 @@ const features: BentoCardProps[] = [
 
         tech: [
 
-            { label: "Flutter (Dart)" },
+            { label: "Flutter" },
+            { label: "Dart" },
             { label: "Firebase" },
             { label: ".NET" },
             { label: "SQL Server" },
-
             { label: "NFC" },
 
         ],
@@ -217,12 +220,13 @@ const features: BentoCardProps[] = [
 
         tech: [
 
-            { label: "React Native + Expo" },
-            { label: "Node.js + Express" },
+            { label: "React Native" },
+            { label: "Node.js" },
+            { label: "Express" },
             { label: "Socket.IO" },
             { label: "Google Maps API" },
             { label: "MongoDB" },
-            { label: "Jest/Supertest" },
+            { label: "Jest + Supertest" },
 
 
         ],

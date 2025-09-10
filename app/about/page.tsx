@@ -1,4 +1,5 @@
 // app/about/page.tsx
+import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -48,14 +49,25 @@ export default function AboutPage() {
                         </p>
                     </div>
 
-                    <div className="mt-6 flex gap-3">
-                        <Link href="/projects" className="rounded-full bg-primary px-4 py-2 text-white dark:text-black shadow hover:opacity-90 transition-all duration-300">
-                            View projects
-                        </Link>
-                        <Link href="/contact" className="rounded-full border border-primary px-4 py-2 hover:bg-primary hover:text-white dark:hover:text-black transition-all duration-300">
-                            Get in touch
-                        </Link>
+            
+                    <div className="mt-10 flex flex-wrap items-center justify-start gap-3">
+
+                        <Button asChild variant="secondary" size="lg">
+                            <Link href="/projects" aria-label="View projects">
+                                View projects
+                            </Link>
+                        </Button>
+
+                        <Button asChild size="lg">
+                            <Link href="/contact" aria-label="Get in touch">
+                                Get in touch
+                            </Link>
+                        </Button>
+
                     </div>
+
+
+
                 </div>
 
                 {/* Photo column (moves below on mobile) */}

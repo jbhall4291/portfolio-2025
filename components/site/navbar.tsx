@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "./theme-toggle";
 import Link from "next/link";
+import { Button } from "../ui/button";
 
 const nav = [
     { label: "Projects", href: "/projects" },
@@ -64,14 +65,11 @@ export default function Navbar() {
 
                             {/* CTA at the far right */}
                             <li className="ml-2">
-                                <Link
-                                    href="/contact"
-                                    className="inline-flex items-center rounded-full px-4 py-2 font-medium
-                                    bg-black text-white shadow-sm hover:opacity-90
-                                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
-                                >
-                                    Contact
-                                </Link>
+                                <Button asChild size="lg" className="rounded-full ">
+                                    <Link href="/contact" aria-label="contact">
+                                        Contact
+                                    </Link>
+                                </Button>
                             </li>
                         </ul>
 
@@ -142,17 +140,12 @@ export default function Navbar() {
                                     ))}
 
                                     <li className="py-2">
-                                        <Link
-                                            href="/contact"
-                                            onClick={() => setOpen(false)}
-                                            className="block w-full rounded-full bg-black px-5 py-3 text-center font-semibold text-white hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
-                                        >
-                                            Contact
-                                        </Link>
+                                        <Button asChild size="lg" className="rounded-full w-full">
+                                            <Link href="/contact" aria-label="contact" onClick={() => setOpen(false)}>
+                                                Contact
+                                            </Link>
+                                        </Button>
                                     </li>
-
-
-
                                 </ul>
 
 

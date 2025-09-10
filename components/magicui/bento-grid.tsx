@@ -1,5 +1,6 @@
 import { ComponentPropsWithoutRef, ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
 
 /* ========= Types ========= */
 
@@ -84,7 +85,7 @@ export const BentoCard = ({
 
     transition-[height] duration-300
     h-full xl:h-[160px]
-    lg:group-hover:h-[220px] lg:group-focus-within:h-[220px]
+    lg:group-hover:h-[260px] lg:group-focus-within:h-[260px]
   "
     />
 
@@ -97,13 +98,7 @@ export const BentoCard = ({
             overflow-hidden max-h-none
             xl:transition-[max-height] xl:duration-300
             xl:max-h-[90px]
-            xl:group-hover:max-h-[220px] xl:group-focus-within:max-h-[220px]
-
-            
-
-
-
-
+            xl:group-hover:max-h-[260px] xl:group-focus-within:max-h-[260px]
           "
         >
           <h3 className="text-2xl font-semibold text-white">
@@ -145,22 +140,23 @@ export const BentoCard = ({
               "
             >
               {actions.map((a, i) => (
-                <a
-                  key={i}
-                  href={a.href}
-                  target={a.newTab ? "_blank" : undefined}
-                  rel={a.newTab ? "noopener noreferrer" : undefined}
-                  download={a.download}
-                  tabIndex={-1}
-                  className={cn(
-                    "inline-flex items-center rounded-lg px-3 py-1.5 text-sm font-medium",
-                    a.variant === "default"
-                      ? "bg-blue-600 text-white hover:bg-blue-700"
-                      : "bg-zinc-700 text-white hover:bg-zinc-600"
-                  )}
-                >
-                  {a.label}
-                </a>
+                <Button key={i} asChild className="rounded-full ">
+                  <a
+                    href={a.href}
+                    target={a.newTab ? "_blank" : undefined}
+                    rel={a.newTab ? "noopener noreferrer" : undefined}
+                    download={a.download}
+                    tabIndex={-1}
+                    className={cn(
+                      "inline-flex items-center rounded-full px-3 py-1.5 text-sm font-medium",
+                      a.variant === "default"
+                        ? "bg-blue-600 text-white hover:bg-blue-700"
+                        : "bg-zinc-700 text-white hover:bg-zinc-600"
+                    )}
+                  >
+                    {a.label}
+                  </a>
+                </Button>
               ))}
             </div>
           ) : null}
@@ -217,22 +213,25 @@ export const BentoCard = ({
               "
             >
               {actions.map((a, i) => (
-                <a
-                  key={i}
-                  href={a.href}
-                  target={a.newTab ? "_blank" : undefined}
-                  rel={a.newTab ? "noopener noreferrer" : undefined}
-                  download={a.download}
-                  tabIndex={-1}
-                  className={cn(
-                    "inline-flex items-center rounded-lg px-3 py-1.5 text-sm font-medium",
-                    a.variant === "default"
-                      ? "bg-blue-600 text-white hover:bg-blue-700"
-                      : "bg-zinc-700 text-white hover:bg-zinc-600"
-                  )}
-                >
-                  {a.label}
-                </a>
+
+                <Button key={i} asChild className="rounded-full ">
+                  <a
+
+                    href={a.href}
+                    target={a.newTab ? "_blank" : undefined}
+                    rel={a.newTab ? "noopener noreferrer" : undefined}
+                    download={a.download}
+                    tabIndex={-1}
+                    className={cn(
+                      "inline-flex items-center rounded-full px-3 py-1.5 text-sm font-medium",
+                      a.variant === "default"
+                        ? "bg-blue-600 text-white hover:bg-blue-700"
+                        : "bg-zinc-700 text-white hover:bg-zinc-600"
+                    )}
+                  >
+                    {a.label}
+                  </a>
+                </Button>
               ))}
             </div>
           ) : null}

@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Download, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
     title: "CV",
@@ -24,23 +25,32 @@ export default function CvPage() {
                 </h1>
 
                 <div className="flex gap-3 shrink-0 ">
-                    <a
-                        href="/cv/Johnny-Hall-CV-(web).pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full border px-4 py-3 hover:bg-zinc-50 dark:hover:bg-zinc-900"
-                    >
-                        <ExternalLink className="h-5 w-5" />
-                        Open as PDF
-                    </a>
-                    <a
-                        href="/cv/Johnny-Hall-CV-(web).pdf"
-                        download
-                        className="inline-flex items-center gap-2 rounded-full bg-black px-4 py-3 text-white font-medium hover:opacity-90"
-                    >
-                        <Download className="h-5 w-5" />
-                        Download (PDF)
-                    </a>
+                    <Button asChild variant="secondary" size="lg">
+
+                        <a
+                            href="/cv/Johnny-Hall-CV-(web).pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 rounded-full border px-4 py-3 hover:bg-zinc-50 dark:hover:bg-zinc-900"
+                        >
+                            <ExternalLink className="h-5 w-5" />
+                            Open PDF
+                        </a>
+                    </Button>
+                    <Button asChild size="lg">
+
+                        <a
+                            href="/cv/Johnny-Hall-CV-(web).pdf"
+                            download
+                            className="inline-flex items-center gap-2 rounded-full bg-black px-4 py-3 text-white font-medium hover:opacity-90"
+                        >
+                            <Download className="h-5 w-5" />
+                            Download PDF
+                        </a>
+                    </Button>
+                </div>
+
+                <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
                 </div>
             </div>
 

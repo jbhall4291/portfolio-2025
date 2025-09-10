@@ -32,43 +32,40 @@ export default function ContactPage() {
 
 
 
-            <p className="mt-3   text-lg md:text-2xl font-medium leading-relaxed mb-10 ">
-                Always happy to connect. Email or LinkedIn work best, and you can find my projects on GitHub.
+            <p className="mt-3   text-lg md:text-2xl font-medium leading-relaxed mb-10 max-w-prose">
+                Always happy to connect - LinkedIn is usually best, though email works too. My projects are showcased here on my site, with code available on GitHub.
             </p>
 
-            <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-3">
+            <div className="mt-10 flex flex-wrap items-center justify-start gap-3">
 
-
-
-
-                <Button asChild variant="secondary" className="justify-center">
+                <Button asChild variant="secondary" size="lg">
                     <a href={`mailto:${email}`} aria-label="Email Johnny">
-                        <Mail className="mr-2 h-4 w-4" />
+                        <Mail className=" h-4 w-4" />
                         Email
                     </a>
                 </Button>
 
-                <Button asChild variant="secondary" className="justify-center">
-                    <a
-                        href={linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Connect on LinkedIn"
-                    >
-                        <Linkedin className="mr-2 h-4 w-4" />
-                        LinkedIn
-                    </a>
-                </Button>
-
-                <Button asChild variant="secondary" className="justify-center">
+                <Button asChild size="lg" variant="secondary" >
                     <a
                         href={github}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="View GitHub"
                     >
-                        <Github className="mr-2 h-4 w-4" />
+                        <Github className=" h-4 w-4" />
                         GitHub
+                    </a>
+                </Button>
+
+                <Button asChild size="lg">
+                    <a
+                        href={linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Connect on LinkedIn"
+                    >
+                        <Linkedin className=" h-4 w-4" />
+                        LinkedIn
                     </a>
                 </Button>
             </div>

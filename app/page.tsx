@@ -87,15 +87,13 @@ export default function HomePage() {
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
 
-              <Button asChild size="lg" className="px-6">
+              <Button asChild variant="secondary" size="lg">
                 <Link href="/projects" aria-label="View projects">
                   View projects
                 </Link>
               </Button>
 
-
-
-              <Button asChild variant="secondary" size="lg" className="px-6">
+              <Button asChild size="lg">
                 <Link href="/contact" aria-label="Get in touch">
                   Get in touch
                 </Link>

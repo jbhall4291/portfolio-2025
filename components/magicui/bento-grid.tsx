@@ -140,7 +140,7 @@ export const BentoCard = ({
               "
             >
               {actions.map((a, i) => (
-                <Button key={i} asChild className="rounded-full ">
+                <Button key={i} asChild className="rounded-full " variant="outline">
                   <a
                     href={a.href}
                     target={a.newTab ? "_blank" : undefined}
@@ -214,7 +214,7 @@ export const BentoCard = ({
             >
               {actions.map((a, i) => (
 
-                <Button key={i} asChild className="rounded-full ">
+                <Button key={i} asChild className="rounded-full " >
                   <a
 
                     href={a.href}

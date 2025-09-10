@@ -17,40 +17,49 @@ export const metadata: Metadata = {
 
 export default function CvPage() {
     return (
-        <main className="mx-auto max-w-5xl px-6 py-12 mt-12 md:mt-24">
 
-            <div className="flex flex-col lg:flex-row lg:items-end md:justify-between mb-6 gap-4 ">
-                <h1 className="text-4xl lg:text-7xl font-semibold tracking-tight">
-                    Curriculum Vitae
+        <main className="mx-auto max-w-4xl px-6 py-12 mt-12 md:mt-24">
+
+            <div className="flex flex-col  mb-6 gap-4 ">
+
+                <h1 id="about-heading" className=" text-4xl md:text-7xl font-semibold  tracking-tight">
+                    CV
                 </h1>
 
+                <p className="text-lg md:text-2xl font-medium leading-relaxed max-w-prose ">
+                    Download my CV to see details of my full-stack experience with React, Next.js, Node.js, and .NET.
+                </p>
+
+
                 <div className="flex gap-3 shrink-0 ">
-                    <Button asChild variant="secondary" size="lg">
+                    <Button asChild size="lg">
+                        <a
+                            href="/cv/Johnny-Hall-CV.pdf"
+                            download
+                            className="inline-flex items-center gap-2 rounded-full bg-black px-4 py-3 text-white font-medium hover:opacity-90"
+                        >
+                            <Download className="h-5 w-5" />
+                            Download CV (.pdf)
+                        </a>
+                    </Button>
+
+                    <Button asChild variant="outline" size="lg">
 
                         <a
-                            href="/cv/Johnny-Hall-CV-(web).pdf"
+                            href="/cv/Johnny-Hall-CV.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 rounded-full border px-4 py-3 hover:bg-zinc-50 dark:hover:bg-zinc-900"
                         >
                             <ExternalLink className="h-5 w-5" />
-                            Open PDF
+                            Open CV
                         </a>
                     </Button>
-                    <Button asChild size="lg">
 
-                        <a
-                            href="/cv/Johnny-Hall-CV-(web).pdf"
-                            download
-                            className="inline-flex items-center gap-2 rounded-full bg-black px-4 py-3 text-white font-medium hover:opacity-90"
-                        >
-                            <Download className="h-5 w-5" />
-                            Download PDF
-                        </a>
-                    </Button>
+
                 </div>
 
-                <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+                <div className=" flex flex-wrap items-center justify-center gap-3">
                 </div>
             </div>
 

@@ -29,17 +29,6 @@ function shuffle<T>(arr: T[], seed: number) {
     return a;
 }
 
-// function IconWrapper({ children }: { children: React.ReactNode }) {
-//     return (
-//         <div className="-translate-x-1/2 -translate-y-1/2 pointer-events-auto select-none">
-//             <div className="w-14 h-14 lg:w-20 lg:h-20 overflow-hidden rounded-xl grid place-items-center">
-//                 {/* keep inner icon a bit smaller for breathing room */}
-//                 <div className="w-8 h-8 lg:w-12 lg:h-12">{children}</div>
-//             </div>
-//         </div>
-//     );
-// }
-
 export function OrbitField({
     positions,
     icons,

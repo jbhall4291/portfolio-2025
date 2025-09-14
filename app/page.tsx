@@ -70,17 +70,9 @@ export default function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <main className="mx-auto max-w-[72rem]  py-10 ">
+      <main className="mx-auto w-full max-w-7xl  py-10 ">
+        <section className="relative mt-10 min-h-[80svh] flex justify-center items-center overflow-hidden xl:overflow-visible">
 
-        {/* <Link href="/projects" className="mt-6 inline-block underline">
-          Go to Projects →
-        </Link> */}
-
-        {/* Hero area – swap your old div for a section */}
-        <section
-          className="relative mt-10 min-h-[80svh] flex justify-center items-center overflow-hidden xl:overflow-visible 
-               " // 👈 debug background here
-        >
           <div className="relative z-10 flex flex-col h-full items-center justify-center text-center">
 
 
@@ -121,16 +113,21 @@ export default function HomePage() {
           </div>
 
 
-
-          <OrbitField
-            positions={ORBIT_POSITIONS}
-            icons={ICONS.map(cfg => {
-              const { key, ...rest } = cfg
-              return <IconTile key={key} {...rest} />
-            })
-            }
-            shuffleIcons
-          />
+          <div
+            className=" 
+      absolute inset-0 z-0
+      overflow-hidden xl:overflow-visible
+      xl:w-[calc(100%+var(--gutter))]
+      xl:right-[calc(-1*var(--gutter))]
+      will-change-transform
+    "
+          >
+            <OrbitField
+              positions={ORBIT_POSITIONS}
+              icons={ICONS.map((cfg) => <IconTile key={cfg.key} {...cfg} />)}
+              shuffleIcons
+            />
+          </div>
 
 
         </section>

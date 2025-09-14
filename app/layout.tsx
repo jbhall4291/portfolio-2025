@@ -39,7 +39,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html
       lang="en"
       suppressHydrationWarning
-      className={`h-full [scrollbar-gutter:stable_both-edges] ${isCookieDark ? "dark" : ""}`}
+      className={`h-full ${isCookieDark ? "dark" : ""}`}
     >
       <head>
         {/* Preflight: if no cookie or cookie === "system", respect system dark on first paint */}

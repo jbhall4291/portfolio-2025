@@ -125,3 +125,35 @@
     @apply bg-background text-foreground;
   }
 }
+
+:root {
+  --gutter: 17px;
+}
+
+/* safe guess */
+html {
+  overflow-x: hidden;
+}
+
+/* never allow horizontal scroll */
+
+@media (min-width: 1280px) {
+
+  /* desktop breakpoint of your choice */
+  html {
+    scrollbar-gutter: stable;
+  }
+
+  /* reserve RIGHT gutter only */
+}
+
+/* Optional cross-browser fallback */
+@supports not (scrollbar-gutter: stable) {
+  @media (min-width: 1280px) {
+    html {
+      overflow-y: scroll;
+    }
+
+    /* always show right scrollbar to avoid shift */
+  }
+}

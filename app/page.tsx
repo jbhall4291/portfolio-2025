@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Code, Cpu, Download, FileText, FolderKanban, Globe } from "lucide-react";
 import { OrbitField } from "@/components/site/orbit-field";
 import { Button } from "@/components/ui/button";
+import IconTile from "@/components/IconTile";
 
 
 export default function HomePage() {
@@ -32,27 +33,44 @@ export default function HomePage() {
     { className: "left-[25%] top-[25%]", rx: 62, ry: 22, duration: 16, clockwise: false },
   ];
 
-  const ReactLogo = () => (
-    <svg viewBox="0 0 128 128">
-      <path d="M64 0A64 64 0 0 0 0 64a64 64 0 0 0 64 64 64 64 0 0 0 35.508-10.838L47.014 49.34v40.238H38.4V38.4h10.768l57.125 73.584A64 64 0 0 0 128 64 64 64 0 0 0 64 0Zm17.777 38.4h8.534v48.776L81.777 75.97Zm24.18 73.92-.111.096a64 64 0 0 0 .111-.096z"></path>
-    </svg>
-  );
-  const TsPng = () => <Cpu className="w-full h-full" aria-hidden />;
-  const NodeImg = () => <Globe className="w-full h-full" aria-hidden />;
 
-  // pass them as components
-  <OrbitField
-    positions={ORBIT_POSITIONS}
-    icons={[<ReactLogo key="react" />, <TsPng key="ts" />, <NodeImg key="node" />]}
-    shuffleIcons
-  />
+  const ICONS = [
+    {
+      key: "ts",
+      src: "/tech_stack_icons/typescript.svg",
+      alt: "TypeScript",
+      bg: "#3178C6",
+      pad: 6,       // per-icon inset on mobile
+      padLg: 4,     // per-icon inset on desktop
+    },
+    {
+      key: "jest",
+      src: "/tech_stack_icons/jest.svg",
+      alt: "Jest",
+      bg: "#99425B",
+      pad: 8,
+      padLg: 10,
+    },
+    {
+      key: "js",
+      src: "/tech_stack_icons/javascript.svg",
+      alt: "JavaScript",
+      bg: "#efe125",
+      pad: 6,
+      padLg: 4,
+    },
+
+  ];
+
+
+
 
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <main className="mx-auto max-w-[72rem] px-4 sm:px-6 lg:px-8 py-10">
+      <main className="mx-auto max-w-[72rem]  py-10 ">
 
         {/* <Link href="/projects" className="mt-6 inline-block underline">
           Go to Projects →
@@ -60,7 +78,7 @@ export default function HomePage() {
 
         {/* Hero area – swap your old div for a section */}
         <section
-          className="relative mt-10 min-h-[80svh] flex justify-center items-center 
+          className="relative mt-10 min-h-[80svh] flex justify-center items-center overflow-hidden xl:overflow-visible 
                " // 👈 debug background here
         >
           <div className="relative z-10 flex flex-col h-full items-center justify-center text-center">
@@ -103,28 +121,18 @@ export default function HomePage() {
           </div>
 
 
-          {/* Orbiting layer (uses section as positioning context due to 'relative') */}
+
           <OrbitField
-            positions={ORBIT_POSITIONS}             // ✅ use your positions
-            icons={[
-              <ReactLogo key="react" />,
-              <Cpu key="ts" className="w-full h-full" aria-hidden />,
-              <Globe key="node" className="w-full h-full" aria-hidden />,
-
-              <ReactLogo key="react2" />,
-              <Cpu key="ts2" className="w-full h-full" aria-hidden />,
-              <Globe key="node2" className="w-full h-full" aria-hidden />,
-
-              <ReactLogo key="react3" />,
-              <Cpu key="ts3" className="w-full h-full" aria-hidden />,
-              <Globe key="node3" className="w-full h-full" aria-hidden />,
-
-              <ReactLogo key="react4" />,
-              <Cpu key="ts4" className="w-full h-full" aria-hidden />,
-              <Globe key="node4" className="w-full h-full" aria-hidden />,
-            ]}
-            shuffleIcons                             // optional
+            positions={ORBIT_POSITIONS}
+            icons={ICONS.map(cfg => {
+              const { key, ...rest } = cfg
+              return <IconTile key={key} {...rest} />
+            })
+            }
+            shuffleIcons
           />
+
+
         </section>
       </main>
 

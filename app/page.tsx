@@ -30,6 +30,7 @@ export default function HomePage() {
     { className: "left-[10%] top-[87%]", rx: 18, ry: 12, duration: 14, tilt: 3, phase: 2 },
     { className: "left-[87%] top-[90%]", rx: 12, ry: 11, duration: 12 },
     { className: "left-[35%] top-[91%]", rx: 12, ry: 10, duration: 11, clockwise: false, phase: 90 },
+    { className: "left-[20%] top-[35%]", rx: 12, ry: 10, duration: 11, clockwise: false, phase: 90 },
   ];
 
 
@@ -71,16 +72,18 @@ export default function HomePage() {
       src: "/tech_stack_icons/azure.svg",
       alt: "Azure",
       bg: "white",
-      pad: 6,
+      pad: 10,
       padLg: 10,
+      hasBorder: true,
     },
     {
       key: "next",
       src: "/tech_stack_icons/next.svg",
       alt: "Next.js",
-      bg: "",
-      pad: 6,
-      padLg: 4,
+      bg: "#212121",
+      pad: 2,
+      padLg: 0,
+
     },
     {
       key: "mongoDB",
@@ -94,7 +97,7 @@ export default function HomePage() {
       key: "c#",
       src: "/tech_stack_icons/csharp.svg",
       alt: "C#",
-      bg: "",
+      bg: "#7b43a4",
       pad: 0,
       padLg: 0,
     },
@@ -105,6 +108,8 @@ export default function HomePage() {
       bg: "white",
       pad: 10,
       padLg: 10,
+      hasBorder: true,
+
     },
     {
       key: "sql",
@@ -119,9 +124,11 @@ export default function HomePage() {
       key: "tailwind",
       src: "/tech_stack_icons/tailwind.svg",
       alt: "TailwindCSS",
-      bg: "#202434",
-      pad: 6,
+      bg: "#38bdf8",
+      pad: 10,
       padLg: 10,
+
+
     },
 
     {
@@ -131,6 +138,17 @@ export default function HomePage() {
       bg: "#5a3591",
       pad: 6,
       padLg: 8,
+    },
+
+    {
+      key: "firebase",
+      src: "/tech_stack_icons/firebase.svg",
+      alt: "Firebase",
+      bg: "white",
+      pad: 10,
+      padLg: 6,
+      hasBorder: true,
+
     },
 
 

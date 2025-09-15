@@ -32,7 +32,7 @@ function shuffle<T>(arr: T[], seed: number) {
 export function OrbitField({
     positions,
     icons,
-    shuffleIcons = false, // randomize icon order per page load
+    shuffleIcons = true, // randomize icon order per page load
 }: {
     positions: OrbitPos[];
     icons: React.ReactNode[];

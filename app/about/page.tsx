@@ -1,5 +1,6 @@
 // app/about/page.tsx
 import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -38,7 +39,21 @@ export default function AboutPage() {
                         </p>
 
                         <p>
-                            I focus on scalable, maintainable systems with clean architecture and automated testing. Experience includes client projects with custom Umbraco CMS solutions and integrations, as well as personal full-stack builds that showcase modern development practices.
+                            I focus on building scalable, maintainable systems with clean architecture and automated testing. Experience includes client projects with custom Umbraco CMS solutions and integrations, as well as personal full-stack builds that showcase modern development practices.
+                        </p>
+
+
+                        <p>
+                            I was also interviewed by Northcoders about my journey into tech.{" "}
+                            <a
+                                className="inline-flex items-center underline text-blue-600 hover:text-blue-700"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href="https://www.northcoders.com/blog/johnny-from-taxi-driver-to-software-developer/"
+                            >
+                                Read the write-up or check out the video here
+                                <ExternalLink className="ml-1 h-4 w-4 text-blue-600" aria-hidden="true" />
+                            </a>.
                         </p>
 
                         <p>

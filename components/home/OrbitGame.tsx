@@ -20,9 +20,44 @@ export default function OrbitGame() {
     }, []);
 
     const triggerWin = React.useCallback(() => {
-        console.log("🎉 Easter egg unlocked! Finished within the freeze window.");
-    }, []);
+        // lazy-load so it doesn't bloat the main bundle
+        import("canvas-confetti").then(({ default: confetti }) => {
+            // find hero image center in viewport coords (0..1)
+            const img = document.getElementById("hero-photo");
+            let origin = { x: 0.5, y: 0.4 }; // sensible fallback near center/top
+            if (img) {
+                const r = img.getBoundingClientRect();
+                const cx = r.left + r.width / 2;
+                const cy = r.top + r.height / 2;
+                const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 1);
+                const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 1);
+                origin = { x: cx / vw, y: cy / vh };
+            }
 
+            // one classy pop + a tiny echo for richness
+            confetti({
+                particleCount: 60,
+                spread: 360,
+                startVelocity: 32,
+                ticks: 110,
+                scalar: 0.8,
+                origin,
+                colors: ["#77c042", "#333333"], // brand green + ink
+            });
+
+            setTimeout(() => {
+                confetti({
+                    particleCount: 20,
+                    spread: 60,
+                    startVelocity: 25,
+                    ticks: 90,
+                    scalar: 0.7,
+                    origin,
+                    colors: ["#6b7280"], // subtle grey echo
+                });
+            }, 120);
+        });
+    }, []);
     const now = () => performance.now();
 
     // On first tap, arm a single timeout to end the run when the freeze window lapses

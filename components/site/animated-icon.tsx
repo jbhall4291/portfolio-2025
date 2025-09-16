@@ -22,6 +22,11 @@ type EllipticalOrbitProps = {
     clockwise?: boolean;        // default true
     /** Rotate the ellipse path (deg) WITHOUT rotating the icon */
     tilt?: number;              // default 0
+
+    paused?: boolean;
+    onPointerDown?: React.PointerEventHandler<HTMLDivElement>;
+
+
 };
 
 export function EllipticalOrbit({
@@ -34,31 +39,48 @@ export function EllipticalOrbit({
     delay = 0,
     clockwise = true,
     tilt = 0,
+    paused = false,
+    onPointerDown,
 }: EllipticalOrbitProps) {
     const reduce = useReducedMotion();
     const moverRef = useRef<HTMLDivElement>(null);
     const startRef = useRef<number | null>(null);
     const dir = clockwise ? 1 : -1;
+    const pausedAtRef = useRef<number | null>(null);
+
 
     useAnimationFrame((ts) => {
         if (!moverRef.current || reduce) return;
 
-        // handle delay on first frame
+        // First frame: set start + delay
         if (startRef.current === null) startRef.current = ts + delay * 1000;
-        const t = Math.max(0, ts - startRef.current);
 
-        const theta = ((t / 1000) / duration) * (2 * Math.PI) * dir + (phase * Math.PI) / 180;
+        // If pausing now, remember when we paused and stop updating
+        if (paused) {
+            if (pausedAtRef.current == null) pausedAtRef.current = ts;
+            return;
+        }
 
-        // base ellipse coordinates
+        // If resuming after a pause, shift the start time forward by the paused duration
+        if (pausedAtRef.current != null) {
+            const pausedDur = ts - pausedAtRef.current;
+            startRef.current! += pausedDur;
+            pausedAtRef.current = null;
+        }
+
+        const t = Math.max(0, ts - startRef.current!); // elapsed since (start + delay)
+        const theta =
+            ((t / 1000) / duration) * (2 * Math.PI) * dir + (phase * Math.PI) / 180;
+
         let x = rx * Math.cos(theta);
         let y = ry * Math.sin(theta);
 
-        // rotate the path by 'tilt' degrees (icon remains unrotated)
         if (tilt) {
             const a = (tilt * Math.PI) / 180;
             const cx = x * Math.cos(a) - y * Math.sin(a);
             const cy = x * Math.sin(a) + y * Math.cos(a);
-            x = cx; y = cy;
+            x = cx;
+            y = cy;
         }
 
         moverRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
@@ -72,11 +94,13 @@ export function EllipticalOrbit({
         <LazyMotion features={domAnimation}>
             {/* Center of orbit */}
             <div className={cn("absolute pointer-events-none", className)} aria-hidden>
-                {/* This wrapper's transform is driven by JS (translate3d(x,y,0)) */}
+                {/* Mover (transform updated by RAF) */}
                 <div ref={moverRef} style={reduce ? { transform: reducedTransform } : undefined}>
-                    {/* This inner wrapper re-centers the child on the orbit point */}
-                    <div className="-translate-x-1/2 -translate-y-1/2 pointer-events-auto">
-                        {/* Size: 56x56 on mobile, 80x80 on lg+ */}
+                    {/* Hit target */}
+                    <div
+                        className="-translate-x-1/2 -translate-y-1/2 pointer-events-auto"
+                        onPointerDown={onPointerDown} // NEW
+                    >
                         <div className="w-14 h-14 lg:w-20 lg:h-20 overflow-hidden rounded-xl grid place-items-center">
                             {children}
                         </div>

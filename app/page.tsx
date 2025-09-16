@@ -1,9 +1,15 @@
 // app/page.tsx
+"use client";
+import React from "react";
+
 import Link from "next/link";
 import Image from 'next/image'
 import { OrbitField } from "@/components/site/orbit-field";
 import { Button } from "@/components/ui/button";
 import IconTile from "@/components/IconTile";
+import { Confetti } from "@/components/ui/confetti"; // Magic UI
+import { ConfettiButton } from "@/components/ui/confetti";
+
 
 
 export default function HomePage() {
@@ -155,6 +161,49 @@ export default function HomePage() {
   ];
 
 
+  // --- Easter egg game state ---
+  const GAME_WINDOW_MS = 70000; // tweak for mobile reachability
+  const [runStartAt, setRunStartAt] = React.useState<number | null>(null);
+  const [tapped, setTapped] = React.useState<Set<string>>(new Set());
+
+  const iconIds = React.useMemo(() => ICONS.map(x => x.key), [ICONS]);
+
+  const resetGame = React.useCallback(() => {
+    setRunStartAt(null);
+    setTapped(new Set());
+  }, []);
+
+  // Instead of confetti, just log
+  const triggerWin = React.useCallback(() => {
+    console.log("🎉 Easter egg unlocked! All icons tapped in time.");
+  }, []);
+
+  const onIconTap = React.useCallback((id: string) => {
+    const t = performance.now();
+    const active = runStartAt && (t - runStartAt) <= GAME_WINDOW_MS;
+
+    if (!active) {
+      setRunStartAt(t);
+      setTapped(new Set([id]));
+      return;
+    }
+
+    setTapped(prev => {
+      const next = new Set(prev);
+      next.add(id);
+      if (next.size >= iconIds.length) {
+        triggerWin();
+        setTimeout(resetGame, 250);
+      }
+      return next;
+    });
+  }, [runStartAt, iconIds.length, triggerWin, resetGame]);
+
+  React.useEffect(() => {
+    if (runStartAt == null) return;
+    const to = setTimeout(() => resetGame(), GAME_WINDOW_MS + 50);
+    return () => clearTimeout(to);
+  }, [runStartAt, resetGame]);
 
 
 
@@ -185,6 +234,9 @@ export default function HomePage() {
             </h1>
             <h2 className="mt-2 text-4xl lg:text-[80px] font-medium  leading-none text-[#6e6e73] ">Software Engineer</h2>
 
+            <ConfettiButton options={{ particleCount: 800, spread: 100 }}>
+              Click me
+            </ConfettiButton>
 
 
             <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
@@ -216,9 +268,11 @@ export default function HomePage() {
           >
             <OrbitField
               positions={ORBIT_POSITIONS}
-              icons={ICONS.map(({ key: id, ...props }) => (
-                <IconTile key={id} {...props} />
-              ))}
+              icons={ICONS.map(({ key: id, ...props }) => <IconTile key={id} {...props} />)}
+              iconIds={iconIds}
+              onIconTap={onIconTap}
+              pauseMs={7000}
+              shuffleIcons
             />
 
           </div>

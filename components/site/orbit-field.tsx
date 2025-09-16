@@ -2,7 +2,7 @@
 "use client";
 
 import { EllipticalOrbit } from "@/components/site/animated-icon";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 
 type OrbitPos = {
     className: string;  // e.g. "left-16 top-10"
@@ -19,7 +19,7 @@ function mulberry32(seed: number) {
         return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
     };
 }
-function shuffle<T>(arr: T[], seed: number) {
+function shufflePairs<T>(arr: T[], seed: number) {
     const rnd = mulberry32(seed);
     const a = arr.slice();
     for (let i = a.length - 1; i > 0; i--) {
@@ -29,14 +29,22 @@ function shuffle<T>(arr: T[], seed: number) {
     return a;
 }
 
+
 export function OrbitField({
     positions,
     icons,
     shuffleIcons = true, // randomize icon order per page load
+    iconIds,
+    onIconTap,
+    pauseMs = 2500,
+
 }: {
     positions: OrbitPos[];
     icons: React.ReactNode[];
     shuffleIcons?: boolean;
+    iconIds: string[];
+    onIconTap?: (id: string) => void;
+    pauseMs?: number;
 }) {
     // seed only needed if shuffling
     const [seed, setSeed] = useState<number | null>(null);
@@ -49,29 +57,63 @@ export function OrbitField({
         setSeed(s);
     }, [shuffleIcons]);
 
-    const iconOrder = useMemo(() => {
-        if (!shuffleIcons || seed == null) return icons;
-        return shuffle(icons, seed);
-    }, [icons, shuffleIcons, seed]);
+    // Pair ids + nodes, shuffle together (if enabled)
+    const pairs = useMemo(() => {
+        const zipped = iconIds.map((id, i) => ({ id, node: icons[i] }));
+        if (!shuffleIcons || seed == null) return zipped;
+        return shufflePairs(zipped, seed);
+    }, [icons, iconIds, shuffleIcons, seed]);
 
-    const pickIcon = (i: number) => iconOrder[i % iconOrder.length];
+    const pick = (i: number) => pairs[i % pairs.length];
+
+    // Per-icon pause bookkeeping
+    const [pausedUntil, setPausedUntil] = useState<Record<string, number>>({});
+    const now = () =>
+        typeof performance !== "undefined" ? performance.now() : Date.now();
+
+    const pauseIcon = useCallback((id: string) => {
+        const until = now() + pauseMs;
+        setPausedUntil((prev) => ({ ...prev, [id]: until }));
+        window.setTimeout(() => {
+            setPausedUntil((prev) => {
+                if (!prev[id]) return prev;
+                if (prev[id] <= until) {
+                    const next = { ...prev };
+                    delete next[id];
+                    return next;
+                }
+                return prev; // a newer pause extended it
+            });
+        }, pauseMs + 5);
+    }, [pauseMs]);
+
 
     return (
         <>
-            {positions.map((p, i) => (
-                <EllipticalOrbit
-                    key={i}
-                    className={p.className}     // EllipticalOrbit adds "absolute"
-                    rx={p.rx}
-                    ry={p.ry}
-                    duration={p.duration ?? 12}
-                    phase={p.phase ?? 0}
-                    tilt={p.tilt ?? 0}
-                    clockwise={p.clockwise ?? true}
-                >
-                    {pickIcon(i)}
-                </EllipticalOrbit>
-            ))}
+            {positions.map((p, i) => {
+                const { id, node } = pick(i);
+                const isPaused = !!pausedUntil[id] && pausedUntil[id] > now();
+
+                return (
+                    <EllipticalOrbit
+                        key={id ?? i}
+                        className={p.className}
+                        rx={p.rx}
+                        ry={p.ry}
+                        duration={p.duration ?? 12}
+                        phase={p.phase ?? 0}
+                        tilt={p.tilt ?? 0}
+                        clockwise={p.clockwise ?? true}
+                        paused={isPaused}                              // NEW
+                        onPointerDown={() => {                         // NEW
+                            pauseIcon(id);
+                            onIconTap?.(id);
+                        }}
+                    >
+                        {node}
+                    </EllipticalOrbit>
+                );
+            })}
         </>
     );
 }

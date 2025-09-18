@@ -20,11 +20,9 @@ export default function OrbitGame() {
     }, []);
 
     const triggerWin = React.useCallback(() => {
-        // lazy-load so it doesn't bloat the main bundle
         import("canvas-confetti").then(({ default: confetti }) => {
-            // find hero image center in viewport coords (0..1)
             const img = document.getElementById("hero-photo");
-            let origin = { x: 0.5, y: 0.4 }; // sensible fallback near center/top
+            let origin = { x: 0.5, y: 0.4 };
             if (img) {
                 const r = img.getBoundingClientRect();
                 const cx = r.left + r.width / 2;
@@ -34,7 +32,6 @@ export default function OrbitGame() {
                 origin = { x: cx / vw, y: cy / vh };
             }
 
-            // one classy pop + a tiny echo for richness
             confetti({
                 particleCount: 60,
                 spread: 360,
@@ -42,9 +39,8 @@ export default function OrbitGame() {
                 ticks: 110,
                 scalar: 0.8,
                 origin,
-                colors: ["#77c042", "#333333"], // brand green + ink
+                colors: ["#77c042", "#333333"],
             });
-
             setTimeout(() => {
                 confetti({
                     particleCount: 20,
@@ -53,11 +49,15 @@ export default function OrbitGame() {
                     ticks: 90,
                     scalar: 0.7,
                     origin,
-                    colors: ["#6b7280"], // subtle grey echo
+                    colors: ["#6b7280"],
                 });
             }, 120);
+
+            // tell the photo to swap (and auto-revert)
+            window.dispatchEvent(new CustomEvent("easter-egg-win"));
         });
     }, []);
+
     const now = () => performance.now();
 
     // On first tap, arm a single timeout to end the run when the freeze window lapses

@@ -39,7 +39,7 @@ export function OrbitField({
     pauseMs = 2500,
 
 }: {
-    positions: OrbitPos[];
+    positions: ReadonlyArray<OrbitPos>;
     icons: React.ReactNode[];
     shuffleIcons?: boolean;
     iconIds: string[];

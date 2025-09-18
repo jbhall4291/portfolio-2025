@@ -68,7 +68,7 @@ export default function HomePage() {
 
           {/* Only this block needs client runtime */}
           <div
-            className="bg-red-100/50
+            className="
               absolute inset-0 z-30
               pointer-events-none                
               overflow-hidden xl:overflow-visible

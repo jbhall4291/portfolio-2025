@@ -29,7 +29,7 @@ export default function IconTile({ src, alt = "", bg, pad = 2, padLg, hasBorder 
         // </div>
 
         <div
-            className={` rounded-xl   w-[56px] h-[56px] lg:w-[80px] lg:h-[80px] hover:opacity-90 transition-all duration-500
+            className={`pointer-events-auto rounded-xl z-30  w-[56px] h-[56px] lg:w-[80px] lg:h-[80px] hover:brightness-90 transition-all duration-500
                 
                  ${hasBorder ? "border-2   border-foreground/5 dark:border-white" : ""}
                 `}

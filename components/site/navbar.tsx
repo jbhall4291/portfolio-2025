@@ -86,7 +86,7 @@ export default function Navbar() {
                                 aria-label={open ? "Close menu" : "Open menu"}
                                 aria-expanded={open}
                                 aria-controls="navbar-mobile-content"
-                                className="inline-flex h-9 w-9 items-center justify-center rounded-2xl  relative z-10"
+                                className="inline-flex h-11 w-11 items-center justify-center rounded-2xl  relative z-10"
                             >
                                 <motion.span
                                     initial={false}
@@ -132,7 +132,7 @@ export default function Navbar() {
                                             <Link
                                                 href={item.href}
                                                 onClick={() => setOpen(false)}
-                                                className="block w-full  py-3 text-xl font-semibold "
+                                                className="block  w-fit pr-10 py-3 text-xl font-semibold "
                                             >
                                                 {item.label}
                                             </Link>

@@ -27,7 +27,7 @@ export default function ContactPage() {
     return (
         <main className="mx-auto max-w-4xl px-6 py-12 mt-12 md:mt-24">
             <h1 className="text-4xl lg:text-7xl font-semibold tracking-tight">
-                Get in touch
+                Let's Connect
             </h1>
 
 

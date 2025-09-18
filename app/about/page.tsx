@@ -46,13 +46,16 @@ export default function AboutPage() {
                         <p>
                             I was also interviewed by Northcoders about my journey into tech.{" "}
                             <a
-                                className="inline-flex items-center underline text-blue-600 hover:text-blue-700"
+                                className="underline text-blue-600 hover:text-blue-700"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 href="https://www.northcoders.com/blog/johnny-from-taxi-driver-to-software-developer/"
                             >
-                                Read the write-up or check out the video here
-                                <ExternalLink className="ml-1 h-4 w-4 text-blue-600" aria-hidden="true" />
+                                Read the interview and check out the video here
+                                <ExternalLink
+                                    className="ml-1 inline-block h-4 w-4 -mb-0.5 align-[0.05em] text-blue-600"
+                                    aria-hidden="true"
+                                />
                             </a>.
                         </p>
 

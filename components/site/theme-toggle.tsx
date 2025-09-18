@@ -25,17 +25,17 @@ export function ThemeToggle() {
     };
 
     return (
-        <span className="block w-9 h-9">
-            <Button
-                className={`md:bg-zinc-200 md:dark:bg-zinc-800 cursor-pointer transition-opacity duration-300 ${mounted ? "opacity-100" : "opacity-0"
-                    }`}
-                variant="ghost"
-                size="icon"
-                onClick={onToggle}
-                aria-label="Toggle theme"
-            >
-                {isDark ? <Sun className="h-6 w-6" /> : <Moon className="h-6 w-6" />}
-            </Button>
-        </span>
+
+        <Button
+            className={`w-11 h-11 md:bg-zinc-200 md:dark:bg-zinc-800 cursor-pointer transition-opacity duration-300 ${mounted ? "opacity-100" : "opacity-0"
+                }`}
+            variant="ghost"
+            size="icon"
+            onClick={onToggle}
+            aria-label="Toggle theme"
+        >
+            {isDark ? <Sun className="h-6 w-6" /> : <Moon className="h-6 w-6" />}
+        </Button>
+
     );
 }

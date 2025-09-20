@@ -17,7 +17,7 @@ export default function IconTile({ src, alt = "", bg, pad = 2, padLg, hasBorder 
         w-[52px] h-[52px] lg:w-[80px] lg:h-[80px]
          transition-all duration-300
         p-[var(--pad)] lg:p-[var(--pad-lg)]
-        ${hasBorder ? "border-2 border-foreground/5 dark:border-white" : ""}
+        ${hasBorder ? "border-2 border-primary-black/5 dark:border-white" : ""}
       `}
             style={
                 {

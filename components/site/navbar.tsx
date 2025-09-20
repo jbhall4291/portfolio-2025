@@ -3,13 +3,13 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ThemeToggle } from "./theme-toggle";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { Code2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
 
 const nav = [
@@ -66,7 +66,7 @@ export default function Navbar() {
                         </Link> */}
 
                         <Link href="/" onClick={() => setOpen(false)} className="inline-flex items-center gap-1.5 hover:opacity-70 text-lg font-bold md:text-base md:font-bold">
-                            <Code2 strokeWidth={2.2} className=" size-6 md:size-6.5  rounded bg-primary dark:bg-white text-white dark:text-primary-foreground  p-1 mr-0.5" />
+                            <Code2 strokeWidth={2.2} className=" size-6 md:size-6.5  rounded bg-primary-black dark:bg-white text-white dark:text-primary-black  p-1 mr-0.5" />
                             <span
                                 className={clsx(
                                     " ",
@@ -110,7 +110,7 @@ export default function Navbar() {
                             {/* theme icon (utility) */}
                             <li className="-mr-2 ">
                                 <div className="flex items-center h-9">
-                                    <ThemeToggle />
+                                    <AnimatedThemeToggler aria-label="Toggle theme" />
                                 </div>
                             </li>
 
@@ -126,7 +126,7 @@ export default function Navbar() {
 
 
                         <div className="ml-auto md:hidden flex items-center gap-1 h-9">
-                            <ThemeToggle />
+                            <AnimatedThemeToggler aria-label="Toggle theme" />
 
                             {/* Mobile toggle control aka burger */}
                             <button

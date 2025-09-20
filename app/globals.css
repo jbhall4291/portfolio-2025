@@ -4,8 +4,8 @@
 /* ✅ Make dark: utilities respond to <html class="dark"> */
 @custom-variant dark (&:where(.dark, .dark *));
 
-
 @theme inline {
+  --color-primary-black: #1d1d1f;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-saans);
@@ -156,4 +156,10 @@ html {
 
     /* always show right scrollbar to avoid shift */
   }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }

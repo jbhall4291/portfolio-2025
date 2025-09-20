@@ -47,15 +47,18 @@ export function OrbitField({
     pauseMs?: number;
 }) {
     // seed only needed if shuffling
-    const [seed, setSeed] = useState<number | null>(null);
-    useEffect(() => {
-        if (!shuffleIcons) return;
-        const s =
-            typeof window !== "undefined" && window.crypto?.getRandomValues
-                ? window.crypto.getRandomValues(new Uint32Array(1))[0]!
-                : Math.floor(Math.random() * 0xffffffff);
-        setSeed(s);
-    }, [shuffleIcons]);
+
+
+    const [seed] = useState<number | null>(() => {
+        if (!shuffleIcons) return null;
+        try {
+            const a = new Uint32Array(1);
+            globalThis.crypto?.getRandomValues(a);
+            return a[0]!;
+        } catch {
+            return Math.floor(Math.random() * 0xffffffff);
+        }
+    });
 
     // Pair ids + nodes, shuffle together (if enabled)
     const pairs = useMemo(() => {

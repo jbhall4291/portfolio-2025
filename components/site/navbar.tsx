@@ -6,6 +6,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "./theme-toggle";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
+import { Code2 } from "lucide-react";
+import { cn } from "@/lib/utils";
+
 
 const nav = [
     { label: "Projects", href: "/projects" },
@@ -28,6 +33,15 @@ export default function Navbar() {
         };
     }, []);
 
+    const pathname = usePathname();
+
+    function isActive(pathname: string, href: string) {
+        if (href === "/") return pathname === "/";
+        // highlight parent on subroutes, ignore query
+        return pathname === href || pathname.startsWith(href + "/");
+    }
+
+
     return (
         <div className="fixed top-4 md:top-10 inset-x-0 z-50 will-change-transform">
             <div className="mx-auto max-w-[700px] px-4">
@@ -39,12 +53,32 @@ export default function Navbar() {
 
 
                     {/* default always visible nav */}
-                    <div className="relative z-10 h-12 flex items-center">
-                        <Link href="/" className="flex items-center gap-2">
-                            <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-black text-white text-xs font-bold">
-                                JH
+                    <div className="relative z-10 h-12 flex items-center font-semibold ">
+
+                        {/* <Link href="/"
+                            onClick={() => setOpen(false)}
+                            className={clsx("flex items-center gap-2 hover:opacity-70 font-bold text-xl md:text-base",
+                                pathname === "/" && "underline-offset-4 decoration-2 md:underline"
+                            )}
+                        >
+                            <Terminal color="#4358fb" />
+                            <span className="">Johnny Hall</span>
+                        </Link> */}
+
+                        <Link href="/" onClick={() => setOpen(false)} className="inline-flex items-center gap-1.5 hover:opacity-70 text-lg font-bold md:text-base md:font-bold">
+                            <Code2 strokeWidth={2.2} className=" size-6 md:size-6.5  rounded bg-primary dark:bg-white text-white dark:text-primary-foreground  p-1 mr-0.5" />
+                            <span
+                                className={clsx(
+                                    " ",
+                                    // reserve space + style always
+                                    "border-b-2 border-b-transparent border-solid",
+                                    // only show on desktop if you want that behavior:
+                                    pathname === "/" && "md:border-b-[#1d1d1f] md:dark:border-b-white"
+                                    // or show on all sizes: pathname === "/" && "border-b-black"
+                                )}
+                            >
+                                Johnny Hall
                             </span>
-                            <span className="font-semibold">Johnny Hall</span>
                         </Link>
 
 
@@ -52,9 +86,26 @@ export default function Navbar() {
                         {/* Desktop links */}
                         <ul className="ml-auto hidden md:flex items-center gap-6">
                             {/* primary links... */}
-                            <li><Link href="/projects" className="text-sm font-medium hover:opacity-70">Projects</Link></li>
-                            <li><Link href="/about" className="text-sm font-medium hover:opacity-70">About</Link></li>
-                            <li><Link href="/cv" className="text-sm font-medium hover:opacity-70">CV</Link></li>
+                            {nav.slice(0, 3).map((item) => (
+                                <li key={item.label}>
+                                    <Link
+                                        href={item.href}
+                                        onClick={() => setOpen(false)}
+                                        className={cn(
+                                            "inline-block leading-tight text-base font-semibold hover:opacity-70",
+                                            // reserve space, solid border so it renders even if preflight is off
+                                            "pb-[2px] border-b-2 border-solid",
+                                            isActive(pathname, item.href)
+                                                ? "border-b-[#1d1d1f] dark:border-b-white"
+                                                : "border-b-transparent"
+                                        )}
+                                    >
+                                        {item.label}
+                                    </Link>
+                                </li>
+
+                            ))}
+
 
                             {/* theme icon (utility) */}
                             <li className="-mr-2 ">
@@ -67,7 +118,7 @@ export default function Navbar() {
                             <li className="ml-2">
                                 <Button asChild size="lg" className="rounded-full ">
                                     <Link href="/contact" aria-label="Let's connect">
-                                        Let's connect
+                                        <div className="text-base">Let's connect</div>
                                     </Link>
                                 </Button>
                             </li>
@@ -77,16 +128,13 @@ export default function Navbar() {
                         <div className="ml-auto md:hidden flex items-center gap-1 h-9">
                             <ThemeToggle />
 
-
-
-
                             {/* Mobile toggle control aka burger */}
                             <button
                                 onClick={() => setOpen((v) => !v)}
                                 aria-label={open ? "Close menu" : "Open menu"}
                                 aria-expanded={open}
                                 aria-controls="navbar-mobile-content"
-                                className="inline-flex h-11 w-11 items-center justify-center rounded-2xl  relative z-10"
+                                className="inline-flex h-11 w-11 items-center justify-center rounded-2xl  relative z-10 cursor-pointer"
                             >
                                 <motion.span
                                     initial={false}
@@ -96,17 +144,17 @@ export default function Navbar() {
                                     <motion.span
                                         variants={{ closed: { rotate: 0, y: -6 }, open: { rotate: 45, y: 0 } }}
                                         transition={{ type: "spring", stiffness: 400, damping: 28 }}
-                                        className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-black dark:bg-white"
+                                        className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-[#1d1d1f] dark:bg-white"
                                     />
                                     <motion.span
                                         variants={{ closed: { opacity: 1 }, open: { opacity: 0 } }}
                                         transition={{ duration: 0.15 }}
-                                        className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-black dark:bg-white"
+                                        className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-[#1d1d1f] dark:bg-white"
                                     />
                                     <motion.span
                                         variants={{ closed: { rotate: 0, y: 6 }, open: { rotate: -45, y: 0 } }}
                                         transition={{ type: "spring", stiffness: 400, damping: 28 }}
-                                        className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-black dark:bg-white"
+                                        className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-[#1d1d1f] dark:bg-white"
                                     />
                                 </motion.span>
                             </button>
@@ -132,7 +180,7 @@ export default function Navbar() {
                                             <Link
                                                 href={item.href}
                                                 onClick={() => setOpen(false)}
-                                                className="block  w-fit pr-10 py-3 text-xl font-semibold "
+                                                className="block  w-fit pr-10 py-3 text-lg font-semibold "
                                             >
                                                 {item.label}
                                             </Link>
@@ -142,7 +190,7 @@ export default function Navbar() {
                                     <li className="py-2">
                                         <Button asChild size="lg" className="rounded-full w-full py-6">
                                             <Link href="/contact" aria-label="Let's connect" onClick={() => setOpen(false)}>
-                                                <div className="text-xl font-semibold ">Let's connect</div>
+                                                <div className="text-lg font-semibold ">Let's connect</div>
                                             </Link>
                                         </Button>
                                     </li>

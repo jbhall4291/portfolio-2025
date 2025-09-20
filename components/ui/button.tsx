@@ -27,15 +27,20 @@ const buttonVariants = cva(
         outline: [
           "shadow-xs text-blue-600 border border-2 font-semibold border-blue-600  ",
           "hover:bg-blue-7 hover:bg-blue-700 hover:text-white hover:border-blue-700",
-          "",
+          "focus-visible:border-blue-600 focus-visible:hover:border-blue-700 dark:focus-visible:border-white",
           "",
           "dark:bg-white dark:border-white dark:hover:bg-blue-700",
         ],
         secondary:
           " text-white shadow-xs  hover:bg-zinc-700 text-white bg-zinc-600",
 
+
         ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+          [
+            "hover:bg-red-300 hover:bg-zinc-200",
+            "dark:hover:bg-accent/50",
+
+          ],
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {

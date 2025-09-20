@@ -27,7 +27,7 @@ export function ThemeToggle() {
     return (
 
         <Button
-            className={`w-11 h-11 md:bg-zinc-200 md:dark:bg-zinc-800 cursor-pointer transition-opacity duration-300 ${mounted ? "opacity-100" : "opacity-0"
+            className={`w-11 h-11 cursor-pointer ${mounted ? "opacity-100" : "opacity-0"
                 }`}
             variant="ghost"
             size="icon"

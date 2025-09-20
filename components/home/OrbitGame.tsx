@@ -7,8 +7,8 @@ import { OrbitField } from "@/components/site/orbit-field";
 import IconTile from "@/components/IconTile";
 
 export default function OrbitGame() {
-    const PAUSE_MS = 7_000;     // icon freeze + game length
-    const EPSILON_MS = 250;     // small grace window
+    const PAUSE_MS = 10_000;     // icon freeze + game length
+    const EPSILON_MS = 25;     // small grace window
 
     const [firstTapAt, setFirstTapAt] = React.useState<number | null>(null);
     const [tapTimes, setTapTimes] = React.useState<Map<string, number>>(new Map());

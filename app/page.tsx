@@ -52,14 +52,14 @@ export default function HomePage() {
 
 
             <div className="mt-4 flex flex-wrap items-center justify-center gap-4 z-40">
-              <Button asChild size="xl">
+              <Button asChild size="xl" variant="outline">
                 <Link href="/projects" aria-label="Explore projects">
                   Explore projects
                 </Link>
               </Button>
 
-              <Button asChild size="xl" variant="outline">
-                <Link href="/contact" aria-label="Get in touch">
+              <Button asChild size="xl" >
+                <Link href="/contact" aria-label="Let's connect">
                   Let's connect
                 </Link>
               </Button>

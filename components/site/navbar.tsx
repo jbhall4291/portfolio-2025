@@ -66,8 +66,8 @@ export default function Navbar() {
                             {/* CTA at the far right */}
                             <li className="ml-2">
                                 <Button asChild size="lg" className="rounded-full ">
-                                    <Link href="/contact" aria-label="contact">
-                                        Contact
+                                    <Link href="/contact" aria-label="Let's connect">
+                                        Let's connect
                                     </Link>
                                 </Button>
                             </li>
@@ -140,9 +140,9 @@ export default function Navbar() {
                                     ))}
 
                                     <li className="py-2">
-                                        <Button asChild size="lg" className="rounded-full w-full">
-                                            <Link href="/contact" aria-label="contact" onClick={() => setOpen(false)}>
-                                                Contact
+                                        <Button asChild size="lg" className="rounded-full w-full py-6">
+                                            <Link href="/contact" aria-label="Let's connect" onClick={() => setOpen(false)}>
+                                                <div className="text-xl font-semibold ">Let's connect</div>
                                             </Link>
                                         </Button>
                                     </li>

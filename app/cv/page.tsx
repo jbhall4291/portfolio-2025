@@ -32,16 +32,6 @@ export default function CvPage() {
 
 
                 <div className="flex gap-3 shrink-0 ">
-                    <Button asChild size="lg">
-                        <a
-                            href="/cv/Johnny-Hall-CV.pdf"
-                            download
-                            className="inline-flex items-center gap-2 rounded-full bg-black px-4 py-3 text-white font-medium hover:opacity-90"
-                        >
-                            <Download className="h-5 w-5" />
-                            Download CV (.pdf)
-                        </a>
-                    </Button>
 
                     <Button asChild variant="outline" size="lg">
 
@@ -49,13 +39,22 @@ export default function CvPage() {
                             href="/cv/Johnny-Hall-CV.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 rounded-full border px-4 py-3 hover:bg-zinc-50 dark:hover:bg-zinc-900"
                         >
                             <ExternalLink className="h-5 w-5" />
                             Open CV
                         </a>
                     </Button>
 
+
+                    <Button asChild size="lg">
+                        <a
+                            href="/cv/Johnny-Hall-CV.pdf"
+                            download
+                        >
+                            <Download className="h-5 w-5" />
+                            Download CV (.pdf)
+                        </a>
+                    </Button>
 
                 </div>
 

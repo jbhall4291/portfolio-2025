@@ -69,13 +69,13 @@ export default function AboutPage() {
 
                     <div className="mt-10 flex flex-wrap items-center justify-start gap-3">
 
-                        <Button asChild size="lg">
+                        <Button asChild size="lg" variant="outline">
                             <Link href="/projects" aria-label="Explore projects">
                                 Explore projects
                             </Link>
                         </Button>
 
-                        <Button asChild size="lg" variant="outline">
+                        <Button asChild size="lg" >
                             <Link href="/contact" aria-label="Get in touch">
                                 Let's connect
                             </Link>

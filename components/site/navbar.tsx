@@ -48,7 +48,7 @@ export default function Navbar() {
                 <motion.div
                     initial={false}
                     animate={{}}
-                    className="relative rounded-3xl overflow-hidden bg-zinc-100/50 dark:bg-zinc-900/50 backdrop-blur-sm  px-6 py-2 "
+                    className="relative rounded-3xl overflow-hidden bg-zinc-100/50 dark:bg-zinc-900/50 backdrop-blur-sm pl-5 pr-3 md:pl-6 md:pr-6   py-2 "
                 >
 
 

@@ -55,18 +55,9 @@ export default function Navbar() {
                     {/* default always visible nav */}
                     <div className="relative z-10 h-12 flex items-center font-semibold ">
 
-                        {/* <Link href="/"
-                            onClick={() => setOpen(false)}
-                            className={clsx("flex items-center gap-2 hover:opacity-70 font-bold text-xl md:text-base",
-                                pathname === "/" && "underline-offset-4 decoration-2 md:underline"
-                            )}
-                        >
-                            <Terminal color="#4358fb" />
-                            <span className="">Johnny Hall</span>
-                        </Link> */}
 
                         <Link href="/" onClick={() => setOpen(false)} className="inline-flex items-center gap-1.5 hover:opacity-70 text-lg font-bold md:text-base md:font-bold">
-                            <Code2 strokeWidth={2.2} className=" size-6 md:size-6.5  rounded bg-primary-black dark:bg-white text-white dark:text-primary-black  p-1 mr-0.5" />
+                            <Code2 strokeWidth={2.2} className=" size-6 md:size-6.5  rounded bg-foreground dark:bg-white text-white dark:text-foreground  p-1 mr-0.5" />
                             <span
                                 className={clsx(
                                     " ",

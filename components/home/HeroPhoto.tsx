@@ -7,15 +7,15 @@ import * as React from "react";
 type Props = {
     seriousSrc: string; // e.g. "/images/hero-serious.png"
     smileSrc: string;   // e.g. "/images/hero-smile.png"
-    size?: number;      // default 180
+    
     durationMs?: number; // how long the smile stays, default 6000
 };
 
 export default function HeroPhoto({
     seriousSrc,
     smileSrc,
-    size = 180,
-    durationMs = 6000,
+    
+    durationMs = 3000,
 }: Props) {
     const [smiling, setSmiling] = React.useState(false);
 
@@ -38,7 +38,7 @@ export default function HeroPhoto({
     }, [durationMs]);
 
     return (
-        <div className="relative" style={{ width: size, height: size }}>
+        <div className="relative w-44 h-44 md:w-64 md:h-64" >
             {/* serious (default) */}
             <Image
                 id="hero-photo"
@@ -46,7 +46,7 @@ export default function HeroPhoto({
                 alt="Johnny Hall"
                 fill
                 priority
-                className={`rounded-full border border-primary/20 bg-white/50 backdrop-blur-md dark:border-none dark:bg-black/50 select-none object-cover transition-opacity duration-500 ${smiling ? "opacity-0" : "opacity-100"}`}
+                className={`rounded-full border-2 border-primary/20 bg-white/90 backdrop-blur-md dark:border-none dark:bg-black/20 select-none object-cover transition-opacity duration-500 ${smiling ? "opacity-0" : "opacity-100"}`}
                 style={{ filter: "drop-shadow(0 6px 24px rgba(0,0,0,.15))" }}
             />
             {/* smiling (revealed on win) */}
@@ -54,7 +54,7 @@ export default function HeroPhoto({
                 src={smileSrc}
                 alt="Johnny Hall smiling"
                 fill
-                className={`rounded-full border border-primary/20 bg-white/50 backdrop-blur-md dark:border-none dark:bg-black/50 select-none object-cover transition-opacity duration-500 ${smiling ? "opacity-100" : "opacity-0"}`}
+                className={`rounded-full border-2 border-primary/20 bg-white/90 backdrop-blur-md dark:border-none dark:bg-black/20 select-none object-cover transition-opacity duration-500 ${smiling ? "opacity-100" : "opacity-0"}`}
                 aria-hidden
             />
         </div>

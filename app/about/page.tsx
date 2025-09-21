@@ -91,8 +91,8 @@ export default function AboutPage() {
                 <div className="md:justify-self-end">
                     <div className="relative w-full h-96  md:h-96 md:w-96  overflow-hidden rounded-3xl  bg-zinc-100 dark:bg-zinc-900">
                         <Image
-                            src="/images/hq_nobg.png"
-                            alt="Johnny Hall — software developer"
+                            src="/images/hero_headshots/smile_cropped_500px_no_bg.png"
+                            alt="Johnny Hall — Software Engineer"
                             fill
                             priority
                             sizes="(max-width: 768px) 60vw, 18rem"

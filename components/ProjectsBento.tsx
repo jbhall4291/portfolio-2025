@@ -148,7 +148,7 @@ const features: BentoCardProps[] = [
                 alt=""
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="absolute inset-0 h-full w-full object-cover pointer-events-none brightness-175 md:brightness-125"
+                className="absolute inset-0 h-full w-full object-cover pointer-events-none brightness-200 md:brightness-125"
                 aria-hidden="true"
             />
         ),

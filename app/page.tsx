@@ -1,16 +1,15 @@
+//root page.tsx
 import Image from "next/image";
 import Link from "next/link";
 import OrbitGame from "@/components/home/OrbitGame";
 import { Button } from "@/components/ui/button";
 import HeroPhoto from "@/components/home/HeroPhoto";
 
+// app/page.tsx
 export const metadata = {
   title: "Johnny Hall – Software Engineer",
-  description:
-    "Full-stack apps with React/Next.js, Node/Express, TypeScript and MongoDB.",
-  openGraph: { images: ["/og/hero.jpg"] },
+  description: "Full-stack, client-facing engineer using React/Next.js, Node.js, TypeScript and MongoDB.",
 };
-
 
 
 const jsonLd = {

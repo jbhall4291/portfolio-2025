@@ -5,17 +5,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-    title: "About",
+export const metadata = {
+    title: "About – Johnny Hall",
     description:
-        "Former London black cab driver turned software developer. I build modern full-stack apps with React/Next.js, Node/Express, TypeScript and MongoDB.",
-    alternates: { canonical: "/about" },
-    openGraph: {
-        title: "About | Johnny Hall",
-        description:
-            "Full-stack developer focused on clean architecture, TDD and CI/CD.",
-        images: ["/og.png"],
-    },
+        "Learn more about Johnny Hall – Software Engineer · Full-Stack · Client-Facing. Background, experience, and what sets me apart.",
 };
 
 export default function AboutPage() {

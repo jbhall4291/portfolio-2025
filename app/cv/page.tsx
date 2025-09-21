@@ -4,16 +4,11 @@ import Image from "next/image";
 import { Download, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export const metadata: Metadata = {
-    title: "CV",
-    description: "Curriculum Vitae of Johnny Hall, Software Developer.",
-    alternates: { canonical: "/cv" },
-    openGraph: {
-        title: "CV | Johnny Hall",
-        description: "Curriculum Vitae of Johnny Hall, Software Developer.",
-        images: ["/og.png"],
-    },
+export const metadata = {
+    title: "CV – Johnny Hall",
+    description: "Johnny Hall full-stack, client-facing engineer CV",
 };
+
 
 export default function CvPage() {
     return (

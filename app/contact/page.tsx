@@ -4,19 +4,9 @@ import { Mail, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-    title: "Contact | Johnny Hall",
-    description:
-        "Get in touch with Johnny Hall — full-stack developer who understands code and business. Email, LinkedIn, and GitHub.",
-    alternates: { canonical: "/contact" },
-    openGraph: {
-        title: "Contact | Johnny Hall",
-        description:
-            "Reach Johnny via email or LinkedIn, or explore projects on GitHub.",
-        images: ["/og.png"],
-        url: "https://johnnyhall.dev/contact",
-        type: "website",
-    },
+export const metadata = {
+    title: "Contact – Johnny Hall",
+    description: "Let’s connect.",
 };
 
 export default function ContactPage() {

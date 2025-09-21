@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { ProjectsBento } from "@/components/ProjectsBento";
 
-export const metadata: Metadata = {
-    title: "Projects",
-    description: "Selected projects across web, mobile, tooling, and IoT.",
+export const metadata = {
+    title: "Projects – Johnny Hall",
+    description: "Selected full-stack projects with React/Next.js, Node.js, TypeScript and MongoDB.",
 };
 
 export default function ProjectsPage() {

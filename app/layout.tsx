@@ -8,23 +8,24 @@ import Navbar from "@/components/site/navbar";
 import Footer from "@/components/site/footer";
 import { saans } from "./fonts";
 
+// app/layout.tsx
 export const metadata: Metadata = {
   metadataBase: new URL("https://johnnyhall.dev"),
-  title: { default: "Johnny Hall — Software Developer", template: "%s | Johnny Hall" },
-  description: "Selected projects, background, and contact.",
+  title: { default: "Johnny Hall — Software Engineer", template: "%s | Johnny Hall" },
+  description: "Full-stack, client-facing engineer using React/Next.js, Node.js, TypeScript and MongoDB.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    url: "https://johnnyhall.dev",
+    url: "/",
     siteName: "Johnny Hall",
-    title: "Johnny Hall — Software Developer",
-    description: "Selected projects, background, and contact.",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Johnny Hall — Software Developer" }],
+    title: "Johnny Hall — Software Engineer",
+    description: "Full-stack, client-facing engineer using React/Next.js, Node.js, TypeScript and MongoDB.",
+    images: [{ url: "/og.png", width: 2400, height: 1260, alt: "Johnny Hall — Software Engineer · Full-Stack · Client-Facing" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Johnny Hall — Software Developer",
-    description: "Selected projects, background, and contact.",
+    title: "Johnny Hall — Software Engineer",
+    description: "Full-stack, client-facing engineer using React/Next.js, Node.js, TypeScript and MongoDB.",
     images: ["/og.png"],
   },
 };

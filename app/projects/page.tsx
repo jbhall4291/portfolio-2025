@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
     return (
         <main>
-            <div className="mx-auto flex flex-col max-w-4xl mb-8 mt-24 px-2 md:mt-36  dark:text-zinc-200  ">
+            <div className="mx-auto flex flex-col max-w-4xl mb-8 mt-24 px-6 md:mt-36  dark:text-zinc-200  ">
                 <h1 id="about-heading" className=" mb-2 text-4xl md:text-7xl font-semibold  tracking-tight">
                     My Projects
                 </h1>

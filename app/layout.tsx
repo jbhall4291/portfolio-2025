@@ -8,25 +8,32 @@ import Navbar from "@/components/site/navbar";
 import Footer from "@/components/site/footer";
 import { saans } from "./fonts";
 
-// app/layout.tsx
 export const metadata: Metadata = {
-  metadataBase: new URL("https://johnnyhall.dev"),
+  metadataBase: new URL("https://portfolio-2025-rouge-eight.vercel.app"),
   title: { default: "Johnny Hall — Software Engineer", template: "%s | Johnny Hall" },
-  description: "Full-stack, client-facing engineer using React/Next.js, Node.js, TypeScript and MongoDB.",
-  alternates: { canonical: "/" },
+  description: "Full-stack software engineer · React/Next.js, Node.js, TypeScript, SQL, and MongoDB · client-facing and solution-driven.",
   openGraph: {
     type: "website",
-    url: "/",
+    url: "https://portfolio-2025-rouge-eight.vercel.app",
     siteName: "Johnny Hall",
     title: "Johnny Hall — Software Engineer",
-    description: "Full-stack, client-facing engineer using React/Next.js, Node.js, TypeScript and MongoDB.",
-    images: [{ url: "/og.png", width: 2400, height: 1260, alt: "Johnny Hall — Software Engineer · Full-Stack · Client-Facing" }],
+    description:
+      "Full-stack software engineer building scalable apps with React/Next.js, Node.js, TypeScript, SQL, and MongoDB. Experienced in client-facing consultancy work and solution-driven delivery.",
+    images: [
+      {
+        url: "https://portfolio-2025-rouge-eight.vercel.app/og.png",
+        width: 2400,
+        height: 1260,
+        alt: "Johnny Hall – Software Engineer · Full-Stack · Client-Facing",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Johnny Hall — Software Engineer",
-    description: "Full-stack, client-facing engineer using React/Next.js, Node.js, TypeScript and MongoDB.",
-    images: ["/og.png"],
+    description:
+      "Full-stack software engineer building scalable apps with React/Next.js, Node.js, TypeScript, SQL, and MongoDB. Client-facing and solution-driven.",
+    images: ["https://portfolio-2025-rouge-eight.vercel.app/og.png"],
   },
 };
 

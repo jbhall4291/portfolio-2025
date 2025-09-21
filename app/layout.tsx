@@ -7,6 +7,7 @@ import "./globals.css";
 import Navbar from "@/components/site/navbar";
 import Footer from "@/components/site/footer";
 import { saans } from "./fonts";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-2025-rouge-eight.vercel.app"),
@@ -76,6 +77,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <main className="flex-1">{children}</main>
           <Footer />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

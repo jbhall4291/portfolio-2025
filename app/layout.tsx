@@ -10,19 +10,19 @@ import { saans } from "./fonts";
 import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-2025-rouge-eight.vercel.app"),
+  metadataBase: new URL("https://johnnyhall.dev"),
   title: { default: "Johnny Hall — Software Engineer", template: "%s | Johnny Hall" },
   description: "Full-stack software engineer · React/Next.js, Node.js, TypeScript, SQL, and MongoDB · client-facing and solution-driven.",
   openGraph: {
     type: "website",
-    url: "https://portfolio-2025-rouge-eight.vercel.app",
+    url: "https://johnnyhall.dev",
     siteName: "Johnny Hall",
     title: "Johnny Hall — Software Engineer",
     description:
       "Full-stack software engineer building scalable apps with React/Next.js, Node.js, TypeScript, SQL, and MongoDB. Experienced in client-facing consultancy work and solution-driven delivery.",
     images: [
       {
-        url: "https://portfolio-2025-rouge-eight.vercel.app/og.png",
+        url: "https://johnnyhall.dev/og.png",
         width: 2400,
         height: 1260,
         alt: "Johnny Hall – Software Engineer · Full-Stack · Client-Facing",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: "Johnny Hall — Software Engineer",
     description:
       "Full-stack software engineer building scalable apps with React/Next.js, Node.js, TypeScript, SQL, and MongoDB. Client-facing and solution-driven.",
-    images: ["https://portfolio-2025-rouge-eight.vercel.app/og.png"],
+    images: ["https://johnnyhall.dev/og.png"],
   },
 };
 

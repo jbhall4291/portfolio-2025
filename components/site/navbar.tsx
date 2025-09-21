@@ -57,14 +57,14 @@ export default function Navbar() {
 
 
                         <Link href="/" onClick={() => setOpen(false)} className="inline-flex items-center gap-1.5 hover:opacity-70 text-lg font-bold md:text-base md:font-bold">
-                            <Code2 strokeWidth={2.2} className=" size-6 md:size-6.5  rounded bg-foreground dark:bg-white text-white dark:text-foreground  p-1 mr-0.5" />
+                            <Code2 strokeWidth={2} className=" size-6 md:size-6.5  rounded bg-foreground  text-white dark:text-[#1e1e20]   p-1 mr-0.5" />
                             <span
                                 className={clsx(
                                     " ",
                                     // reserve space + style always
                                     "border-b-2 border-b-transparent border-solid",
                                     // only show on desktop if you want that behavior:
-                                    pathname === "/" && "md:border-b-[#1d1d1f] md:dark:border-b-white"
+                                    pathname === "/" && "md:border-b-foreground"
                                     // or show on all sizes: pathname === "/" && "border-b-black"
                                 )}
                             >
@@ -87,7 +87,7 @@ export default function Navbar() {
                                             // reserve space, solid border so it renders even if preflight is off
                                             "pb-[2px] border-b-2 border-solid",
                                             isActive(pathname, item.href)
-                                                ? "border-b-[#1d1d1f] dark:border-b-white"
+                                                ? "border-b-foreground"
                                                 : "border-b-transparent"
                                         )}
                                     >
@@ -135,17 +135,17 @@ export default function Navbar() {
                                     <motion.span
                                         variants={{ closed: { rotate: 0, y: -6 }, open: { rotate: 45, y: 0 } }}
                                         transition={{ type: "spring", stiffness: 400, damping: 28 }}
-                                        className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-[#1d1d1f] dark:bg-white"
+                                        className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-foreground"
                                     />
                                     <motion.span
                                         variants={{ closed: { opacity: 1 }, open: { opacity: 0 } }}
                                         transition={{ duration: 0.15 }}
-                                        className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-[#1d1d1f] dark:bg-white"
+                                        className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-foreground"
                                     />
                                     <motion.span
                                         variants={{ closed: { rotate: 0, y: 6 }, open: { rotate: -45, y: 0 } }}
                                         transition={{ type: "spring", stiffness: 400, damping: 28 }}
-                                        className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-[#1d1d1f] dark:bg-white"
+                                        className="absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-foreground"
                                     />
                                 </motion.span>
                             </button>

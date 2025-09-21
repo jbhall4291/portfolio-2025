@@ -7,27 +7,21 @@ import "./globals.css";
 import Navbar from "@/components/site/navbar";
 import Footer from "@/components/site/footer";
 import { saans } from "./fonts";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://johnnyhall.dev"),
   title: { default: "Johnny Hall — Software Engineer", template: "%s | Johnny Hall" },
-  description: "Full-stack software engineer · React/Next.js, Node.js, TypeScript, SQL, and MongoDB · client-facing and solution-driven.",
+  description:
+    "Full-stack software engineer · React/Next.js, Node.js, TypeScript, SQL, MongoDB · client-facing and solution-driven.",
   openGraph: {
     type: "website",
     url: "https://johnnyhall.dev",
     siteName: "Johnny Hall",
     title: "Johnny Hall — Software Engineer",
     description:
-      "Full-stack software engineer building scalable apps with React/Next.js, Node.js, TypeScript, SQL, and MongoDB. Experienced in client-facing consultancy work and solution-driven delivery.",
-    images: [
-      {
-        url: "https://johnnyhall.dev/og.png",
-        width: 2400,
-        height: 1260,
-        alt: "Johnny Hall – Software Engineer · Full-Stack · Client-Facing",
-      },
-    ],
+      "Full-stack software engineer building scalable apps with React/Next.js, Node.js, TypeScript, SQL, and MongoDB. Experienced in client-facing consultancy.",
+    images: [{ url: "https://johnnyhall.dev/og.png", width: 2400, height: 1260, alt: "Johnny Hall – Software Engineer" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -39,40 +33,26 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  // In your Next version, cookies() is async — await it.
   const cookieStore = await cookies();
   const cookieTheme = cookieStore.get("theme")?.value as "light" | "dark" | "system" | undefined;
   const isCookieDark = cookieTheme === "dark";
 
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`h-full ${isCookieDark ? "dark" : ""}`}
-    >
-      <head>
-        {/* Preflight: if no cookie or cookie === "system", respect system dark on first paint */}
-        <Script id="theme-preflight" strategy="beforeInteractive">{`
-(function () {
-  try {
-    var m = document.cookie.match(/(?:^|; )theme=([^;]+)/);
-    var c = m && m[1];
-    if (!c || c === 'system') {
-      var mql = window.matchMedia('(prefers-color-scheme: dark)');
-      if (mql.matches) document.documentElement.classList.add('dark');
-    }
-  } catch (e) {}
-})();
-        `}</Script>
-      </head>
+    <html lang="en" suppressHydrationWarning className={`h-full ${isCookieDark ? "dark" : ""}`}>
       <body className={`${saans.variable} font-sans antialiased min-h-dvh flex flex-col`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme={cookieTheme ?? "system"}
-          enableSystem
-          enableColorScheme
-          disableTransitionOnChange
-        >
+        {/* Preflight: respect system dark before hydration */}
+        <Script id="theme-preflight" strategy="beforeInteractive">{`
+          try {
+            var m = document.cookie.match(/(?:^|; )theme=([^;]+)/);
+            var c = m && m[1];
+            if (!c || c === 'system') {
+              var mql = window.matchMedia('(prefers-color-scheme: dark)');
+              if (mql.matches) document.documentElement.classList.add('dark');
+            }
+          } catch (e) {}
+        `}</Script>
+
+        <ThemeProvider attribute="class" defaultTheme={cookieTheme ?? "system"} enableSystem enableColorScheme disableTransitionOnChange>
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />

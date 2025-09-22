@@ -56,8 +56,8 @@ export default function Navbar() {
                     <div className="relative z-10 h-12 flex items-center font-semibold ">
 
 
-                        <Link href="/" onClick={() => setOpen(false)} className="inline-flex items-center gap-1.5 hover:opacity-70 text-lg font-bold md:text-base md:font-bold">
-                            <Code2 strokeWidth={2} className=" size-6 md:size-6.5  rounded bg-foreground  text-white dark:text-[#1e1e20]   p-1 mr-0.5" />
+                        <Link href="/" onClick={() => setOpen(false)} className="inline-flex items-center gap-1.5   hover:opacity-70 text-lg font-bold md:text-lg md:font-extrabold  ">
+
                             <span
                                 className={clsx(
                                     " ",

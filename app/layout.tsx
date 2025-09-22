@@ -49,17 +49,24 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en" suppressHydrationWarning className={`h-full ${isCookieDark ? "dark" : ""}`}>
       <body className={`${saans.variable} font-sans antialiased min-h-dvh flex flex-col`}>
-        {/* Preflight: respect system dark before hydration */}
+        {/* Preflight: respect system dark before hydration - if no preference or an error, then default to dark */}
         <Script id="theme-preflight" strategy="beforeInteractive">{`
           try {
             var m = document.cookie.match(/(?:^|; )theme=([^;]+)/);
             var c = m && m[1];
             if (!c || c === 'system') {
-              var mql = window.matchMedia('(prefers-color-scheme: dark)');
-              if (mql.matches) document.documentElement.classList.add('dark');
+              var mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+              // If we can't detect, default to dark. If we can, follow dark.
+              if (!mql || typeof mql.matches !== 'boolean' || mql.matches) {
+                document.documentElement.classList.add('dark');
+              }
             }
-          } catch (e) {}
+          } catch (_) {
+            // On any error, default to dark for neutrals
+            document.documentElement.classList.add('dark');
+          }
         `}</Script>
+
 
         <ThemeProvider attribute="class" defaultTheme={cookieTheme ?? "system"} enableSystem enableColorScheme disableTransitionOnChange>
           <Navbar />

@@ -28,7 +28,7 @@ export default function AboutPage() {
                     <div className="space-y-6  text-base md:text-lg">
 
                         <p className="text-lg md:text-2xl font-medium leading-relaxed mb-6">
-                            Former London black cab driver turned software developer. I build modern full-stack apps with React/Next.js, Node/Express, TypeScript, and MongoDB.
+                            Former London black cab driver turned software engineer. I build modern full-stack apps with React/Next.js, Node/Express, TypeScript, and MongoDB.
                         </p>
 
                         <p>

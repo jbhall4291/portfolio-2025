@@ -17,7 +17,7 @@ const jsonLd = {
   "@type": "Person",
   name: "Johnny Hall",
   url: "https://johnnyhall.dev",
-  jobTitle: "Software Developer",
+  jobTitle: "Software Engineer",
   sameAs: ["https://github.com/jbhall4291/", "https://www.linkedin.com/in/johnny-hall-dev"]
 
 };

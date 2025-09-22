@@ -51,13 +51,13 @@ export default function HomePage() {
 
 
             <div className="mt-4 flex flex-wrap items-center justify-center gap-4 z-40">
-              <Button asChild size="xl" variant="outline">
+              <Button asChild size="lg" variant="outline" className="rounded-full py-6 text-lg font-semibold">
                 <Link href="/projects" aria-label="Explore projects">
                   Explore projects
                 </Link>
               </Button>
 
-              <Button asChild size="xl" >
+              <Button asChild size="lg" className="rounded-full py-6 text-lg font-semibold">
                 <Link href="/contact" aria-label="Let's connect">
                   Let's connect
                 </Link>

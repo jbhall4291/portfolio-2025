@@ -14,7 +14,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: [
-          "shadow-xs  bg-blue-600 text-white",
+          "shadow-xs  bg-blue-600 text-white border border-2 border-blue-600",
           "hover:bg-blue-700"
         ],
         // " backdrop-blur-md  shadow-xs text-primary  bg-blue-600/60 text-white hover:bg-blue-700"

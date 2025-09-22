@@ -31,7 +31,7 @@ export default function CvPage() {
                     <Button asChild variant="outline" size="lg">
 
                         <a
-                            href="/cv/Johnny-Hall-CV.pdf"
+                            href="/cv/Johnny_Hall_CV.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -43,7 +43,7 @@ export default function CvPage() {
 
                     <Button asChild size="lg">
                         <a
-                            href="/cv/Johnny-Hall-CV.pdf"
+                            href="/cv/Johnny_Hall_CV.pdf"
                             download
                         >
                             <Download className="h-5 w-5" />
@@ -83,7 +83,7 @@ export default function CvPage() {
             <link
                 rel="alternate"
                 type="application/pdf"
-                href="/cv/Johnny-Hall-CV-(web).pdf"
+                href="/cv/Johnny_Hall_CV.pdf"
             />
         </main>
     );

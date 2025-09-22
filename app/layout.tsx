@@ -14,6 +14,15 @@ export const metadata: Metadata = {
   title: { default: "Johnny Hall — Software Engineer", template: "%s | Johnny Hall" },
   description:
     "Full-stack software engineer · React/Next.js, Node.js, TypeScript, SQL, MongoDB · client-facing and solution-driven.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" }
+    ],
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180" }
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     url: "https://johnnyhall.dev",

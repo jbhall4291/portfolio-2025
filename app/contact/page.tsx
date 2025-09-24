@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 export default function ContactPage() {
-    const email = "jbhall4291@gmail.com";
+    const email = "hello@johnnyhall.dev";
     const linkedin = "https://www.linkedin.com/in/johnny-hall-dev/";
     const github = "https://github.com/jbhall4291";
 

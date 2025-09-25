@@ -34,20 +34,17 @@ export default function HomePage() {
       <main className="mx-auto w-full max-w-[120rem]  pt-10 select-none">
         <section className="relative mt-10 min-h-[85svh] flex justify-center items-center overflow-hidden xl:overflow-visible">
 
-          <div className="relative z-10 flex flex-col h-full items-center justify-center text-center mt-10 ">
-
-
+          <div className="relative z-10 flex flex-col h-full items-center justify-center text-center ">
             <HeroPhoto
-
               seriousSrc="/images/hero_headshots/cropped_500px_no_bg.png" // default
               smileSrc="/images/hero_headshots/smile_cropped_500px_no_bg.png"     // the easter egg one              
               durationMs={3000}
             />
-            <h1 className="text-4xl lg:text-[60px] font-bold leading-none tracking-tight">Johnny Hall</h1>
-            <h2 className="mt-1 text-4xl lg:text-[45px] font-semibold  leading-none text-[#46464A] ">Software Engineer</h2>
-            <h2 className="mt-0.5 text-4xl lg:text-[37px] font-normal  leading-none  text-[#6e6e73]">Full Stack · Client Facing</h2>
+            <h1 className="text-[40px] lg:text-[60px]  font-bold leading-[50px] lg:leading-[72px] tracking-tight ">Johnny Hall</h1>
+            <h2 className="text-[30px] lg:text-[44px] font-semibold leading-[36px]  lg:leading-[50px]  text-[#46464A] dark:text-neutral-300">Software Engineer</h2>
+            <h2 className="text-[24px] lg:text-[36px] font-normal leading-[34px]  lg:leading-[40px]   text-[#6e6e73] dark:text-neutral-400">Full Stack · Client Facing</h2>
 
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-4 z-40">
+            <div className="mt-5 flex flex-wrap justify-between gap-x-4   z-40">
               <Button asChild size="lg" variant="outline" className="rounded-full py-4 text-lg font-semibold">
                 <Link href="/projects" aria-label="Explore projects">
                   Explore projects

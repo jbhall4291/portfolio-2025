@@ -36,14 +36,16 @@ export default function HeroPhoto({
 
     return (
         <div
-            className="
-        relative w-40 h-40 md:w-56 md:h-56
-        rounded-full overflow-hidden
-        border-2 border-primary/20 dark:border-white/20
-        bg-white/90 dark:bg-black/20
-        backdrop-blur-md
-        [filter:drop-shadow(0_6px_24px_rgba(0,0,0,.15))]
-      "
+        className="
+    relative w-40 h-40 md:w-56 md:h-56
+    rounded-full overflow-hidden
+    border-2 border-primary/20 dark:border-white/20
+    backdrop-blur-md
+    [filter:drop-shadow(0_6px_24px_rgba(0,0,0,.15))] dark:[filter:none]
+
+    [background:radial-gradient(circle_at_50%_35%,theme(colors.zinc.200)_0%,theme(colors.zinc.50)_70%)]
+    dark:[background:radial-gradient(circle_at_50%_35%,theme(colors.zinc.700)_0%,theme(colors.zinc.800)_70%)]
+  "
             aria-label="Portrait of Johnny Hall"
         >
             {/* serious (default) */}

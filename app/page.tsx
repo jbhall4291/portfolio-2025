@@ -44,16 +44,16 @@ export default function HomePage() {
             <h2 className="text-[30px] lg:text-[44px] font-semibold leading-[36px]  lg:leading-[50px]  text-[#46464A] dark:text-neutral-300">Software Engineer</h2>
             <h2 className="text-[24px] lg:text-[36px] font-normal leading-[34px]  lg:leading-[40px]   text-[#6e6e73] dark:text-neutral-400">Full Stack · Client Facing</h2>
 
-            <div className="mt-5 flex flex-wrap justify-between gap-x-4 ">
-              <Button asChild size="lg" variant="outline" className="z-20 rounded-full py-4 text-lg font-semibold">
+            <div className="mt-5 flex flex-wrap justify-between gap-x-3 ">
+              <Button asChild size="lg" variant="outline" className="z-20 rounded-full py-4 text-lg">
                 <Link href="/projects" aria-label="Explore projects">
                   Explore projects
                 </Link>
               </Button>
 
-              <Button asChild size="lg" className="z-20 rounded-full py-4 text-lg font-semibold">
-                <Link href="/contact" aria-label="Let's connect">
-                  Let's connect
+              <Button asChild size="lg" className="z-20 rounded-full py-4 text-lg">
+                <Link href="/cv" aria-label="View CV">
+                  View my CV
                 </Link>
               </Button>
             </div>

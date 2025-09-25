@@ -8,7 +8,7 @@ const buttonVariants = cva(
   ["inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium",
     "transition-all duration-300 disabled:pointer-events-none disabled:opacity-50",
     "[&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0",
-    "outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20",
+    "outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white aria-invalid:ring-destructive/20 dark:focus-visible:ring-offset-zinc-900",
     "dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",],
   {
     variants: {
@@ -27,7 +27,7 @@ const buttonVariants = cva(
         ],
         outline: [
           "shadow-xs text-blue-600 border border-2 font-semibold border-blue-600  bg-white/30 backdrop-blur-md",
-          "hover:bg-blue-7 hover:bg-blue-700 hover:text-white hover:border-blue-700",
+          "hover:bg-blue-700 hover:text-white hover:border-blue-700",
           "focus-visible:border-blue-600 focus-visible:hover:border-blue-700 dark:focus-visible:border-white",
           "",
           "dark:bg-white dark:border-white dark:hover:bg-blue-700",

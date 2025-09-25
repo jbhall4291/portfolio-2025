@@ -27,7 +27,7 @@ export default function ContactPage() {
             </p>
 
             <div className="flex flex-wrap items-center justify-start gap-3">
-                <Button asChild size="lg">
+                <Button asChild size="lg" className="text-lg">
                     <a
                         href={linkedin}
                         target="_blank"
@@ -39,14 +39,14 @@ export default function ContactPage() {
                     </a>
                 </Button>
 
-                <Button asChild variant="outline" size="lg">
+                <Button asChild variant="outline" size="lg" className="text-lg">
                     <a href={`mailto:${email}`} aria-label="Email Johnny">
                         <Mail className=" h-4 w-4" />
                         Email
                     </a>
                 </Button>
 
-                <Button asChild size="lg" variant="outline" >
+                <Button asChild size="lg" variant="outline" className="text-lg">
                     <a
                         href={github}
                         target="_blank"

@@ -28,25 +28,25 @@ export default function CvPage() {
 
                 <div className="flex gap-3 shrink-0 ">
 
-                    <Button asChild variant="outline" size="lg">
+                    <Button asChild variant="outline" size="lg" className="text-lg">
 
                         <a
                             href="/cv/Johnny_Hall_CV.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <ExternalLink className="h-5 w-5" />
+                            <ExternalLink />
                             Open CV
                         </a>
                     </Button>
 
 
-                    <Button asChild size="lg">
+                    <Button asChild size="lg" className="text-lg">
                         <a
                             href="/cv/Johnny_Hall_CV.pdf"
                             download
                         >
-                            <Download className="h-5 w-5" />
+                            <Download className="h-6 w-6" />
                             Download CV (.pdf)
                         </a>
                     </Button>

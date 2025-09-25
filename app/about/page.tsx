@@ -27,7 +27,7 @@ export default function AboutPage() {
                     </h1>
                     <div className="space-y-6  text-base md:text-lg">
 
-                        <p className="text-lg md:text-2xl font-medium leading-relaxed mb-6">
+                        <p className="text-lg md:text-2xl leading-relaxed font-medium  mb-6 ">
                             Former London black cab driver turned software engineer. I build modern full-stack apps with React/Next.js, Node/Express, TypeScript, and MongoDB.
                         </p>
 
@@ -62,14 +62,14 @@ export default function AboutPage() {
 
                     <div className="mt-10 flex flex-wrap items-center justify-start gap-3">
 
-                        <Button asChild size="lg" variant="outline">
+                        <Button asChild size="lg" variant="outline" className="text-lg">
                             <Link href="/projects" aria-label="Explore projects">
                                 Explore projects
                             </Link>
                         </Button>
 
-                        <Button asChild size="lg" >
-                            <Link href="/contact" aria-label="Get in touch">
+                        <Button asChild size="lg" className="text-lg">
+                            <Link href="/contact" aria-label="Let's connect">
                                 Let's connect
                             </Link>
                         </Button>

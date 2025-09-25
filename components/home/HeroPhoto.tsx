@@ -38,7 +38,7 @@ export default function HeroPhoto({
     }, [durationMs]);
 
     return (
-        <div className="relative w-44 h-44 md:w-64 md:h-64" >
+        <div className="relative w-40 h-40 md:w-56 md:h-56" >
             {/* serious (default) */}
             <Image
                 id="hero-photo"

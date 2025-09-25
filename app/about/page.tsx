@@ -82,7 +82,14 @@ export default function AboutPage() {
 
                 {/* Photo column (moves below on mobile) */}
                 <div className="md:justify-self-end">
-                    <div className="relative w-full h-96  md:h-96 md:w-96  overflow-hidden rounded-3xl  bg-zinc-100 dark:bg-zinc-900">
+                    <div
+                        className="relative w-full h-96 md:h-96 md:w-96 
+    overflow-hidden rounded-3xl 
+    border border-zinc-300/40 dark:border-zinc-700/40
+    shadow-lg dark:shadow-none
+    [background:radial-gradient(circle_at_50%_35%,theme(colors.zinc.200)_0%,theme(colors.zinc.50)_70%)] 
+    dark:[background:radial-gradient(circle_at_50%_35%,theme(colors.zinc.700)_0%,theme(colors.zinc.800)_70%)]"
+                    >
                         <Image
                             src="/images/hero_headshots/smile_cropped_500px_no_bg.png"
                             alt="Johnny Hall — Software Engineer"
@@ -92,6 +99,8 @@ export default function AboutPage() {
                             className="object-cover"
                         />
                     </div>
+
+
                 </div>
             </section>
 

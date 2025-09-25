@@ -34,7 +34,7 @@ export default function HomePage() {
       <main className="mx-auto w-full max-w-[120rem]  pt-10 select-none">
         <section className="relative mt-10 min-h-[85svh] flex justify-center items-center overflow-hidden xl:overflow-visible">
 
-          <div className="relative z-10 flex flex-col h-full items-center justify-center text-center ">
+          <div className="relative flex flex-col h-full items-center justify-center text-center ">
             <HeroPhoto
               seriousSrc="/images/hero_headshots/cropped_500px_no_bg.png" // default
               smileSrc="/images/hero_headshots/smile_cropped_500px_no_bg.png"     // the easter egg one              
@@ -44,14 +44,14 @@ export default function HomePage() {
             <h2 className="text-[30px] lg:text-[44px] font-semibold leading-[36px]  lg:leading-[50px]  text-[#46464A] dark:text-neutral-300">Software Engineer</h2>
             <h2 className="text-[24px] lg:text-[36px] font-normal leading-[34px]  lg:leading-[40px]   text-[#6e6e73] dark:text-neutral-400">Full Stack · Client Facing</h2>
 
-            <div className="mt-5 flex flex-wrap justify-between gap-x-4   z-40">
-              <Button asChild size="lg" variant="outline" className="rounded-full py-4 text-lg font-semibold">
+            <div className="mt-5 flex flex-wrap justify-between gap-x-4 ">
+              <Button asChild size="lg" variant="outline" className="z-20 rounded-full py-4 text-lg font-semibold">
                 <Link href="/projects" aria-label="Explore projects">
                   Explore projects
                 </Link>
               </Button>
 
-              <Button asChild size="lg" className="rounded-full py-4 text-lg font-semibold">
+              <Button asChild size="lg" className="z-20 rounded-full py-4 text-lg font-semibold">
                 <Link href="/contact" aria-label="Let's connect">
                   Let's connect
                 </Link>
@@ -62,7 +62,7 @@ export default function HomePage() {
           {/* Only this block needs client runtime */}
           <div
             className="
-              absolute inset-0 z-30
+              absolute inset-0 z-0
               pointer-events-none                
               overflow-hidden xl:overflow-visible
               xl:max-w-[1480px] mx-auto

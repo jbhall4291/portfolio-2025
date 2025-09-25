@@ -25,7 +25,7 @@ const buttonVariants = cva(
           "dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         ],
         outline: [
-          "shadow-xs text-blue-600 border border-2 font-semibold border-blue-600  ",
+          "shadow-xs text-blue-600 border border-2 font-semibold border-blue-600  bg-white/30 backdrop-blur-md",
           "hover:bg-blue-7 hover:bg-blue-700 hover:text-white hover:border-blue-700",
           "focus-visible:border-blue-600 focus-visible:hover:border-blue-700 dark:focus-visible:border-white",
           "",

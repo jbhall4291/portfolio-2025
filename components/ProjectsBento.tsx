@@ -5,7 +5,7 @@ const features: BentoCardProps[] = [
     {
         name: "Completed It Mate",
         description:
-            "In-development Web app for tracking video games: log completed, owned, or wishlisted titles, and connect with friends.",
+            "In-development full-stack web app with database persistence, backend built with TDD, and automated test coverage - applied here to tracking a user’s collection of completed, wishlisted, and in-progress video games.",
         href: "/",
         cta: "Learn more",
         background: (
@@ -21,7 +21,7 @@ const features: BentoCardProps[] = [
         ),
         tech: [
             { label: "React" }, { label: "Next.js" }, { label: "TypeScript" }, { label: "Node.js" },
-            { label: "Express" }, { label: "MongoDB" }, { label: "Jest + Supertest" }, { label: "Playwright" },
+            { label: "Express" }, { label: "MongoDB" }, { label: "Jest + Supertest" }, { label: "Playwright" }, { label: "TDD" }, { label: "GitHub Actions" },
         ],
         actions: [
             { label: "Visit site", href: "https://completed-it-mate-fe.vercel.app/", variant: "default", newTab: true },
@@ -34,7 +34,7 @@ const features: BentoCardProps[] = [
     {
         name: "Enginair",
         description:
-            "A web wizard for engineers to filter and compare residential HVAC options, simplifying complex product choices. Planned rollout 2026.",
+            "Full-stack web tool enabling engineers to filter and compare residential HVAC options, reducing specification time and simplifying complex product choices. Planned rollout 2026.",
         href: "/",
         cta: "Learn more",
         tech: [
@@ -59,7 +59,7 @@ const features: BentoCardProps[] = [
     },
     {
         name: "TapPi",
-        description: "Raspberry Pi-controlled device created with my niece during her work experience to explore Python and GPIO.",
+        description: "Raspberry Pi-controlled device exploring Python and GPIO programming, built during a work experience project with my niece.",
         href: "/",
         cta: "Learn more",
         tech: [{ label: "Python" }, { label: "Flask" }, { label: "Raspberry Pi" }, { label: "GPIO" }],
@@ -81,7 +81,7 @@ const features: BentoCardProps[] = [
     },
     {
         name: "Lorem Alan",
-        description: "Lightweight VS Code extension that generates placeholder text, powered by Alan Partridge quotes.",
+        description: "Lightweight VS Code extension that generates in-editor placeholder text, powered by Alan Partridge quotes.",
         href: "/",
         cta: "Learn more",
         background: (
@@ -130,7 +130,7 @@ const features: BentoCardProps[] = [
     },
     {
         name: "Fan Finder",
-        description: "React Native app for discovering local live gigs and connecting with fans.",
+        description: "Full-stack React Native app with real-time updates and location services, built for discovering local gigs and connecting with likeminded fans.",
         href: "/",
         cta: "Learn more",
         tech: [

@@ -22,7 +22,7 @@ export default function ContactPage() {
 
 
 
-            <p className="mt-3   text-lg md:text-2xl font-medium leading-relaxed mb-6 max-w-prose ">
+            <p className="mt-3   text-lg md:text-2xl  leading-relaxed mb-6 max-w-prose ">
                 Always happy to connect - LinkedIn is usually best, though email works too. My projects are showcased here on my site, with code available on GitHub.
             </p>
 

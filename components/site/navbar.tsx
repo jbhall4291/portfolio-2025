@@ -48,7 +48,7 @@ export default function Navbar() {
                 <motion.div
                     initial={false}
                     animate={{}}
-                    className="relative rounded-3xl overflow-hidden bg-zinc-100/50 dark:bg-zinc-900/50 backdrop-blur-sm pl-5 pr-3 md:pl-6 md:pr-6   py-2 "
+                    className="relative rounded-3xl overflow-hidden bg-zinc-200/50 dark:bg-zinc-700/50 backdrop-blur-sm pl-5 pr-3 md:pl-6 md:pr-6   py-2 "
                 >
 
 
@@ -56,7 +56,7 @@ export default function Navbar() {
                     <div className="relative z-10 h-12 flex items-center font-semibold ">
 
 
-                        <Link href="/" onClick={() => setOpen(false)} className="inline-flex items-center gap-1.5   hover:opacity-70 text-lg font-bold md:text-lg md:font-extrabold  ">
+                        <Link href="/" onClick={() => setOpen(false)} className="inline-flex items-center gap-1.5   hover:opacity-70 text-lg font-bold md:text-lg md:font-bold  ">
 
                             <span
                                 className={clsx(
@@ -83,7 +83,7 @@ export default function Navbar() {
                                         href={item.href}
                                         onClick={() => setOpen(false)}
                                         className={cn(
-                                            "inline-block leading-tight text-base font-semibold hover:opacity-70",
+                                            "inline-block leading-tight text-base font-normal hover:opacity-70",
                                             // reserve space, solid border so it renders even if preflight is off
                                             "pb-[2px] border-b-2 border-solid",
                                             isActive(pathname, item.href)

@@ -21,12 +21,12 @@ export default function CvPage() {
                     CV
                 </h1>
 
-                <p className="text-lg md:text-2xl font-medium leading-relaxed max-w-prose ">
-                    Download my CV to see details of my full-stack experience with React, Next.js, Node.js, and .NET.
+                <p className="text-lg md:text-2xl  leading-relaxed max-w-prose ">
+                    Download my CV to see how I combine full-stack engineering skills with client-facing experience, to deliver modern web, mobile, and cloud solutions.
                 </p>
 
 
-                <div className="flex gap-3 shrink-0 ">
+                <div className="flex flex-row flex-wrap gap-3 shrink-0 ">
 
                     <Button asChild variant="outline" size="lg" className="text-lg">
 
@@ -46,8 +46,8 @@ export default function CvPage() {
                             href="/cv/Johnny_Hall_CV.pdf"
                             download
                         >
-                            <Download className="h-6 w-6" />
-                            Download CV (.pdf)
+                            <Download />
+                            Download CV (PDF)
                         </a>
                     </Button>
 

@@ -27,36 +27,34 @@ export default function AboutPage() {
                     </h1>
                     <div className="space-y-6  text-base md:text-lg">
 
-                        <p className="text-lg md:text-2xl leading-relaxed font-medium  mb-6 ">
-                            Former London black cab driver turned software engineer. I build modern full-stack apps with React/Next.js, Node/Express, TypeScript, and MongoDB.
+                        <p className="text-lg md:text-2xl leading-relaxed font-normal  mb-6 ">
+                            Former London black cab driver turned software engineer, I now build full-stack web and mobile applications that deliver real value for clients.
                         </p>
 
                         <p>
-                            I focus on building scalable, maintainable systems with clean architecture and automated testing. Experience includes client projects with custom Umbraco CMS solutions and integrations, as well as personal full-stack builds that showcase modern development practices.
+                            I focus on clean, maintainable code, using TDD, automated testing, and CI/CD pipelines to support reliable delivery. I have worked with modern technologies including React/Next.js, Node.js, TypeScript, and MongoDB, through to .NET, SQL Server, and Flutter.
                         </p>
 
 
                         <p>
-                            I was also interviewed by Northcoders about my journey into tech.{" "}
+                            I have been interviewed by Northcoders about my journey into tech -{" "}
                             <a
-                                className="underline text-blue-600 hover:text-blue-700"
+                                className="underline text-blue-600 hover:text-blue-700 group"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 href="https://www.northcoders.com/blog/johnny-from-taxi-driver-to-software-developer/"
                             >
-                                Read the interview and check out the video here
+                                watch the video here
                                 <ExternalLink
-                                    className="ml-1 inline-block h-4 w-4 -mb-0.5 align-[0.05em] text-blue-600"
+                                    className="ml-1 inline-block h-3.5 w-3.5 -mb-0.5 align-[0.05em] text-blue-600 group-hover:text-blue-700"
                                     aria-hidden="true"
                                 />
-                            </a>.
-                        </p>
-
-                        <p>
-                            Outside of coding you’ll usually find me on a motorbike or under the
+                            </a>. Outside of coding you’ll usually find me on a motorbike or under the
                             bonnet of a car - although these days I prefer to get lost in code
                             rather than south of the river.
                         </p>
+
+
                     </div>
 
 
@@ -69,8 +67,8 @@ export default function AboutPage() {
                         </Button>
 
                         <Button asChild size="lg" className="text-lg">
-                            <Link href="/contact" aria-label="Let's connect">
-                                Let's connect
+                            <Link href="/cv" aria-label="View my CV">
+                                View my CV
                             </Link>
                         </Button>
 

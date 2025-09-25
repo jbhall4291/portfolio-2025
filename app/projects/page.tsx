@@ -13,7 +13,7 @@ export default function ProjectsPage() {
                 <h1 id="about-heading" className=" mb-2 text-4xl md:text-7xl font-semibold  tracking-tight">
                     My Projects
                 </h1>
-                <p className=" text-lg md:text-2xl font-medium leading-relaxed max-w-prose">
+                <p className=" text-lg md:text-2xl font-normal leading-relaxed max-w-prose">
                     From production client builds to playful experiments - a curated selection of my work across web, mobile and IoT.
                 </p>
             </div>

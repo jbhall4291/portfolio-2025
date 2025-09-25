@@ -98,7 +98,7 @@ export const BentoCard = ({
             {name}
           </h3>
 
-          <p className="font-semibold md:font-medium mt-0.5 text-[15px] leading-snug text-white/95 drop-shadow-lg line-clamp-none sm:line-clamp-3 lg:line-clamp-2 xl:line-clamp-none">
+          <p className="font-semibold md:font-medium mt-0.5 text-[15px] leading-snug text-white/95 drop-shadow-lg line-clamp-none sm:line-clamp-3 lg:line-clamp-2 xl:line-clamp-none xl:max-w-prose">
             {description}
           </p>
 

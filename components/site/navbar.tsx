@@ -100,7 +100,7 @@ export default function Navbar() {
 
                             {/* theme icon (utility) */}
                             <li className="-mr-2 ">
-                                <div className="flex items-center h-9">
+                                <div className="flex items-center h-9 mb-0.5">
                                     <AnimatedThemeToggler aria-label="Toggle theme" />
                                 </div>
                             </li>

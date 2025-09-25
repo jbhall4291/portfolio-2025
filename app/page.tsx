@@ -43,21 +43,18 @@ export default function HomePage() {
               smileSrc="/images/hero_headshots/smile_cropped_500px_no_bg.png"     // the easter egg one              
               durationMs={3000}
             />
-            <h1 className="text-4xl lg:text-[80px] font-semibold leading-none tracking-tight">
-              Johnny Hall
-            </h1>
-            <h2 className="mt-2 text-4xl lg:text-[80px] font-medium  leading-none text-[#6e6e73] ">Software Engineer</h2>
-
-
+            <h1 className="text-4xl lg:text-[60px] font-bold leading-none tracking-tight">Johnny Hall</h1>
+            <h2 className="mt-1 text-4xl lg:text-[45px] font-semibold  leading-none text-[#46464A] ">Software Engineer</h2>
+            <h2 className="mt-0.5 text-4xl lg:text-[37px] font-normal  leading-none  text-[#6e6e73]">Full Stack · Client Facing</h2>
 
             <div className="mt-4 flex flex-wrap items-center justify-center gap-4 z-40">
-              <Button asChild size="lg" variant="outline" className="rounded-full py-6 text-lg font-semibold">
+              <Button asChild size="lg" variant="outline" className="rounded-full py-4 text-lg font-semibold">
                 <Link href="/projects" aria-label="Explore projects">
                   Explore projects
                 </Link>
               </Button>
 
-              <Button asChild size="lg" className="rounded-full py-6 text-lg font-semibold">
+              <Button asChild size="lg" className="rounded-full py-4 text-lg font-semibold">
                 <Link href="/contact" aria-label="Let's connect">
                   Let's connect
                 </Link>

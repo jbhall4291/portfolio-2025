@@ -7,14 +7,14 @@ import * as React from "react";
 type Props = {
     seriousSrc: string; // e.g. "/images/hero-serious.png"
     smileSrc: string;   // e.g. "/images/hero-smile.png"
-    
+
     durationMs?: number; // how long the smile stays, default 6000
 };
 
 export default function HeroPhoto({
     seriousSrc,
     smileSrc,
-    
+
     durationMs = 3000,
 }: Props) {
     const [smiling, setSmiling] = React.useState(false);
@@ -46,8 +46,17 @@ export default function HeroPhoto({
                 alt="Johnny Hall"
                 fill
                 priority
-                className={`rounded-full border-2 border-primary/20 bg-white/90 backdrop-blur-md dark:border-none dark:bg-black/20 select-none object-cover transition-opacity duration-500 ${smiling ? "opacity-0" : "opacity-100"}`}
+                className="rounded-full 
+  border-2 border-primary/20 
+  bg-white/90 backdrop-blur-md 
+  dark:border-2 dark:border-white/20 dark:bg-black/20 
+  select-none object-cover 
+  transition-opacity duration-500
+  dark:[filter:none]
+  
+  "
                 style={{ filter: "drop-shadow(0 6px 24px rgba(0,0,0,.15))" }}
+
             />
             {/* smiling (revealed on win) */}
             <Image

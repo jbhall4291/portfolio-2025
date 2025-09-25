@@ -34,7 +34,7 @@ export default function HomePage() {
       <main className="mx-auto w-full max-w-[120rem]  pt-10 select-none">
         <section className="relative mt-10 min-h-[85svh] flex justify-center items-center overflow-hidden xl:overflow-visible">
 
-          <div className="relative flex flex-col h-full items-center justify-center text-center ">
+          <div className="relative flex flex-col h-full items-center justify-center text-center mt-6">
             <HeroPhoto
               seriousSrc="/images/hero_headshots/cropped_500px_no_bg.png" // default
               smileSrc="/images/hero_headshots/smile_cropped_500px_no_bg.png"     // the easter egg one              

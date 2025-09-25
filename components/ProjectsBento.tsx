@@ -9,15 +9,25 @@ const features: BentoCardProps[] = [
         href: "/",
         cta: "Learn more",
         background: (
-            <Image
-                src="/images/project_cards/completed-it-mate.webp"
-                alt=""
-                fill
-                priority
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 66vw" // spans 2 cols on lg
-                className="absolute inset-0 h-full w-full object-cover object-right-bottom pointer-events-none"
-                aria-hidden="true"
-            />
+            <>
+                {/* image */}
+                <Image
+                    src="/images/project_cards/completed-it-mate.webp"
+                    alt=""
+                    fill
+                    priority
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 66vw"
+                    className="absolute inset-0 h-full w-full object-cover object-left-bottom pointer-events-none brightness-90"
+                    aria-hidden="true"
+                />
+                {/* red tint */}
+                <div
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-red-500/35 mix-blend-multiply"
+                />
+
+
+            </>
         ),
         tech: [
             { label: "React" }, { label: "Next.js" }, { label: "TypeScript" }, { label: "Node.js" },

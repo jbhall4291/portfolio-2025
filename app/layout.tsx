@@ -78,14 +78,17 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         {/* Microsoft Clarity */}
         <Script id="clarity" strategy="afterInteractive">
           {`
+  (function (w, d) {
+    if (w.__CLARITY_LOADED__) return;      
+    w.__CLARITY_LOADED__ = true;
     (function(c,l,a,r,i,t,y){
       c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "tgzuqorfy3");
-  `}
+      t=l.createElement(r); t.async=1; t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t,y);
+    })(w, d, "clarity", "script", "tgzuqorfy3");
+  })(window, document);
+`}
         </Script>
-
 
 
       </body>

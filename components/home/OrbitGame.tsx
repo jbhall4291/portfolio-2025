@@ -5,6 +5,7 @@ import { ORBIT_POSITIONS, ICONS } from "./constants";
 import { OrbitField } from "@/components/site/orbit-field";
 import IconTile from "@/components/IconTile";
 import { DelayMount } from "./DelayMount";
+import clarity from "@microsoft/clarity";
 
 const totalWindow = 1200; // ms spread across all icons
 
@@ -78,14 +79,13 @@ export default function OrbitGame() {
 
             window.dispatchEvent(new CustomEvent("easter-egg-win"));
 
-            // Clarity: guard and call
-            const clarity = (window as any).clarity;
-            if (typeof clarity === "function") {
-                clarity("event", "egg_win", {
-                    duration_ms: Math.round(durationMs),
-                    device: /Mobi|Android/i.test(navigator.userAgent) ? "mobile" : "desktop",
-                });
-            }
+
+            (clarity as any).event("egg_win", {
+                duration_ms: Math.round(durationMs),
+                device: /Mobi|Android/i.test(navigator.userAgent) ? "mobile" : "desktop",
+            });
+
+
         });
     }, []);
 

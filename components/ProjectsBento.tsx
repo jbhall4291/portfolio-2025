@@ -57,7 +57,7 @@ const features: BentoCardProps[] = [
         ],
         background: (
             <Image
-                src="/images/project_cards/enginair.jpg"
+                src="/images/project_cards/enginair.webp"
                 alt=""
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -96,7 +96,7 @@ const features: BentoCardProps[] = [
         cta: "Learn more",
         background: (
             <Image
-                src="/images/project_cards/lorem-alan.jpg"
+                src="/images/project_cards/lorem-alan.webp"
                 alt=""
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -127,7 +127,7 @@ const features: BentoCardProps[] = [
         ],
         background: (
             <Image
-                src="/images/project_cards/connectair.jpg"
+                src="/images/project_cards/connectair.webp"
                 alt=""
                 fill
                 priority
@@ -154,7 +154,7 @@ const features: BentoCardProps[] = [
         ],
         background: (
             <Image
-                src="/images/project_cards/fanfinder.jpg"
+                src="/images/project_cards/fanfinder.webp"
                 alt=""
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

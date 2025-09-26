@@ -5,8 +5,8 @@ import Image from "next/image";
 import * as React from "react";
 
 type Props = {
-    seriousSrc: string; // e.g. "/images/hero-serious.png"
-    smileSrc: string;   // e.g. "/images/hero-smile.png"
+    seriousSrc: string; // e.g. "/images/hero-serious.webp"
+    smileSrc: string;   // e.g. "/images/hero-smile.webp"
     durationMs?: number; // how long the smile stays visible
 };
 
@@ -36,7 +36,7 @@ export default function HeroPhoto({
 
     return (
         <div
-        className="
+            className="
     relative w-40 h-40 md:w-56 md:h-56
     rounded-full overflow-hidden
     border-2 border-primary/20 dark:border-white/20

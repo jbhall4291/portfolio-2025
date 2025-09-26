@@ -36,8 +36,8 @@ export default function HomePage() {
 
           <div className="relative flex flex-col h-full items-center justify-center text-center mt-6">
             <HeroPhoto
-              seriousSrc="/images/hero_headshots/cropped_500px_no_bg.png" // default
-              smileSrc="/images/hero_headshots/smile_cropped_500px_no_bg.png"     // the easter egg one              
+              seriousSrc="/images/hero_headshots/cropped_500px_no_bg.webp" // default
+              smileSrc="/images/hero_headshots/smile_cropped_500px_no_bg.webp"     // the easter egg one              
               durationMs={3000}
             />
             <h1 className="text-[40px] lg:text-[60px]  font-bold leading-[50px] lg:leading-[72px] tracking-tight ">Johnny Hall</h1>

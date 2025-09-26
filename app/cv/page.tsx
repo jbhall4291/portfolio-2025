@@ -69,7 +69,7 @@ export default function CvPage() {
   "
             >
                 <Image
-                    src="/cv/Johnny-Hall-CV-(web).png"
+                    src="/cv/Johnny-Hall-CV.webp"
                     alt="Johnny Hall – CV"
                     width={2550}
                     height={3300}

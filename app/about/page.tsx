@@ -89,7 +89,7 @@ export default function AboutPage() {
                         dark:[background:radial-gradient(circle_at_50%_35%,theme(colors.zinc.700)_0%,theme(colors.zinc.800)_70%)]"
                     >
                         <Image
-                            src="/images/hero_headshots/smile_cropped_500px_no_bg.png"
+                            src="/images/hero_headshots/smile_cropped_500px_no_bg.webp"
                             alt="Johnny Hall — Software Engineer"
                             fill
                             priority

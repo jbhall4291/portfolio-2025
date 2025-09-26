@@ -30,14 +30,14 @@ export const metadata: Metadata = {
     title: "Johnny Hall — Software Engineer",
     description:
       "Full-stack software engineer building scalable apps with React/Next.js, Node.js, TypeScript, SQL, and MongoDB. Experienced in client-facing consultancy.",
-    images: [{ url: "https://johnnyhall.dev/og.png", width: 2400, height: 1260, alt: "Johnny Hall – Software Engineer" }],
+    images: [{ url: "https://johnnyhall.dev/og.webp", width: 2400, height: 1260, alt: "Johnny Hall – Software Engineer" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Johnny Hall — Software Engineer",
     description:
       "Full-stack software engineer building scalable apps with React/Next.js, Node.js, TypeScript, SQL, and MongoDB. Client-facing and solution-driven.",
-    images: ["https://johnnyhall.dev/og.png"],
+    images: ["https://johnnyhall.dev/og.webp"],
   },
 };
 

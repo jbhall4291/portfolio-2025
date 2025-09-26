@@ -82,7 +82,7 @@ export default function OrbitGame() {
     }, [firstTapAt, allCount, triggerWin]);
 
     return (
-        <DelayMount delayMs={700}>
+        <DelayMount delayMs={500}>
             <OrbitField
                 positions={ORBIT_POSITIONS}
                 icons={ICONS.map(({ key, ...props }, i) => {

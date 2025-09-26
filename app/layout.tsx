@@ -80,6 +80,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
         <ClarityInit />
 
+        <script data-goatcounter="https://portfolio-2025.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js">
+        </script>
+
+
       </body>
     </html>
   );

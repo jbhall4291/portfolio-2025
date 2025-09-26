@@ -6,6 +6,7 @@ import { OrbitField } from "@/components/site/orbit-field";
 import IconTile from "@/components/IconTile";
 import { DelayMount } from "./DelayMount";
 import clarity from "@microsoft/clarity";
+import { trackGoat } from "@/lib/metrics";
 
 const totalWindow = 1200; // ms spread across all icons
 
@@ -84,6 +85,8 @@ export default function OrbitGame() {
                 duration_ms: Math.round(durationMs),
                 device: /Mobi|Android/i.test(navigator.userAgent) ? "mobile" : "desktop",
             });
+
+            trackGoat("egg_win", { d: Math.round(durationMs) });
 
 
         });

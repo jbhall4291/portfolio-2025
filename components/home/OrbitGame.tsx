@@ -18,7 +18,6 @@ export default function OrbitGame() {
     const iconIds = React.useMemo(() => ICONS.map(x => x.key), []);
     const allCount = iconIds.length;
 
-    // Respect reduced motion: if the user requests it, kill per-icon delays
     const prefersReduced = React.useMemo(() => {
         if (typeof window === "undefined") return false;
         return window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
@@ -26,6 +25,7 @@ export default function OrbitGame() {
 
     const now = () => performance.now();
 
+    // Auto-reset when the game window elapses
     React.useEffect(() => {
         if (firstTapAt == null) return;
         const endAt = firstTapAt + PAUSE_MS + EPSILON_MS;
@@ -37,7 +37,8 @@ export default function OrbitGame() {
         return () => clearTimeout(to);
     }, [firstTapAt]);
 
-    const triggerWin = React.useCallback(() => {
+    // fire win visuals + clarity event
+    const triggerWin = React.useCallback((durationMs: number) => {
         import("canvas-confetti").then(({ default: confetti }) => {
             const img = document.getElementById("hero-photo");
             let origin = { x: 0.5, y: 0.4 };
@@ -49,6 +50,7 @@ export default function OrbitGame() {
                 const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 1);
                 origin = { x: cx / vw, y: cy / vh };
             }
+
             confetti({
                 particleCount: 72,
                 spread: 290,
@@ -60,7 +62,6 @@ export default function OrbitGame() {
                 colors: ["#333333", "#4358fb", "#e4e4e7"],
                 shapes: ["square", "circle"],
             });
-
             setTimeout(() => {
                 confetti({
                     particleCount: 40,
@@ -75,35 +76,48 @@ export default function OrbitGame() {
                 });
             }, 140);
 
-
-
             window.dispatchEvent(new CustomEvent("easter-egg-win"));
+
+            // Clarity: guard and call
+            const clarity = (window as any).clarity;
+            if (typeof clarity === "function") {
+                clarity("event", "egg_win", {
+                    duration_ms: Math.round(durationMs),
+                    device: /Mobi|Android/i.test(navigator.userAgent) ? "mobile" : "desktop",
+                });
+            }
         });
     }, []);
 
-    const onIconTap = React.useCallback((id: string) => {
-        const t = now();
-        const windowActive = firstTapAt != null && t <= firstTapAt + PAUSE_MS + EPSILON_MS;
+    const onIconTap = React.useCallback(
+        (id: string) => {
+            const t = now();
+            const windowActive = firstTapAt != null && t <= firstTapAt + PAUSE_MS + EPSILON_MS;
 
-        if (!windowActive) {
-            setFirstTapAt(t);
-            setTapTimes(new Map([[id, t]]));
-            return;
-        }
-
-        setTapTimes(prev => {
-            const next = new Map(prev);
-            next.set(id, t);
-            if (next.size >= allCount && t <= (firstTapAt! + PAUSE_MS + EPSILON_MS)) {
-                triggerWin();
-                setTimeout(() => {
-                    setFirstTapAt(null);
-                    setTapTimes(new Map());
-                }, 250);
+            if (!windowActive) {
+                setFirstTapAt(t);
+                setTapTimes(new Map([[id, t]]));
+                return;
             }
-            return next;
-        });
-    }, [firstTapAt, allCount, triggerWin]);
+
+            setTapTimes(prev => {
+                const next = new Map(prev);
+                next.set(id, t);
+
+                if (next.size >= allCount && t <= (firstTapAt! + PAUSE_MS + EPSILON_MS)) {
+                    const duration = t - (firstTapAt ?? t);
+                    triggerWin(duration);
+                    setTimeout(() => {
+                        setFirstTapAt(null);
+                        setTapTimes(new Map());
+                    }, 250);
+                }
+
+                return next;
+            });
+        },
+        [firstTapAt, allCount, triggerWin]
+    );
 
     return (
         <DelayMount delayMs={500}>
@@ -127,6 +141,5 @@ export default function OrbitGame() {
                 shuffleIcons
             />
         </DelayMount>
-
     );
 }

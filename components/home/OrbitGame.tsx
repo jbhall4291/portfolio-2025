@@ -1,24 +1,41 @@
-//OrbitGame.tsx
 "use client";
 
 import * as React from "react";
 import { ORBIT_POSITIONS, ICONS } from "./constants";
 import { OrbitField } from "@/components/site/orbit-field";
 import IconTile from "@/components/IconTile";
+import { DelayMount } from "./DelayMount";
+
+const totalWindow = 1200; // ms spread across all icons
 
 export default function OrbitGame() {
-    const PAUSE_MS = 10_000;     // icon freeze + game length
-    const EPSILON_MS = 25;     // small grace window
+    const PAUSE_MS = 10_000;
+    const EPSILON_MS = 25;
 
     const [firstTapAt, setFirstTapAt] = React.useState<number | null>(null);
     const [tapTimes, setTapTimes] = React.useState<Map<string, number>>(new Map());
+
     const iconIds = React.useMemo(() => ICONS.map(x => x.key), []);
     const allCount = iconIds.length;
 
-    const resetGame = React.useCallback(() => {
-        setFirstTapAt(null);
-        setTapTimes(new Map());
+    // Respect reduced motion: if the user requests it, kill per-icon delays
+    const prefersReduced = React.useMemo(() => {
+        if (typeof window === "undefined") return false;
+        return window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
     }, []);
+
+    const now = () => performance.now();
+
+    React.useEffect(() => {
+        if (firstTapAt == null) return;
+        const endAt = firstTapAt + PAUSE_MS + EPSILON_MS;
+        const ms = Math.max(0, endAt - now());
+        const to = setTimeout(() => {
+            setFirstTapAt(null);
+            setTapTimes(new Map());
+        }, ms);
+        return () => clearTimeout(to);
+    }, [firstTapAt]);
 
     const triggerWin = React.useCallback(() => {
         import("canvas-confetti").then(({ default: confetti }) => {
@@ -32,83 +49,60 @@ export default function OrbitGame() {
                 const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 1);
                 origin = { x: cx / vw, y: cy / vh };
             }
-
-            confetti({
-                particleCount: 60,
-                spread: 360,
-                startVelocity: 32,
-                ticks: 110,
-                scalar: 0.8,
-                origin,
-                colors: ["#77c042", "#333333"],
-            });
+            confetti({ particleCount: 60, spread: 360, startVelocity: 32, ticks: 110, scalar: 0.8, origin, colors: ["#77c042", "#333333"] });
             setTimeout(() => {
-                confetti({
-                    particleCount: 20,
-                    spread: 60,
-                    startVelocity: 25,
-                    ticks: 90,
-                    scalar: 0.7,
-                    origin,
-                    colors: ["#6b7280"],
-                });
+                confetti({ particleCount: 20, spread: 60, startVelocity: 25, ticks: 90, scalar: 0.7, origin, colors: ["#6b7280"] });
             }, 120);
-
-            // tell the photo to swap (and auto-revert)
             window.dispatchEvent(new CustomEvent("easter-egg-win"));
         });
     }, []);
 
-    const now = () => performance.now();
+    const onIconTap = React.useCallback((id: string) => {
+        const t = now();
+        const windowActive = firstTapAt != null && t <= firstTapAt + PAUSE_MS + EPSILON_MS;
 
-    // On first tap, arm a single timeout to end the run when the freeze window lapses
-    React.useEffect(() => {
-        if (firstTapAt == null) return;
-        const endAt = firstTapAt + PAUSE_MS + EPSILON_MS;
-        const ms = Math.max(0, endAt - now());
-        const to = setTimeout(() => resetGame(), ms);
-        return () => clearTimeout(to);
-    }, [firstTapAt, resetGame]);
+        if (!windowActive) {
+            setFirstTapAt(t);
+            setTapTimes(new Map([[id, t]]));
+            return;
+        }
 
-    const onIconTap = React.useCallback(
-        (id: string) => {
-            const t = now();
-
-            // If no run or previous window expired, start a new run on this tap
-            const windowActive =
-                firstTapAt != null && t <= firstTapAt + PAUSE_MS + EPSILON_MS;
-
-            if (!windowActive) {
-                setFirstTapAt(t);
-                setTapTimes(new Map([[id, t]]));
-                return;
+        setTapTimes(prev => {
+            const next = new Map(prev);
+            next.set(id, t);
+            if (next.size >= allCount && t <= (firstTapAt! + PAUSE_MS + EPSILON_MS)) {
+                triggerWin();
+                setTimeout(() => {
+                    setFirstTapAt(null);
+                    setTapTimes(new Map());
+                }, 250);
             }
-
-            // Record this tap
-            setTapTimes(prev => {
-                const next = new Map(prev);
-                next.set(id, t);
-
-                // Win only if all icons tapped before the freeze window elapses
-                if (next.size >= allCount && t <= (firstTapAt! + PAUSE_MS + EPSILON_MS)) {
-                    triggerWin();
-                    setTimeout(resetGame, 250);
-                }
-
-                return next;
-            });
-        },
-        [firstTapAt, allCount, triggerWin, resetGame]
-    );
+            return next;
+        });
+    }, [firstTapAt, allCount, triggerWin]);
 
     return (
-        <OrbitField
-            positions={ORBIT_POSITIONS}
-            icons={ICONS.map(({ key, ...props }) => <IconTile key={key} {...props} />)}
-            iconIds={iconIds}
-            onIconTap={onIconTap}
-            pauseMs={PAUSE_MS}  // keep visuals aligned with game window
-            shuffleIcons
-        />
+        <DelayMount delayMs={700}>
+            <OrbitField
+                positions={ORBIT_POSITIONS}
+                icons={ICONS.map(({ key, ...props }, i) => {
+                    const step = totalWindow / ICONS.length;
+                    const delay = i * step;
+                    return (
+                        <IconTile
+                            key={key}
+                            {...props}
+                            mount="pop"
+                            delayMs={prefersReduced ? 0 : delay}
+                        />
+                    );
+                })}
+                iconIds={iconIds}
+                onIconTap={onIconTap}
+                pauseMs={PAUSE_MS}
+                shuffleIcons
+            />
+        </DelayMount>
+
     );
 }

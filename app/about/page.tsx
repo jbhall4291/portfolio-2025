@@ -13,21 +13,21 @@ export const metadata = {
 
 export default function AboutPage() {
     return (
-        <main className="mx-auto max-w-5xl px-6 py-12 mt-12 md:mt-24">
+        <main className="mx-auto max-w-5xl px-4 py-12 mt-12 md:mt-24">
 
             <section
                 aria-labelledby="about-heading"
-                className="grid items-start gap-10 md:grid-cols-[minmax(0,56ch)_1fr]"
+                className="grid items-start gap-8 md:grid-cols-[minmax(0,56ch)_1fr]"
             >
                 {/* Text column */}
                 <div className=" max-w-prose leading-relaxed dark:text-zinc-200">
 
-                    <h1 id="about-heading" className="!mb-4 text-4xl md:text-7xl font-semibold  tracking-tight">
+                    <h1 id="about-heading" className="mb-2 text-4xl md:text-7xl font-semibold  tracking-tight">
                         About Me
                     </h1>
-                    <div className="space-y-6  text-base md:text-lg">
 
-                        <p className="text-lg md:text-2xl leading-relaxed font-normal  mb-6 ">
+                    <div className="space-y-4  text-base md:text-lg">
+                        <p className="text-lg md:text-2xl leading-relaxed font-normal   ">
                             Former London black cab driver turned software engineer, I now build full-stack web and mobile applications that deliver real value for clients.
                         </p>
 
@@ -53,12 +53,10 @@ export default function AboutPage() {
                             bonnet of a car - although these days I prefer to get lost in code
                             rather than south of the river.
                         </p>
-
-
                     </div>
 
 
-                    <div className="mt-10 flex flex-wrap items-center justify-start gap-3">
+                    <div className="mt-6 flex flex-wrap items-center justify-start gap-3">
 
                         <Button asChild size="lg" variant="outline" className="text-lg">
                             <Link href="/projects" aria-label="Explore projects">

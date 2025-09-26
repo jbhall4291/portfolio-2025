@@ -15,14 +15,14 @@ export default function ContactPage() {
     const github = "https://github.com/jbhall4291";
 
     return (
-        <main className="mx-auto max-w-4xl px-6 py-12 mt-12 md:mt-24">
-            <h1 className="text-4xl lg:text-7xl font-semibold tracking-tight">
+        <main className="mx-auto max-w-4xl px-4 py-12 mt-12 md:mt-24">
+            <h1 className="text-4xl lg:text-7xl font-semibold tracking-tight mb-2">
                 Let's Connect
             </h1>
 
 
 
-            <p className="mt-3   text-lg md:text-2xl  leading-relaxed mb-6 max-w-prose ">
+            <p className="   text-lg md:text-2xl  leading-relaxed mb-4 max-w-prose ">
                 Always happy to connect - LinkedIn is usually best, though email works too. My projects are showcased here on my site, with code available on GitHub.
             </p>
 

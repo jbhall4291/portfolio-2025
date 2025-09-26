@@ -13,15 +13,15 @@ export const metadata = {
 export default function CvPage() {
     return (
 
-        <main className="mx-auto max-w-4xl px-6 py-12 mt-12 md:mt-24">
+        <main className="mx-auto max-w-4xl px-4 py-12 mt-12 md:mt-24">
 
-            <div className="flex flex-col  mb-6 gap-4 ">
+            <div className="flex flex-col  mb-6  ">
 
-                <h1 id="about-heading" className=" text-4xl md:text-7xl font-semibold  tracking-tight">
+                <h1 id="about-heading" className="mb-2 text-4xl md:text-7xl font-semibold  tracking-tight">
                     CV
                 </h1>
 
-                <p className="text-lg md:text-2xl  leading-relaxed max-w-prose ">
+                <p className="text-lg md:text-2xl mb-4 leading-relaxed max-w-prose ">
                     Download my CV to see how I combine full-stack engineering skills with client-facing experience, to deliver modern web, mobile, and cloud solutions.
                 </p>
 

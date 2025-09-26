@@ -49,10 +49,34 @@ export default function OrbitGame() {
                 const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 1);
                 origin = { x: cx / vw, y: cy / vh };
             }
-            confetti({ particleCount: 60, spread: 360, startVelocity: 32, ticks: 110, scalar: 0.8, origin, colors: ["#77c042", "#333333"] });
+            confetti({
+                particleCount: 72,
+                spread: 290,
+                startVelocity: 36,
+                decay: 0.94,
+                gravity: 0.9,
+                scalar: 0.9,
+                origin,
+                colors: ["#333333", "#4358fb", "#e4e4e7"],
+                shapes: ["square", "circle"],
+            });
+
             setTimeout(() => {
-                confetti({ particleCount: 20, spread: 60, startVelocity: 25, ticks: 90, scalar: 0.7, origin, colors: ["#6b7280"] });
-            }, 120);
+                confetti({
+                    particleCount: 40,
+                    spread: 200,
+                    startVelocity: 20,
+                    decay: 0.9,
+                    gravity: 0.75,
+                    scalar: 0.75,
+                    origin,
+                    colors: ["#4358fb", "#e4e4e7"],
+                    shapes: ["square", "circle"],
+                });
+            }, 140);
+
+
+
             window.dispatchEvent(new CustomEvent("easter-egg-win"));
         });
     }, []);

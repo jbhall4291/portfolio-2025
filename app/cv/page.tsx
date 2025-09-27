@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Download, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import CvButtons from "@/components/cv/CvButtons";
 
 export const metadata = {
     title: "CV – Johnny Hall",
@@ -25,11 +26,11 @@ export default function CvPage() {
                     Download my CV to see how I combine full-stack engineering skills with client-facing experience, to deliver modern web, mobile, and cloud solutions.
                 </p>
 
+                <CvButtons />
 
-                <div className="flex flex-row flex-wrap gap-3 shrink-0 ">
+                {/* <div className="flex flex-row flex-wrap gap-3 shrink-0 ">
 
                     <Button asChild variant="outline" size="lg" className="text-lg">
-
                         <a
                             href="/cv/Johnny_Hall_CV.pdf"
                             target="_blank"
@@ -39,7 +40,6 @@ export default function CvPage() {
                             Open CV
                         </a>
                     </Button>
-
 
                     <Button asChild size="lg" className="text-lg">
                         <a
@@ -51,7 +51,7 @@ export default function CvPage() {
                         </a>
                     </Button>
 
-                </div>
+                </div> */}
 
                 <div className=" flex flex-wrap items-center justify-center gap-3">
                 </div>

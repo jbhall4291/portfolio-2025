@@ -73,7 +73,7 @@ export default function ProjectsPage() {
                         Selected Projects
                     </h1>
                     <p className=" text-lg md:text-2xl font-normal leading-relaxed max-w-prose">
-                        From production client builds to playful experiments - a curated selection of my work across web, mobile and IoT.
+                        From production client builds to playful experiments - a curated selection of my work across web and mobile.
                     </p>
                 </div>
                 <div className="md:max-w-7xl 2xl:max-w-7xl  mx-auto px-3 2xl:px-0">

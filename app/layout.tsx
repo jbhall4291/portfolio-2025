@@ -1,5 +1,5 @@
 // app/layout.tsx
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "next-themes";
 import { cookies } from "next/headers";
 import Script from "next/script";
@@ -14,9 +14,27 @@ import ClarityInit from "@/components/ClarityInit";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://johnnyhall.dev"),
-  title: { default: "Johnny Hall — Software Engineer", template: "%s | Johnny Hall" },
+  title: {
+    default: "Johnny Hall — Software Engineer Portfolio",
+    template: "%s | Johnny Hall Portfolio"
+  },
   description:
-    "Full-stack software engineer · React/Next.js, Node.js, TypeScript, SQL, MongoDB · client-facing and solution-driven.",
+    "Full-stack software engineer portfolio · React/Next.js, Node.js, TypeScript, SQL, MongoDB · client-facing and solution-driven.",
+  keywords: [
+    "Johnny Hall", "Software Engineer", "Full-Stack", "React", "Next.js",
+    "Node.js", "TypeScript", "MongoDB", "SQL", "consultancy",
+    "client-facing", "portfolio", "software engineer portfolio"
+  ],
+  applicationName: "Johnny Hall Portfolio",
+  authors: [{ name: "Johnny Hall", url: "https://johnnyhall.dev" }],
+  creator: "Johnny Hall",
+  publisher: "Johnny Hall",
+  category: "technology",
+
+  alternates: {
+    canonical: "/",
+    languages: { "en-GB": "/", "en-US": "/" }
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -28,21 +46,50 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
-    url: "https://johnnyhall.dev",
-    siteName: "Johnny Hall",
-    title: "Johnny Hall — Software Engineer",
+    url: "https://johnnyhall.dev/",
+    siteName: "Johnny Hall Portfolio",
+    title: "Johnny Hall — Software Engineer Portfolio",
     description:
-      "Full-stack software engineer building scalable apps with React/Next.js, Node.js, TypeScript, SQL, and MongoDB. Experienced in client-facing consultancy.",
-    images: [{ url: "https://johnnyhall.dev/og.webp", width: 2400, height: 1260, alt: "Johnny Hall – Software Engineer" }],
+      "Explore Johnny Hall’s full-stack software engineering portfolio: React/Next.js, Node.js, TypeScript, SQL, and MongoDB. Client-facing and solution-driven.",
+    images: [
+      {
+        url: "https://johnnyhall.dev/og.webp",
+        secureUrl: "https://johnnyhall.dev/og.webp",
+        width: 2400,
+        height: 1260,
+        alt: "Johnny Hall – Software Engineer Portfolio",
+        type: "image/webp"
+      }
+    ],
+    locale: "en_GB"
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Johnny Hall — Software Engineer",
-    description:
-      "Full-stack software engineer building scalable apps with React/Next.js, Node.js, TypeScript, SQL, and MongoDB. Client-facing and solution-driven.",
-    images: ["https://johnnyhall.dev/og.webp"],
+
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1
+    }
   },
+  appleWebApp: {
+    capable: true,
+    title: "Johnny Hall",
+    statusBarStyle: "black-translucent"
+  }
 };
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#1e1e20" }
+  ]
+};
+
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies();
@@ -80,9 +127,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
         <ClarityInit />
 
-        <script data-goatcounter="https://portfolio-2025.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js">
-        </script>
+        <Script
+          src="https://gc.zgo.at/count.js"
+          data-goatcounter="https://portfolio-2025.goatcounter.com/count"
+          strategy="afterInteractive"
+        />
 
 
       </body>

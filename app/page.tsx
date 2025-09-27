@@ -4,32 +4,49 @@ import Link from "next/link";
 import OrbitGame from "@/components/home/OrbitGame";
 import { Button } from "@/components/ui/button";
 import HeroPhoto from "@/components/home/HeroPhoto";
+import type { Metadata } from "next";
 
-// app/page.tsx
-export const metadata = {
-  title: "Johnny Hall – Software Engineer",
-  description: "Full-stack, client-facing engineer using React/Next.js, Node.js, TypeScript and MongoDB.",
+
+export const metadata: Metadata = {
+  title: "Johnny Hall – Software Engineer Portfolio",
+  description:
+    "Portfolio of Johnny Hall, a full-stack, client-facing engineer using React/Next.js, Node.js, TypeScript and MongoDB.",
+  alternates: { canonical: "/" },
+  openGraph: { url: "https://johnnyhall.dev/" }
 };
 
 
-const jsonLd = {
+const personLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Johnny Hall",
   url: "https://johnnyhall.dev",
   jobTitle: "Software Engineer",
-  sameAs: ["https://github.com/jbhall4291/", "https://www.linkedin.com/in/johnny-hall-dev"]
+  sameAs: [
+    "https://github.com/jbhall4291/",
+    "https://www.linkedin.com/in/johnny-hall-dev"
+    
+  ]
+};
 
+const webSiteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Johnny Hall Portfolio",
+  url: "https://johnnyhall.dev",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://johnnyhall.dev/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
 };
 
 
 export default function HomePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteLd) }} />
 
       <main className="mx-auto w-full max-w-[120rem]  pt-10 select-none">
         <section className="relative mt-10 min-h-[85svh] flex justify-center items-center overflow-hidden xl:overflow-visible">

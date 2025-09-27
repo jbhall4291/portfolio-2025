@@ -9,6 +9,7 @@ import Footer from "@/components/site/footer";
 import { saans } from "./fonts";
 import { Analytics } from "@vercel/analytics/next";
 import ClarityInit from "@/components/ClarityInit";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 
 
@@ -126,7 +127,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Analytics />
 
         <ClarityInit />
-
+        <SpeedInsights />
         <Script
           src="https://gc.zgo.at/count.js"
           data-goatcounter="https://portfolio-2025.goatcounter.com/count"

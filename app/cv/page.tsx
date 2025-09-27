@@ -54,7 +54,7 @@ export default function CvPage() {
                 <div className="flex flex-col  mb-6  ">
 
                     <h1 className="mb-2 text-4xl md:text-7xl font-semibold  tracking-tight">
-                        CV
+                        My CV
                     </h1>
 
                     <p className="text-lg md:text-2xl mb-4 leading-relaxed max-w-prose ">

@@ -37,18 +37,21 @@ export default function HeroPhoto({
     return (
         <div
             className="
-    relative w-40 h-40 md:w-56 md:h-56
-    rounded-full overflow-hidden
-    border-2 border-primary/20 dark:border-white/20
-    backdrop-blur-md
-    [filter:drop-shadow(0_6px_24px_rgba(0,0,0,.15))] dark:[filter:none]
+      relative w-40 h-40 md:w-56 md:h-56
+      rounded-full overflow-hidden
+      border-2 border-primary/20 dark:border-white/20
+      backdrop-blur-md
+      [filter:drop-shadow(0_6px_24px_rgba(0,0,0,.15))] dark:[filter:none]
 
-    [background:radial-gradient(circle_at_50%_35%,theme(colors.zinc.200)_0%,theme(colors.zinc.50)_70%)]
-    dark:[background:radial-gradient(circle_at_50%_35%,theme(colors.zinc.700)_0%,theme(colors.zinc.800)_70%)]
-  "
+      /* >>> add these two lines <<< */
+      [mask-image:radial-gradient(circle,black_99%,transparent_100%)]
+      [-webkit-mask-image:radial-gradient(circle,black_99%,transparent_100%)]
+
+      [background:radial-gradient(circle_at_50%_35%,theme(colors.zinc.200)_0%,theme(colors.zinc.50)_70%)]
+      dark:[background:radial-gradient(circle_at_50%_35%,theme(colors.zinc.700)_0%,theme(colors.zinc.800)_70%)]
+    "
             aria-label="Portrait of Johnny Hall"
         >
-            {/* serious (default) */}
             <Image
                 id="hero-photo"
                 src={seriousSrc}
@@ -56,10 +59,12 @@ export default function HeroPhoto({
                 fill
                 priority
                 draggable={false}
-                className="object-cover select-none pointer-events-none transition-opacity duration-500 dark:[filter:none]"
+                className="
+        object-cover select-none pointer-events-none transition-opacity duration-500 dark:[filter:none]
+        /* optional belt-and-braces per-image clip */
+        [clip-path:circle(50%)]
+      "
             />
-
-            {/* smiling (overlay) */}
             <Image
                 src={smileSrc}
                 alt="Johnny Hall smiling"
@@ -67,8 +72,11 @@ export default function HeroPhoto({
                 priority
                 draggable={false}
                 aria-hidden
-                className={`object-cover select-none pointer-events-none transition-opacity duration-500 ${smiling ? "opacity-100" : "opacity-0"
-                    }`}
+                className={`
+        object-cover select-none pointer-events-none transition-opacity duration-500
+        ${smiling ? "opacity-100" : "opacity-0"}
+        [clip-path:circle(50%)]
+      `}
             />
         </div>
     );

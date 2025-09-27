@@ -42,9 +42,9 @@ export default function HomePage() {
             />
             <h1 className="text-[40px] lg:text-[60px]  font-bold leading-[50px] lg:leading-[72px] tracking-tight ">Johnny Hall</h1>
             <h2 className="text-[30px] lg:text-[44px] font-semibold leading-[36px]  lg:leading-[50px]  text-[#46464A] dark:text-neutral-300">Software Engineer</h2>
-            <h2 className="text-[24px] lg:text-[36px] font-normal leading-[34px]  lg:leading-[40px]   text-[#6e6e73] dark:text-neutral-400">Full Stack · Client Facing</h2>
+            <h2 className="text-[26px] lg:text-[36px] font-normal leading-[34px]  lg:leading-[40px] mt-0.5  text-[#6e6e73] dark:text-neutral-400">Full Stack · Client Facing</h2>
 
-            <div className="mt-5 flex flex-wrap justify-between gap-x-3 md:gap-x-4 ">
+            <div className="mt-3 md:mt-4 flex flex-wrap justify-center gap-x-3 md:gap-x-4 gap-y-3  ">
               <Button asChild size="lg" variant="outline" className="z-20 rounded-full py-4 text-lg">
                 <Link href="/projects" aria-label="Explore projects">
                   Explore projects

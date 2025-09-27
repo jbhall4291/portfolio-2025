@@ -82,14 +82,14 @@ export default function AboutPage() {
                             <p>
                                 I have been interviewed about my journey into tech -{" "}
                                 <a
-                                    className="underline text-blue-600 hover:text-blue-700 group"
+                                    className="underline text-blue-700 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-500 group"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     href="https://www.northcoders.com/blog/johnny-from-taxi-driver-to-software-developer/"
                                 >
                                     watch my Northcoders interview here
                                     <ExternalLink
-                                        className="ml-1 inline-block h-3.5 w-3.5 -mb-0.5 align-[0.05em] text-blue-600 group-hover:text-blue-700"
+                                        className="ml-1 inline-block h-3.5 w-3.5 -mb-0.5 align-[0.05em] text-blue-700 group-hover:text-blue-800 dark:text-blue-400 dark:group-hover:text-blue-500"
                                         aria-hidden="true"
                                     />
                                 </a>. Outside of coding you’ll usually find me on a motorbike or under the

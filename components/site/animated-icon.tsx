@@ -1,8 +1,7 @@
 "use client";
 
-import { LazyMotion, domAnimation, useAnimationFrame, useReducedMotion } from "framer-motion";
+import * as React from "react";
 import { cn } from "@/lib/utils";
-import { useRef } from "react";
 
 type EllipticalOrbitProps = {
     children: React.ReactNode;
@@ -22,11 +21,10 @@ type EllipticalOrbitProps = {
     clockwise?: boolean;        // default true
     /** Rotate the ellipse path (deg) WITHOUT rotating the icon */
     tilt?: number;              // default 0
-
+    /** Pause this orbit */
     paused?: boolean;
+    /** Tap/click handler for the icon */
     onPointerDown?: React.PointerEventHandler<HTMLDivElement>;
-
-
 };
 
 export function EllipticalOrbit({
@@ -42,71 +40,65 @@ export function EllipticalOrbit({
     paused = false,
     onPointerDown,
 }: EllipticalOrbitProps) {
-    const reduce = useReducedMotion();
-    const moverRef = useRef<HTMLDivElement>(null);
-    const startRef = useRef<number | null>(null);
+    const prefersReduced =
+        typeof window !== "undefined" &&
+        window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+
+    const R = Math.max(rx, 0.0001);
+    const scaleY = ry / R;
     const dir = clockwise ? 1 : -1;
-    const pausedAtRef = useRef<number | null>(null);
 
+    const style = {
+        ["--rx" as any]: `${R}px`,
+        ["--scaleY" as any]: String(scaleY),
+        ["--tilt" as any]: `${tilt}deg`,
+        ["--phase" as any]: `${phase}deg`,
+        ["--dur" as any]: `${duration}s`,
+        ["--delay" as any]: `${delay}s`,
+        ["--dir" as any]: String(dir),
+    } as React.CSSProperties;
 
-    useAnimationFrame((ts) => {
-        if (!moverRef.current || reduce) return;
-
-        // First frame: set start + delay
-        if (startRef.current === null) startRef.current = ts + delay * 1000;
-
-        // If pausing now, remember when we paused and stop updating
-        if (paused) {
-            if (pausedAtRef.current == null) pausedAtRef.current = ts;
-            return;
-        }
-
-        // If resuming after a pause, shift the start time forward by the paused duration
-        if (pausedAtRef.current != null) {
-            const pausedDur = ts - pausedAtRef.current;
-            startRef.current! += pausedDur;
-            pausedAtRef.current = null;
-        }
-
-        const t = Math.max(0, ts - startRef.current!); // elapsed since (start + delay)
-        const theta =
-            ((t / 1000) / duration) * (2 * Math.PI) * dir + (phase * Math.PI) / 180;
-
-        let x = rx * Math.cos(theta);
-        let y = ry * Math.sin(theta);
-
-        if (tilt) {
-            const a = (tilt * Math.PI) / 180;
-            const cx = x * Math.cos(a) - y * Math.sin(a);
-            const cy = x * Math.sin(a) + y * Math.cos(a);
-            x = cx;
-            y = cy;
-        }
-
-        moverRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-        moverRef.current.style.willChange = "transform";
-    });
-
-    // If user prefers reduced motion: park the icon at the rightmost point
-    const reducedTransform = `translate3d(${rx}px, 0, 0)`;
+    const playState = paused || prefersReduced ? "paused" : "running";
 
     return (
-        <LazyMotion features={domAnimation}>
-            {/* Center of orbit */}
-            <div className={cn("absolute pointer-events-none", className)} aria-hidden>
-                {/* Mover (transform updated by RAF) */}
-                <div ref={moverRef} style={reduce ? { transform: reducedTransform } : undefined}>
-                    {/* Hit target */}
+        <div className={cn("absolute pointer-events-none", className)} aria-hidden style={style}>
+            {/* Ellipse geometry (tilt + scale) */}
+            <div className="relative isolate will-change-transform [transform:rotate(var(--tilt)) scaleY(var(--scaleY))]">
+                {/* Rotator drives the orbit */}
+                <div
+                    className="will-change-transform animate-[orbit_var(--dur)_linear_infinite_var(--delay)]"
+                    style={{ animationPlayState: playState }}
+                >
+                    {/* Planet carrier: offset from center so it swings around */}
                     <div
-                        className="-translate-x-1/2 -translate-y-1/2 pointer-events-auto"
-                        onPointerDown={onPointerDown} // NEW
+                        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 [transform:translateX(var(--rx))] pointer-events-auto"
+                        onPointerDown={onPointerDown}
+                        style={prefersReduced ? { transform: `translateX(${R}px)` } : undefined}
                     >
-                        <div className="w-14 h-14 lg:w-20 lg:h-20 overflow-hidden rounded-xl grid place-items-center">
-                            {children}
+                        {/* Counter-rotator keeps the child upright (no spin) */}
+                        <div
+                            className="will-change-transform animate-[orbitInverse_var(--dur)_linear_infinite_var(--delay)]"
+                            style={{ animationPlayState: playState }}
+                        >
+                            <div className="w-14 h-14 lg:w-20 lg:h-20 overflow-hidden rounded-xl grid place-items-center">
+                                {children}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </LazyMotion>
+
+            {/* Local keyframes: outer rotates +inner counter-rotates */}
+            <style jsx>{`
+        @keyframes orbit {
+          from { transform: rotate(calc(var(--phase))); }
+          to   { transform: rotate(calc(var(--phase) + 360deg * var(--dir))); }
+        }
+        @keyframes orbitInverse {
+          from { transform: rotate(calc(-1 * var(--phase))); }
+          to   { transform: rotate(calc(-1 * (var(--phase) + 360deg * var(--dir)))); }
+        }
+      `}</style>
+        </div>
     );
 }

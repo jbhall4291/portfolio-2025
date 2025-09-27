@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 type Props = {
     src: string;
@@ -10,7 +10,6 @@ type Props = {
     pad?: number;
     padLg?: number;
     hasBorder?: boolean;
-
     mount?: "none" | "pop";
     delayMs?: number;
 };
@@ -25,20 +24,24 @@ export default function IconTile({
     mount = "none",
     delayMs = 0,
 }: Props) {
+    const prefersReduced = useReducedMotion();
+
     const baseClass =
-        `pointer-events-auto rounded-xl w-[52px] h-[52px] lg:w-[80px] lg:h-[80px] ` +
-        `transition-colors will-change-transform transform-gpu duration-300 p-[var(--pad)] lg:p-[var(--pad-lg)] origin-center ` +
-        (hasBorder ? "border-2 border-foreground/5 dark:border-white" : "");
+        "pointer-events-auto rounded-xl w-[52px] h-[52px] lg:w-[80px] lg:h-[80px] " +
+        "transition-colors duration-300 origin-center " +
+        "will-change-transform transform-gpu backface-hidden isolate [contain:paint]" +
+        (hasBorder ? " border-2 border-foreground/5 dark:border-white" : "");
 
     const style: React.CSSProperties = {
         background: bg,
         ["--pad" as any]: `${pad}px`,
-        ["--pad-lg" as any]: `${padLg}px`,
+        ["--pad-lg" as any]: `${padLg ?? pad}px`,
     };
 
+    const imgClass =
+        "block w-full h-full pointer-events-none select-none will-change-auto p-[var(--pad)] lg:p-[var(--pad-lg)]";
 
-    // pop
-    if (mount === "pop") {
+    if (mount === "pop" && !prefersReduced) {
         return (
             <motion.div
                 initial={{ opacity: 0, scale: 0.5 }}
@@ -59,16 +62,15 @@ export default function IconTile({
                     draggable="false"
                     decoding="async"
                     loading="eager"
-                    className="block w-full h-full" />
+                    className={imgClass}
+                />
             </motion.div>
         );
     }
 
-
-    // none
     return (
         <div className={baseClass} style={style}>
-            <img src={src} alt={alt} className="block w-full h-full" />
+            <img src={src} alt={alt} className={imgClass} />
         </div>
     );
 }

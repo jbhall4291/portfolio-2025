@@ -2,7 +2,6 @@
 import type { Metadata } from "next";
 import { Mail, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 
 export const metadata: Metadata = {
     title: "Contact Johnny Hall — Software Engineer Portfolio",

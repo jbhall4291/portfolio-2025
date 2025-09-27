@@ -26,7 +26,7 @@ export const ICONS = [
     { key: "jest", src: "/tech_stack_icons/jest.svg", alt: "Jest", bg: "#99425B", pad: 9, padLg: 10 },
     { key: "react", src: "/tech_stack_icons/react.svg", alt: "React", bg: "#272930", pad: 8, padLg: 10 },
     { key: "azure", src: "/tech_stack_icons/azure.svg", alt: "Azure", bg: "white", pad: 8, padLg: 10, hasBorder: true },
-    { key: "next", src: "/tech_stack_icons/next.svg", alt: "Next.js", bg: "#212121", pad: 4, padLg: 6, },
+    { key: "next", src: "/tech_stack_icons/next.svg", alt: "Next.js", bg: "#272930", pad: 4, padLg: 6, },
     { key: "mongoDB", src: "/tech_stack_icons/mongo.svg", alt: "MongoDB", bg: "#00ED64", pad: 10, padLg: 14 },
     { key: "c#", src: "/tech_stack_icons/csharp.svg", alt: "C#", bg: "#7b43a4", pad: 2, padLg: 12 },
     { key: "flutter", src: "/tech_stack_icons/flutter.svg", alt: "Flutter", bg: "white", pad: 8, padLg: 12, hasBorder: true },

@@ -27,7 +27,7 @@ export default function IconTile({
     const prefersReduced = useReducedMotion();
 
     const baseClass =
-        "pointer-events-auto rounded-xl w-[52px] h-[52px] lg:w-[80px] lg:h-[80px] " +
+        "pointer-events-auto rounded-xl w-[52px] h-[52px] md:w-[80px] md:h-[80px] " +
         "transition-colors duration-300 origin-center " +
         "will-change-transform transform-gpu backface-hidden isolate [contain:paint]" +
         (hasBorder ? " border-2 border-foreground/5 dark:border-white" : "");
@@ -39,7 +39,7 @@ export default function IconTile({
     };
 
     const imgClass =
-        "block w-full h-full pointer-events-none select-none will-change-auto p-[var(--pad)] lg:p-[var(--pad-lg)]";
+        "block w-full h-full pointer-events-none select-none will-change-auto p-[var(--pad)] md:p-[var(--pad-lg)]";
 
     if (mount === "pop" && !prefersReduced) {
         return (

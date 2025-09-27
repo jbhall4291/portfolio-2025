@@ -80,7 +80,7 @@ export function EllipticalOrbit({
                             className="will-change-transform animate-[orbitInverse_var(--dur)_linear_infinite_var(--delay)]"
                             style={{ animationPlayState: playState }}
                         >
-                            <div className="w-14 h-14 lg:w-20 lg:h-20 overflow-hidden rounded-xl grid place-items-center">
+                            <div className="w-14 h-14 md:w-20 md:h-20 overflow-hidden rounded-xl grid place-items-center">
                                 {children}
                             </div>
                         </div>

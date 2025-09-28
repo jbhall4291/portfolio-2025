@@ -2,7 +2,7 @@
 import IconTile from "@/components/IconTile";
 import Image from "next/image";
 
-export const ICONS = [
+const ICONS = [
     { key: "react", src: "/tech_stack_icons/react.svg", alt: "React", bg: "#272930", pad: 8, padLg: 10 },
     { key: "next", src: "/tech_stack_icons/next.svg", alt: "Next.js", bg: "#272930", pad: 4, padLg: 6, },
     { key: "ts", src: "/tech_stack_icons/typescript.svg", alt: "TypeScript", bg: "#3178C6", pad: 6, padLg: 8 },

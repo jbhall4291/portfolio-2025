@@ -8,7 +8,7 @@ const ICONS = [
     { key: "ts", src: "/tech_stack_icons/typescript.svg", alt: "TypeScript", bg: "#3178C6", pad: 6, padLg: 8 },
     { key: "node", src: "/tech_stack_icons/node.svg", alt: "Node", bg: "#83CD29", pad: 7, padLg: 10, },
     { key: "mongoDB", src: "/tech_stack_icons/mongo.svg", alt: "MongoDB", bg: "#00ED64", pad: 10, padLg: 14 },
-    { key: "azure", src: "/tech_stack_icons/azure.svg", alt: "Azure", bg: "white", pad: 8, padLg: 10, hasBorder: true },
+
 
 
 ] as const;
@@ -23,7 +23,7 @@ export default function OgPreview() {
 
 
             {/* Right: name, tagline, icons, site */}
-            <div className="flex flex-col   w-full">
+            <div className="flex flex-col   w-[800px]">
                 <h1 className="text-[60px] font-bold -mb-2 ">Software Engineer</h1>
                 <h2 className="text-[64px] font-normal opacity-95 mb-6 ">
                     Full Stack · Client Facing
@@ -36,12 +36,22 @@ export default function OgPreview() {
                         const step = 1 / ICONS.length;
                         const delay = i * step;
                         return (
-                            <IconTile
+                            <div
                                 key={key}
-                                {...props}
-                                mount="pop"
-                                delayMs={0}
-                            />
+                                className="
+        h-[120px] w-[120px]              
+        [&>*]:h-full [&>*]:w-full
+        [&>*]:max-w-none       /* ignore any max-width on the child */
+        shrink-0
+      "
+                            >
+                                <IconTile
+
+                                    {...props}
+                                    mount="pop"
+                                    delayMs={0}
+                                />
+                            </div>
                         );
                     })}
                 </div>

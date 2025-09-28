@@ -43,7 +43,7 @@ export default function HeroPhoto({
       backdrop-blur-md
       [filter:drop-shadow(0_6px_24px_rgba(0,0,0,.15))] dark:[filter:none]
 
-      /* >>> add these two lines <<< */
+      
       [mask-image:radial-gradient(circle,black_99%,transparent_100%)]
       [-webkit-mask-image:radial-gradient(circle,black_99%,transparent_100%)]
 

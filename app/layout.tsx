@@ -51,19 +51,19 @@ export const metadata: Metadata = {
     siteName: "Johnny Hall Portfolio",
     title: "Johnny Hall — Software Engineer Portfolio",
     description:
-      "Explore Johnny Hall’s full-stack software engineering portfolio: React/Next.js, Node.js, TypeScript, SQL, and MongoDB. Client-facing and solution-driven.",
+      "Full-stack, client-facing portfolio: React/Next.js, Node.js, TypeScript, SQL, MongoDB.",
     images: [
       {
-        url: "https://johnnyhall.dev/og.webp",
-        secureUrl: "https://johnnyhall.dev/og.webp",
-        width: 2400,
-        height: 1260,
+        url: "https://johnnyhall.dev/og.png",
+        width: 1200,
+        height: 630,
         alt: "Johnny Hall – Software Engineer Portfolio",
-        type: "image/webp"
-      }
+        type: "image/png",
+      },
     ],
-    locale: "en_GB"
+    locale: "en_GB",
   },
+
 
   robots: {
     index: true,

@@ -14,6 +14,14 @@ export const metadata: Metadata = {
         type: "profile",
         url: "https://johnnyhall.dev/about",
         title: "About Johnny Hall — Software Engineer Portfolio",
+        images: [
+            {
+                url: "https://johnnyhall.dev/og.png",
+                width: 1200,
+                height: 630,
+                alt: "Johnny Hall – Software Engineer Portfolio",
+            },
+        ],
         description:
             "Background, skills, and what sets Johnny apart as a client-facing full-stack engineer."
     },
@@ -21,7 +29,8 @@ export const metadata: Metadata = {
         "og:profile:first_name": "Johnny",
         "og:profile:last_name": "Hall",
         "og:profile:username": "johnny-hall-dev"
-    }
+    },
+
 };
 
 

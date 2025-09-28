@@ -12,6 +12,14 @@ export const metadata: Metadata = {
         type: "website",
         url: "https://johnnyhall.dev/contact",
         title: "Contact Johnny Hall — Software Engineer Portfolio",
+        images: [
+            {
+                url: "https://johnnyhall.dev/og.png",
+                width: 1200,
+                height: 630,
+                alt: "Johnny Hall – Software Engineer Portfolio",
+            },
+        ],
         description:
             "Connect with Johnny Hall, full-stack engineer. LinkedIn, email, and GitHub links available here."
 

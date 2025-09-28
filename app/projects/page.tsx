@@ -10,6 +10,14 @@ export const metadata: Metadata = {
         type: "website",
         url: "https://johnnyhall.dev/projects",
         title: "Projects — Johnny Hall • Software Engineer Portfolio",
+        images: [
+            {
+                url: "https://johnnyhall.dev/og.png",
+                width: 1200,
+                height: 630,
+                alt: "Johnny Hall – Software Engineer Portfolio",
+            },
+        ],
         description:
             "Selected projects from Johnny Hall’s portfolio: React/Next.js, Node.js, TypeScript, MongoDB, .NET, and beyond."
     }

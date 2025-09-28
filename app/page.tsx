@@ -12,7 +12,17 @@ export const metadata: Metadata = {
   description:
     "Portfolio of Johnny Hall, a full-stack, client-facing engineer using React/Next.js, Node.js, TypeScript and MongoDB.",
   alternates: { canonical: "/" },
-  openGraph: { url: "https://johnnyhall.dev/" }
+  openGraph: {
+    url: "https://johnnyhall.dev/", images: [
+      {
+        url: "https://johnnyhall.dev/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Johnny Hall – Software Engineer Portfolio",
+      },
+    ],
+  },
+
 };
 
 
@@ -25,7 +35,7 @@ const personLd = {
   sameAs: [
     "https://github.com/jbhall4291/",
     "https://www.linkedin.com/in/johnny-hall-dev"
-    
+
   ]
 };
 

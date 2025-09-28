@@ -78,15 +78,27 @@ const features: BentoCardProps[] = [
             { label: "View repo", href: "https://github.com/jbhall4291/tapPi", variant: "secondary", newTab: true },
         ],
         background: (
-            <Image
-                src="/images/project_cards/tappi.webp"
-                alt=""
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="absolute inset-0 h-full w-full object-cover pointer-events-none"
-                aria-hidden="true"
-            />
+            <>
+                <Image
+                    src="/images/project_cards/tappi.webp"
+                    alt=""
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+                    aria-hidden="true"
+                />
+                {/* pink tint */}
+                <div
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-pink-500/35 mix-blend-multiply"
+                />
+            </>
+
         ),
+
+
+
+
         className: "lg:col-start-2 lg:col-end-3 lg:row-start-3 lg:row-end-4",
     },
     {
@@ -95,14 +107,22 @@ const features: BentoCardProps[] = [
         href: "/",
         cta: "Learn more",
         background: (
-            <Image
-                src="/images/project_cards/lorem-alan.webp"
-                alt=""
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="absolute inset-0 h-full w-full object-cover pointer-events-none"
-                aria-hidden="true"
-            />
+            <>
+                <Image
+                    src="/images/project_cards/lorem-alan.webp"
+                    alt=""
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+                    aria-hidden="true"
+                />
+                {/* pink tint */}
+                <div
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-yellow-100/35 mix-blend-multiply"
+                />
+
+            </>
         ),
         tech: [{ label: "JavaScript" }, { label: "VS Code API" }],
         actions: [
@@ -153,14 +173,21 @@ const features: BentoCardProps[] = [
             { label: "Backend repo", href: "https://github.com/jbhall4291/fan-finder-backend", variant: "secondary", newTab: true },
         ],
         background: (
-            <Image
-                src="/images/project_cards/fanfinder.webp"
-                alt=""
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="absolute inset-0 h-full w-full object-cover pointer-events-none brightness-200 md:brightness-125"
-                aria-hidden="true"
-            />
+            <>
+                <Image
+                    src="/images/project_cards/fanfinder.webp"
+                    alt=""
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="absolute inset-0 h-full w-full object-cover pointer-events-none brightness-200 md:brightness-125"
+                    aria-hidden="true"
+                />
+                {/* purple tint */}
+                <div
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-purple-300/35 mix-blend-multiply"
+                />
+            </>
         ),
         className: "lg:col-start-1 lg:col-end-1 lg:row-start-2 lg:row-end-4",
     },

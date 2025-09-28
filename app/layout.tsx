@@ -58,7 +58,6 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "Johnny Hall – Software Engineer Portfolio",
-        type: "image/png",
       },
     ],
     locale: "en_GB",

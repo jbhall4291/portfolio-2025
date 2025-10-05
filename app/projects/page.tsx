@@ -39,7 +39,7 @@ const projectsLd = {
                 "Full-stack video-game library tracker built with Node.js/Express, MongoDB, Mongoose, Jest, and CI/CD pipelines.",
             sameAs: [
                 "https://github.com/jbhall4291/completed-it-mate-be",
-                "https://completed-it-mate-fe.vercel.app/"
+                "https://completeditmate.app/"
             ]
         },
         {

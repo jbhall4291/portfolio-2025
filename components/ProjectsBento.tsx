@@ -34,7 +34,7 @@ const features: BentoCardProps[] = [
             { label: "Express" }, { label: "MongoDB" }, { label: "Jest + Supertest" }, { label: "Playwright" }, { label: "TDD" }, { label: "GitHub Actions" },
         ],
         actions: [
-            { label: "Visit site", href: "https://completed-it-mate-fe.vercel.app/", variant: "default", newTab: true },
+            { label: "Visit site", href: "https://completeditmate.app/", variant: "default", newTab: true },
             { label: "Frontend Repo", href: "https://github.com/jbhall4291/completed-it-mate-fe", newTab: true, },
             { label: "Backend repo", href: "https://github.com/jbhall4291/completed-it-mate-be", variant: "secondary", newTab: true },
 

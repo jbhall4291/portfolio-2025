@@ -73,14 +73,14 @@ export default function HomePage() {
 
             <div className="mt-3 md:mt-4 flex flex-wrap justify-center gap-x-3 md:gap-x-4 gap-y-3  ">
               <Button asChild size="lg" variant="outline" className="z-20 rounded-full py-4 text-lg">
-                <Link href="/projects" aria-label="Explore projects">
-                  Explore projects
+                <Link href="/about" aria-label="About me">
+                  About me
                 </Link>
               </Button>
 
               <Button asChild size="lg" className="z-20 rounded-full py-4 text-lg">
-                <Link href="/cv" aria-label="View CV">
-                  View my CV
+                <Link href="/projects" aria-label="Explore projects">
+                  Explore projects
                 </Link>
               </Button>
             </div>

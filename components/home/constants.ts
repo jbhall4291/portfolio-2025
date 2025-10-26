@@ -1,23 +1,23 @@
 export const ORBIT_POSITIONS = [
     // top row
-    { className: "left-[12%] top-[10%]", rx: 7, ry: 6, duration: 8, phase: 250 },
-    { className: "left-[40%] top-[9%]", rx: 7, ry: 7, duration: 8, tilt: -6 },
-    { className: "left-[65%] top-[15%]", rx: 6, ry: 5, duration: 6, tilt: 18 },
-    { className: "left-[87%] top-[12%]", rx: 8, ry: 6, duration: 8, clockwise: false, tilt: -10, phase: 160 },
+    { className: "left-[12%] top-[10%]", rx: 7, ry: 6, duration: 4, phase: 250 },
+    { className: "left-[40%] top-[9%]", rx: 7, ry: 7, duration: 4, tilt: -6 },
+    { className: "left-[65%] top-[15%]", rx: 6, ry: 5, duration: 3, tilt: 18 },
+    { className: "left-[87%] top-[12%]", rx: 8, ry: 6, duration: 4, clockwise: false, tilt: -10, phase: 160 },
     //  left side ones
-    { className: "left-[12%] top-[25%]", rx: 9, ry: 6, duration: 8, clockwise: false },
-    { className: "left-[17%] top-[40%]", rx: 6, ry: 5, duration: 6, clockwise: false, phase: 90 },
-    { className: "left-[8%] top-[54%]", rx: 7, ry: 8, duration: 8, clockwise: false },
+    { className: "left-[12%] top-[25%]", rx: 9, ry: 6, duration: 4, clockwise: false },
+    { className: "left-[17%] top-[40%]", rx: 6, ry: 5, duration: 3, clockwise: true, phase: 90 },
+    { className: "left-[8%] top-[54%]", rx: 7, ry: 8, duration: 4, clockwise: false },
 
     // right side ones
-    { className: "left-[92%] top-[26%]", rx: 9, ry: 7, duration: 8, tilt: 8 },
-    { className: "left-[84%] top-[39%]", rx: 9, ry: 7, duration: 8, tilt: 8 },
-    { className: "left-[89%] top-[55%]", rx: 6, ry: 7, duration: 5, phase: 210 },
+    { className: "left-[92%] top-[26%]", rx: 9, ry: 7, duration: 4, tilt: 8 },
+    { className: "left-[84%] top-[39%]", rx: 9, ry: 7, duration: 4, tilt: 8, clockwise: false, },
+    { className: "left-[89%] top-[55%]", rx: 6, ry: 7, duration: 2.5, phase: 210 },
     //bottom row
-    { className: "left-[87%] top-[90%]", rx: 6, ry: 5, duration: 6 },
-    { className: "left-[35%] top-[91%]", rx: 7, ry: 4, duration: 5, clockwise: false, phase: 90 },
-    { className: "left-[60%] top-[94%]", rx: 5, ry: 6, duration: 7, tilt: 14 },
-    { className: "left-[10%] top-[92%]", rx: 9, ry: 6, duration: 8, tilt: 3, phase: 2 },
+    { className: "left-[87%] top-[90%]", rx: 6, ry: 5, duration: 3 },
+    { className: "left-[35%] top-[91%]", rx: 7, ry: 4, duration: 2.5, clockwise: false, phase: 90 },
+    { className: "left-[60%] top-[94%]", rx: 5, ry: 6, duration: 3.5, tilt: 14 },
+    { className: "left-[10%] top-[92%]", rx: 9, ry: 6, duration: 4, tilt: 3, phase: 2 },
 ] as const;
 
 export const ICONS = [

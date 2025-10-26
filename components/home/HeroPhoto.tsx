@@ -16,6 +16,7 @@ export default function HeroPhoto({
     durationMs = 3000,
 }: Props) {
     const [smiling, setSmiling] = React.useState(false);
+    const timerRef = React.useRef<number | null>(null);
 
     // Preload smile image
     React.useEffect(() => {
@@ -26,12 +27,26 @@ export default function HeroPhoto({
     // Listen for easter egg win
     React.useEffect(() => {
         const onWin = () => {
+
+            if (timerRef.current) {
+                window.clearTimeout(timerRef.current);
+                timerRef.current = null;
+            }
             setSmiling(true);
-            const to = window.setTimeout(() => setSmiling(false), durationMs);
-            return () => window.clearTimeout(to);
+            timerRef.current = window.setTimeout(() => {
+                setSmiling(false);
+                timerRef.current = null;
+            }, durationMs);
         };
+
         window.addEventListener("easter-egg-win", onWin);
-        return () => window.removeEventListener("easter-egg-win", onWin);
+        return () => {
+            window.removeEventListener("easter-egg-win", onWin);
+            if (timerRef.current) {
+                window.clearTimeout(timerRef.current);
+                timerRef.current = null;
+            }
+        };
     }, [durationMs]);
 
     return (

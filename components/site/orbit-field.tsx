@@ -38,6 +38,9 @@ export function OrbitField({
     onIconTap,
     pauseMs = 2500,
 
+    // global freeze + synchronized resume controls from OrbitGame
+    freezeUntil = null,
+    resumeEpoch = 0,
 }: {
     positions: ReadonlyArray<OrbitPos>;
     icons: React.ReactNode[];
@@ -45,10 +48,11 @@ export function OrbitField({
     iconIds: string[];
     onIconTap?: (id: string) => void;
     pauseMs?: number;
+
+    freezeUntil?: number | null;
+    resumeEpoch?: number;
 }) {
     // seed only needed if shuffling
-
-
     const [seed] = useState<number | null>(() => {
         if (!shuffleIcons) return null;
         try {
@@ -74,28 +78,42 @@ export function OrbitField({
     const now = () =>
         typeof performance !== "undefined" ? performance.now() : Date.now();
 
-    const pauseIcon = useCallback((id: string) => {
-        const until = now() + pauseMs;
-        setPausedUntil((prev) => ({ ...prev, [id]: until }));
-        window.setTimeout(() => {
-            setPausedUntil((prev) => {
-                if (!prev[id]) return prev;
-                if (prev[id] <= until) {
-                    const next = { ...prev };
-                    delete next[id];
-                    return next;
-                }
-                return prev; // a newer pause extended it
-            });
-        }, pauseMs + 5);
-    }, [pauseMs]);
+    const pauseIcon = useCallback(
+        (id: string) => {
+            const until = now() + pauseMs;
+            setPausedUntil((prev) => ({ ...prev, [id]: until }));
+            // safety: clear this pause after it elapses (in case no other event touches it)
+            window.setTimeout(() => {
+                setPausedUntil((prev) => {
+                    const current = prev[id];
+                    if (!current) return prev;
+                    if (current <= until) {
+                        const next = { ...prev };
+                        delete next[id];
+                        return next;
+                    }
+                    return prev; // a newer pause extended it
+                });
+            }, pauseMs + 5);
+        },
+        [pauseMs]
+    );
 
+    // whenever OrbitGame bumps resumeEpoch (after win beat or timeout),
+    // clear ALL per-icon timers so nothing waits out its own 15s.
+    useEffect(() => {
+        setPausedUntil({});
+    }, [resumeEpoch]);
 
     return (
         <>
             {positions.map((p, i) => {
                 const { id, node } = pick(i);
-                const isPaused = !!pausedUntil[id] && pausedUntil[id] > now();
+
+                // global freeze OR individual paused-until
+                const isGloballyFrozen = freezeUntil != null && now() < freezeUntil;
+                const isIndividuallyPaused = !!pausedUntil[id] && pausedUntil[id] > now();
+                const isPaused = isGloballyFrozen || isIndividuallyPaused;
 
                 return (
                     <EllipticalOrbit
@@ -107,9 +125,9 @@ export function OrbitField({
                         phase={p.phase ?? 0}
                         tilt={p.tilt ?? 0}
                         clockwise={p.clockwise ?? true}
-                        paused={isPaused}                              // NEW
-                        onPointerDown={() => {                         // NEW
-                            pauseIcon(id);
+                        paused={isPaused} // EllipticalOrbit should honor this with animation-play-state or rAF guard
+                        onPointerDown={() => {
+                            pauseIcon(id);   // per-icon 15s window
                             onIconTap?.(id);
                         }}
                     >

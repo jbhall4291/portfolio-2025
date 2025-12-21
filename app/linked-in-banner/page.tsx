@@ -24,11 +24,13 @@ export default function OgPreview() {
 
             {/* Right: name, tagline, icons, site */}
             <div className="flex flex-col   w-[800px]">
-                <h1 className="text-[60px] font-bold -mb-2 ">Software Engineer</h1>
-                <h2 className="text-[64px] font-normal opacity-95 mb-6 ">
-                    Full Stack · Client Facing
-                </h2>
+                <h1 className="text-[60px] font-medium mb-6 ">Frontend · Backend · Cloud</h1>
+               
 
+                {/* <h1 className="text-[48px] font-light -mb-2 ">Full-Stack Software Engineer</h1>
+                <h2 className="text-[48px] font-bold opacity-95 mb-6 ">
+                    Building Production Web Systems
+                </h2> */}
 
 
                 <div className="flex flex-row justify-between">

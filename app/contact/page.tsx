@@ -4,7 +4,7 @@ import { Mail, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-    title: "Contact Johnny Hall — Software Engineer Portfolio",
+    title: "Contact Johnny Hall - Software Engineer Portfolio",
     description:
         "Get in touch with Johnny Hall — full-stack, client-facing software engineer. Connect on LinkedIn, send an email, or explore projects on GitHub.",
     alternates: { canonical: "/contact" },

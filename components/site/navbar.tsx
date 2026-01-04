@@ -55,7 +55,7 @@ export default function Navbar() {
                     <div className="relative z-10 h-12 flex items-center font-semibold ">
 
 
-                        <Link href="/" onClick={() => setOpen(false)} className="inline-flex items-center gap-1.5   hover:opacity-70 text-lg font-bold md:text-lg md:font-bold  ">
+                        <Link href="/" onClick={() => setOpen(false)} className="inline-flex items-center gap-1.5   hover:opacity-70 text-lg font-bold md:text-xl md:font-bold  ">
 
                             <span
                                 className={clsx(
@@ -82,7 +82,7 @@ export default function Navbar() {
                                         href={item.href}
                                         onClick={() => setOpen(false)}
                                         className={cn(
-                                            "inline-block leading-tight text-base font-normal hover:opacity-70",
+                                            "inline-block leading-tight text-base  hover:opacity-70",
                                             // reserve space, solid border so it renders even if preflight is off
                                             "pb-[2px] border-b-2 border-solid",
                                             isActive(pathname, item.href)
@@ -106,7 +106,7 @@ export default function Navbar() {
 
                             {/* CTA at the far right */}
                             <li className="ml-2">
-                                <Button asChild size="lg" className="rounded-full ">
+                                <Button asChild size="lg" className="rounded-full">
                                     <Link href="/contact" aria-label="Let's connect">
                                         <div className="text-base">Let's connect</div>
                                     </Link>

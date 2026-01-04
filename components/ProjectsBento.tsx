@@ -31,7 +31,7 @@ const features: BentoCardProps[] = [
         ),
         tech: [
             { label: "React" }, { label: "Next.js" }, { label: "TypeScript" }, { label: "Node.js" },
-            { label: "Express" }, { label: "MongoDB" }, { label: "Jest + Supertest" }, { label: "Playwright" }, { label: "TDD" }, { label: "GitHub Actions" },
+            { label: "Express" }, { label: "MongoDB" }, { label: "Jest" }, { label: "GitHub Actions" },
         ],
         actions: [
             { label: "Visit site", href: "https://completeditmate.app/", variant: "default", newTab: true },

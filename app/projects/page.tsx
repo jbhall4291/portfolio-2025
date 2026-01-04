@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ProjectsBento } from "@/components/ProjectsBento";
 
 export const metadata: Metadata = {
-    title: "Projects — Johnny Hall • Software Engineer Portfolio",
+    title: "Projects - Johnny Hall • Software Engineer Portfolio",
     description:
         "A curated selection of projects by Johnny Hall: full-stack engineering with React/Next.js, Node.js, TypeScript, MongoDB, and more. From production client builds to playful experiments.",
     alternates: { canonical: "/projects" },

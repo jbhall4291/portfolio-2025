@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "About Johnny Hall — Software Engineer Portfolio",
+    title: "About Johnny Hall - Software Engineer Portfolio",
     description:
         "About Johnny Hall: full-stack, client-facing software engineer. React/Next.js, Node.js, TypeScript, SQL/MongoDB. TDD, automated testing, and CI/CD for reliable delivery.",
     alternates: { canonical: "/about" },
@@ -69,7 +69,7 @@ export default function AboutPage() {
 
                 <section
                     aria-labelledby="about-heading"
-                    className="grid items-start gap-8 md:grid-cols-[minmax(0,56ch)_1fr]"
+                    className="grid items-start gap-8 lg:grid-cols-[minmax(0,56ch)_1fr]"
                 >
                     {/* Text column */}
                     <div className=" max-w-prose leading-relaxed dark:text-zinc-200">
@@ -129,27 +129,26 @@ export default function AboutPage() {
                     </div>
 
                     {/* Photo column (moves below on mobile) */}
-                    <div className="md:justify-self-end">
-                        <div
-                            className="relative w-full h-96 md:h-96 md:w-96 
+
+                    <div
+                        className="relative w-full  max-w-sm   aspect-square 
                         overflow-hidden rounded-3xl 
                         border border-zinc-300/40 dark:border-zinc-700/40
                         shadow-lg dark:shadow-none
                         [background:radial-gradient(circle_at_50%_35%,theme(colors.zinc.200)_0%,theme(colors.zinc.50)_70%)] 
                         dark:[background:radial-gradient(circle_at_50%_35%,theme(colors.zinc.700)_0%,theme(colors.zinc.800)_70%)]"
-                        >
-                            <Image
-                                src="/images/hero_headshots/smile_cropped_500px_no_bg.webp"
-                                alt="Portrait of Johnny Hall"
-                                fill
-                                priority
-                                sizes="(max-width: 768px) 60vw, 18rem"
-                                className="object-cover"
-                            />
-                        </div>
-
-
+                    >
+                        <Image
+                            src="/images/hero_headshots/smile_cropped_500px_no_bg.webp"
+                            alt="Portrait of Johnny Hall"
+                            fill
+                            priority
+                            sizes="(max-width: 768px) 80vw, 18rem"
+                            className="object-contain "
+                        />
                     </div>
+
+
                 </section>
 
 

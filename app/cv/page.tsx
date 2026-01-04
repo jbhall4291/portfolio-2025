@@ -4,7 +4,7 @@ import Image from "next/image";
 import CvButtons from "@/components/cv/CvButtons";
 
 export const metadata: Metadata = {
-    title: "CV — Johnny Hall • Software Engineer Portfolio",
+    title: "CV - Johnny Hall • Software Engineer Portfolio",
     description:
         "Download Johnny Hall’s CV. Full-stack, client-facing software engineer: React/Next.js, Node.js, TypeScript, SQL/MongoDB, CI/CD, and TDD.",
     alternates: {
